@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OCflex_Costumer</string>
+    <string name="account_create">Dont\'t hane an account? "<b>"Create Now"</b>"</string>
 </resources>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#E6ECED"
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
@@ -14,8 +15,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -29,8 +28,10 @@
                     android:id="@+id/imageView1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
                     android:adjustViewBounds="true"
-                    android:src="@mipmap/adult_ok_check" />
+                    android:src="@mipmap/adult_ok_check"
+                    android:contentDescription="TODO" />
 
             </LinearLayout>
 
@@ -45,8 +46,10 @@
                     android:id="@+id/imageView2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
                     android:adjustViewBounds="true"
-                    android:src="@mipmap/costumized_errands" />
+                    android:src="@mipmap/customized_errands"
+                    android:contentDescription="TODO" />
             </LinearLayout>
 
             <LinearLayout
@@ -60,8 +63,10 @@
                     android:id="@+id/imageView3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
                     android:adjustViewBounds="true"
-                    android:src="@mipmap/companionship" />
+                    android:src="@mipmap/companionship"
+                    android:contentDescription="TODO" />
             </LinearLayout>
 
             <LinearLayout
@@ -75,8 +80,10 @@
                     android:id="@+id/imageView4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
                     android:adjustViewBounds="true"
-                    android:src="@mipmap/personal_assistant" />
+                    android:src="@mipmap/personal_assistant"
+                    android:contentDescription="TODO" />
             </LinearLayout>
 
             <LinearLayout
@@ -90,8 +97,11 @@
                     android:id="@+id/imageView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
                     android:adjustViewBounds="true"
-                    android:src="@mipmap/light_tiding_up" />
+                    android:src="@mipmap/light_tidying_up"
+                    android:contentDescription="TODO" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
