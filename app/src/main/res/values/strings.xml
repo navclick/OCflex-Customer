@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">OCflex_Costumer</string>
     <string name="account_create">Dont\'t hane an account? "<b>"Create Now"</b>"</string>
+    <string name="full_name">Full Name<font color='#FF0000'>*</font></string>
+    <string name="last_name">Last Name<font color='#FF0000'>*</font></string>
+    <string name="email">Email Address<font color='#FF0000'>*</font></string>
+    <string-array name="country_array">
+        <item >Saudi Arabia</item>
+        <item >Pakistan</item>
+        <item >China</item>
+        <item >Oman</item>
+        <item >Jordan</item>
+        <item >Egypt</item>
+        <item >Syria</item>
+        <item >Morroco</item>
+    </string-array>
 </resources>
