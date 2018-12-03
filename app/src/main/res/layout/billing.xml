@@ -157,11 +157,15 @@
 
                 <Spinner
                     android:id="@+id/spinner"
+                    style="@style/style_Spinner1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
-                    android:entries="@array/country_array" />
+                    android:entries="@array/country_array"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingTop="5dp" />
 
 
             </LinearLayout>
