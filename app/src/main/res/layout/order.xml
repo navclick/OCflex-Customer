@@ -38,12 +38,13 @@
                 android:textAllCaps="true"
                 android:textSize="12sp" />
 
-            <Spinner
-                android:id="@+id/spinner3"
+            <DatePicker
+                android:id="@+id/date_picker"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="10dp" />
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:calendarViewShown="false"
+                android:spinnersShown="true" />
 
             <TextView
                 android:id="@+id/textView21"
@@ -69,16 +70,32 @@
                 android:textSize="12sp" />
 
             <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:padding="8dp"
+                android:layout_height="match_parent">
+
+                <TimePicker
+                    android:id="@+id/time_picker"
+                    android:layout_weight="4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+
+                <Button
+                    android:id="@+id/date_time_set"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:text="Set"
+                    android:layout_height="0dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
-
-                <timepicker
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:timePickerMode="spinner" />
 
                 <EditText
                     android:id="@+id/editText10"
@@ -122,6 +139,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
                 android:orientation="horizontal">
 
                 <RadioGroup
@@ -133,30 +152,35 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:button="@drawable/custom_radio"
                         android:paddingLeft="5dp"
-                        android:text="I agree to pay $5 an hour extra charge for  weekends/after hours.**"
+                        android:text="I agree to pay $5 an hour extra charge for weekends/after hours.**"
                         android:textColor="#758089"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
 
                     <RadioButton
                         android:id="@+id/radioButton2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
+                        android:button="@drawable/custom_radio"
                         android:paddingLeft="5dp"
-                        android:text="I agree to pay $15 an hour extra charge  on Holidays.** "
+                        android:text="I agree to pay $15 an hour extra charge on Holidays.**"
                         android:textColor="#758089"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
 
                     <RadioButton
                         android:id="@+id/radioButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:button="@drawable/custom_radio"
                         android:paddingLeft="5dp"
-                        android:text="Please check to accept for After hours, Holidays  and/or Weekend extra charge.**"
+                        android:text="Please check to accept for After hours, Holidays and/or Weekend extra charge.**"
                         android:textColor="#758089"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </RadioGroup>
             </LinearLayout>
 
