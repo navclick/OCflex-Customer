@@ -11,7 +11,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
@@ -35,7 +35,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:weightSum="3"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -69,7 +70,7 @@
                         android:orientation="horizontal">
 
                         <ImageButton
-                            android:id="@+id/imageButton3"
+                            android:id="@+id/imageButton3_0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -79,7 +80,7 @@
                             android:src="@android:drawable/ic_menu_edit" />
 
                         <ImageButton
-                            android:id="@+id/imageButton2"
+                            android:id="@+id/imageButton2_0"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -93,7 +94,7 @@
                 </LinearLayout>
 
                 <View
-                    android:id="@+id/divider3"
+                    android:id="@+id/divider3000"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginBottom="10dp"
@@ -104,7 +105,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:weightSum="3"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -216,9 +218,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
+                    android:baselineAligned="false"
                     android:orientation="horizontal"
-                    android:weightSum="10"
-                    android:baselineAligned="false">
+                    android:weightSum="10">
 
                     <LinearLayout
                         android:layout_width="0dp"

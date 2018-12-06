@@ -44,7 +44,7 @@
                     android:background="#fff"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
-                    android:text="Edit Profile"
+                    android:text="Billing"
                     android:textColor="#444C51"
                     android:textSize="16sp" />
 
@@ -117,7 +117,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView808"
+                    android:id="@+id/textView8_08"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -127,7 +127,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText1010"
+                    android:id="@+id/editText1_010"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -146,7 +146,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView808"
+                    android:id="@+id/textView8_0_8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -177,7 +177,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView808"
+                    android:id="@+id/textView808_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -187,7 +187,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText1010"
+                    android:id="@+id/editText1010_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -219,7 +219,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView808"
+                    android:id="@+id/textView_808"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -229,7 +229,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText1010"
+                    android:id="@+id/editText_1010"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -247,7 +247,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView808"
+                    android:id="@+id/textView_8_08"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -257,7 +257,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText1010"
+                    android:id="@+id/editText1_010_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -275,7 +275,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView808"
+                    android:id="@+id/textView_808_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -285,7 +285,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText1010"
+                    android:id="@+id/editText_101_0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -303,7 +303,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView808"
+                    android:id="@+id/textView_80_8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -313,7 +313,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText1010"
+                    android:id="@+id/editText101_0_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"

@@ -19,7 +19,7 @@
             android:id="@+id/imageView"
             android:layout_width="240dp"
             android:layout_height="120dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp"
             android:adjustViewBounds="false"
             android:contentDescription="OCF_Logo"
             android:cropToPadding="false"
@@ -29,22 +29,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.13999999"
             app:srcCompat="@drawable/ocf_logo" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="243dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:freezesText="false"
-            android:gravity="center"
-            android:letterSpacing="0.3"
-            android:singleLine="true"
-            android:text="CARE ASSOCIATE LOGIN"
-            android:textColor="#000"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/editText"
@@ -65,15 +49,15 @@
             android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
             android:drawableLeft="@drawable/lock_icon"
             android:drawablePadding="15dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
-            android:paddingLeft="15dp"
             android:paddingBottom="20dp"
+            android:paddingLeft="15dp"
             android:textColor="#758089"
             android:textSize="14sp" />
 
@@ -81,11 +65,11 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="40dp"
             android:layout_marginBottom="30dp"
-            android:gravity="right"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="end"
             android:text="Forgot password?"
             android:textColor="#A0A4A5" />
 

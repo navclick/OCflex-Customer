@@ -43,11 +43,11 @@
                 android:layout_marginEnd="40dp"
                 android:layout_marginStart="40dp"
                 android:drawablePadding="15dp"
-                android:drawableStart="@drawable/email_icon"
+                android:drawableStart="@drawable/name_icon"
                 android:hint="Full Name"
                 android:inputType="text"
                 android:paddingBottom="20dp"
-                android:paddingLeft="15dp"
+                android:paddingLeft="14dp"
                 android:paddingRight="15dp"
                 android:textColor="#758089"
                 android:textSize="14sp" />
