@@ -68,7 +68,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText100"
+                    android:id="@+id/txt_fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -88,35 +88,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView800"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:text="@string/last_name"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/editText1000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:ems="10"
-                    android:inputType="textEmailAddress"
-                    android:text="Doe"
-                    android:textColor="#758089"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:orientation="vertical">
-
-                <TextView
                     android:id="@+id/textView8_08"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -127,7 +98,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText1_010"
+                    android:id="@+id/txt_companyname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -139,36 +110,6 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView8_0_8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:text="Country"
-                    android:textSize="16sp" />
-
-                <Spinner
-                    android:id="@+id/spinner"
-                    style="@style/style_Spinner1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:entries="@array/country_array"
-                    android:paddingBottom="5dp"
-                    android:paddingStart="10dp"
-                    android:paddingTop="5dp" />
-
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -187,7 +128,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText1010_"
+                    android:id="@+id/txt_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -198,17 +139,6 @@
                     android:textColor="#758089"
                     android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/editText5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Appartment, Suite, Unit etc. (Optional) "
-                    android:textColor="#758089"
-                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -229,41 +159,13 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText_1010"
+                    android:id="@+id/txt_city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:ems="10"
-                    android:inputType="text|number"
-                    android:textColor="#758089"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView_8_08"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:text="State"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/editText1_010_"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:ems="10"
-                    android:inputType="text|number"
+                    android:inputType="text"
                     android:textColor="#758089"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -285,7 +187,7 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText_101_0"
+                    android:id="@+id/txt_postal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -313,41 +215,13 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/editText101_0_"
+                    android:id="@+id/txt_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:ems="10"
                     android:inputType="number"
-                    android:textColor="#758089"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView808"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:text="@string/email"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/editText1010"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp"
-                    android:ems="10"
-                    android:inputType="textPassword|numberPassword"
                     android:textColor="#758089"
                     android:textSize="16sp" />
             </LinearLayout>

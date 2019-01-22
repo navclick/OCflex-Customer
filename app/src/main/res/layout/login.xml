@@ -31,8 +31,9 @@
             app:srcCompat="@drawable/ocf_logo" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/txtEmail"
             android:layout_width="match_parent"
+            android:text="adminone@gmail.com"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
@@ -46,7 +47,8 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/txtPassword"
+            android:text="adminone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="40dp"
@@ -74,7 +76,7 @@
             android:textColor="#A0A4A5" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_signin"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +87,7 @@
             android:textColor="@drawable/txt_round_corner" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txtCreateAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="40dp"

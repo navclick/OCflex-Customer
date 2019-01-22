@@ -23,12 +23,12 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/txt_servicename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="10dp"
-                android:text="Adult “OK” Check ($35/hr) " />
+                android:text="" />
 
             <TextView
                 android:id="@+id/textView20"
@@ -38,13 +38,26 @@
                 android:textAllCaps="true"
                 android:textSize="12sp" />
 
-            <DatePicker
-                android:id="@+id/date_picker"
+            <!--<DatePicker-->
+                <!--android:id="@+id/date_picker"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="4"-->
+                <!--android:calendarViewShown="false"-->
+                <!--android:spinnersShown="true" />-->
+
+            <EditText
+                android:id="@+id/txt_date"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:calendarViewShown="false"
-                android:spinnersShown="true" />
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="#d4d4d4"
+                android:hint="Select Date..."
+                android:padding="15dp"
+                android:textColor="#897"
+                android:textColorHint="#090"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView21"
@@ -55,19 +68,11 @@
                 android:textSize="12sp" />
 
             <Spinner
-                android:id="@+id/spinner4"
+                android:id="@+id/spinner_requiredhours"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="10dp" />
-
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Select Time"
-                android:textAllCaps="true"
-                android:textSize="12sp" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -75,18 +80,39 @@
                 android:padding="8dp"
                 android:layout_height="match_parent">
 
-                <TimePicker
-                    android:id="@+id/time_picker"
-                    android:layout_weight="4"
+                <TextView
+                    android:id="@+id/textView22"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp" />
+                    android:layout_height="wrap_content"
+                    android:text="Select Time"
+                    android:textAllCaps="true"
+                    android:textSize="12sp" />
 
-                <Button
-                    android:id="@+id/date_time_set"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:text="Set"
-                    android:layout_height="0dp" />
+                <!--<EditText-->
+                    <!--android:id="@+id/txt_timepicker"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:hint="Select Time..."-->
+                    <!--android:textColor="#090"-->
+                    <!--android:textColorHint="#090"-->
+                    <!--android:background="#d4d4d4"-->
+                    <!--android:padding="15dp"-->
+                    <!--android:textSize="20sp"-->
+                    <!--android:textStyle="bold" />-->
+
+                <!--<TimePicker-->
+                    <!--android:id="@+id/time_picker"-->
+                    <!--android:layout_weight="4"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp" />-->
+
+                <!--<Button-->
+                    <!--android:id="@+id/date_time_set"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:text="Set"-->
+                    <!--android:layout_height="0dp" />-->
 
             </LinearLayout>
 
@@ -98,7 +124,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editText10"
+                    android:id="@+id/txt_hourspicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -116,7 +142,7 @@
                     android:text=":" />
 
                 <EditText
-                    android:id="@+id/editText11"
+                    android:id="@+id/txt_secondspicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -201,7 +227,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView26"
+                    android:id="@+id/txt_rates"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -211,7 +237,7 @@
                     android:paddingBottom="5dp"
                     android:paddingEnd="5dp"
                     android:paddingTop="5dp"
-                    android:text="$700"
+                    android:text=""
                     android:textColor="@color/darkPurple"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -226,7 +252,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/btn_next"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -237,7 +263,7 @@
                     android:textColor="@drawable/txt_round_corner" />
 
                 <Button
-                    android:id="@+id/button8"
+                    android:id="@+id/btn_addmoreservice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_primary_color"

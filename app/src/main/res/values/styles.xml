@@ -1,27 +1,61 @@
-<resources xmlns:android="http://schemas.android.com/tools">
+<resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/lightGrey</item>
+        <item name="colorControlActivated">#f9a602</item>
+    </style>
+
     <style name="style_Spinner1">
-        <item name="android:background">@drawable/drop</item>
-        <item name="android:dropDownSelector">@android:color/transparent</item>
-        <item name="android:popupBackground">#a6417e</item>
-        <item name="android:spinnerMode">dropdown</item>
-
+    <item name="android:background">@drawable/drop</item>
+    <item name="android:dropDownSelector">@android:color/transparent</item>
+    <item name="android:popupBackground">#a6417e</item>
+    <item name="android:spinnerMode">dropdown</item>
     </style>
 
-    <style name="style_Spinner">
-        <item name="android:popupBackground">#EDF2F4</item>
-        <item name="android:dropDownSelector">@android:color/transparent</item>
-        <item name="android:spinnerMode">dropdown</item>
-        <item name="android:drawableEnd">@drawable/drop</item>
-        <item name="android:background">@color/darkGrey</item>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
+
+
+    <!--<resources xmlns:android="http://schemas.android.com/tools">-->
+
+    <!--&lt;!&ndash; Base application theme. &ndash;&gt;-->
+    <!--<style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+    <!--</style>-->
+
+    <!--<style name="style_Spinner1">-->
+        <!--<item name="android:background">@drawable/drop</item>-->
+        <!--<item name="android:dropDownSelector">@android:color/transparent</item>-->
+        <!--<item name="android:popupBackground">#a6417e</item>-->
+        <!--<item name="android:spinnerMode">dropdown</item>-->
+
+    <!--</style>-->
+
+    <!--<style name="style_Spinner">-->
+        <!--<item name="android:popupBackground">#EDF2F4</item>-->
+        <!--<item name="android:dropDownSelector">@android:color/transparent</item>-->
+        <!--<item name="android:spinnerMode">dropdown</item>-->
+        <!--<item name="android:drawableEnd">@drawable/drop</item>-->
+        <!--<item name="android:background">@color/darkGrey</item>-->
+    <!--</style>-->
+
+<!--</resources>-->

@@ -5,17 +5,17 @@
     <string name="last_name">Last Name <font color='#FF0000'>*</font></string>
     <string name="email">Email Address <font color='#FF0000'>*</font></string>
     <string-array name="country_array">
-        <item >Saudi Arabia</item>
-        <item >Pakistan</item>
-        <item >China</item>
-        <item >Oman</item>
-        <item >Jordan</item>
-        <item >Egypt</item>
-        <item >Syria</item>
-        <item >Morroco</item>
+        <item>Saudi Arabia</item>
+        <item>Pakistan</item>
+        <item>China</item>
+        <item>Oman</item>
+        <item>Jordan</item>
+        <item>Egypt</item>
+        <item>Syria</item>
+        <item>Morroco</item>
     </string-array>
     <string-array name="time">
-        <item >PM</item>
-        <item >AM</item>
+        <item>PM</item>
+        <item>AM</item>
     </string-array>
 </resources>
