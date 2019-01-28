@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Service"
+                android:textAllCaps="true"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_servicename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textAllCaps="true"
+                android:textSize="12sp" />
+
+            <!--<DatePicker-->
+            <!--android:id="@+id/date_picker"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="4"-->
+            <!--android:calendarViewShown="false"-->
+            <!--android:spinnersShown="true" />-->
+
+            <EditText
+                android:id="@+id/txt_date"
+                android:text="28/1/2019"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="#d4d4d4"
+                android:hint="Select Date..."
+                android:padding="15dp"
+                android:textColor="#897"
+                android:textColorHint="#090"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Required Hours"
+                android:textAllCaps="true"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinner_requiredhours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:padding="8dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Time"
+                    android:textAllCaps="true"
+                    android:textSize="12sp" />
+
+                <!--<EditText-->
+                <!--android:id="@+id/txt_timepicker"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:hint="Select Time..."-->
+                <!--android:textColor="#090"-->
+                <!--android:textColorHint="#090"-->
+                <!--android:background="#d4d4d4"-->
+                <!--android:padding="15dp"-->
+                <!--android:textSize="20sp"-->
+                <!--android:textStyle="bold" />-->
+
+                <!--<TimePicker-->
+                <!--android:id="@+id/time_picker"-->
+                <!--android:layout_weight="4"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp" />-->
+
+                <!--<Button-->
+                <!--android:id="@+id/date_time_set"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:text="Set"-->
+                <!--android:layout_height="0dp" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txt_hourspicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="5"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="10" />
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginStart="2dp"
+                    android:text=":" />
+
+                <EditText
+                    android:id="@+id/txt_secondspicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="5"
+                    android:gravity="center"
+                    android:inputType="textPersonName"
+                    android:text="00" />
+
+                <Spinner
+                    android:id="@+id/spinner5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/time"
+                    android:spinnerMode="dialog" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@drawable/custom_radio"
+                        android:paddingLeft="5dp"
+                        android:text="I agree to pay $5 an hour extra charge for weekends/after hours.**"
+                        android:textColor="#758089"
+                        android:textSize="12sp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:button="@drawable/custom_radio"
+                        android:paddingLeft="5dp"
+                        android:text="I agree to pay $15 an hour extra charge on Holidays.**"
+                        android:textColor="#758089"
+                        android:textSize="12sp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@drawable/custom_radio"
+                        android:paddingLeft="5dp"
+                        android:text="Please check to accept for After hours, Holidays and/or Weekend extra charge.**"
+                        android:textColor="#758089"
+                        android:textSize="12sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.75"
+                    android:gravity="right|end"
+                    android:text="Total Price"
+                    android:textColor="#758089"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_rates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/border_order_total"
+                    android:gravity="right|end"
+                    android:paddingBottom="5dp"
+                    android:paddingEnd="5dp"
+                    android:paddingTop="5dp"
+                    android:text=""
+                    android:textColor="@color/darkPurple"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_next"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/round_corner"
+                    android:text="Next"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/txt_round_corner" />
+
+                <Button
+                    android:id="@+id/btn_addmoreservice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_primary_color"
+                    android:text="Add more services"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/btn_txt_primary_color" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

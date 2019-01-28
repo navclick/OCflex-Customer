@@ -4,6 +4,9 @@
     <string name="full_name">Full Name <font color='#FF0000'>*</font></string>
     <string name="last_name">Last Name <font color='#FF0000'>*</font></string>
     <string name="email">Email Address <font color='#FF0000'>*</font></string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string-array name="country_array">
         <item>Saudi Arabia</item>
         <item>Pakistan</item>

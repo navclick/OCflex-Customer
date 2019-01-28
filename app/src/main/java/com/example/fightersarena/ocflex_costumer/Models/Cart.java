@@ -6,6 +6,7 @@ import android.util.Log;
 import com.example.fightersarena.ocflex_costumer.Handlers.DatabaseHandler;
 
 import java.util.Date;
+import java.util.List;
 
 public class Cart {
     public int ServiceId;
@@ -20,7 +21,7 @@ public class Cart {
         Cart item = databaseHelper.getCartItem(cart.ServiceId);
         boolean newItem = true;
 
-        if(item != null){
+        if(item.ServiceId > 0){
             newItem = false;
         }
         if(newItem){
@@ -37,9 +38,18 @@ public class Cart {
         }
     }
 
+    public static List<OrderItemRequestVM> getCartItems(Context context){
+        DatabaseHandler databaseHelper = DatabaseHandler.getInstance(context);
+        return  databaseHelper.getCartItems();
+    }
 
-    public static Cart getCartITem(int itemID,Context context){
+    public static Cart getCartItem(int itemID,Context context){
         DatabaseHandler databaseHelper = DatabaseHandler.getInstance(context);
         return  databaseHelper.getCartItem(itemID);
+    }
+
+    public static void removeCartItems(Context context){
+        DatabaseHandler databaseHelper = DatabaseHandler.getInstance(context);
+        databaseHelper.removeCartItems();
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single" android:id="@+id/a-1">
+        <item android:id="@+id/menu_home" android:icon="@mipmap/ic_launcher"
+            android:title="My Store" />
+        <item android:id="@+id/menu_profile" android:icon="@mipmap/ic_launcher"
+            android:title="Profile" />
+        <item android:id="@+id/menu_all_cat" android:icon="@mipmap/ic_launcher"
+            android:title="Categories" />
+        <item android:id="@+id/menu_shopping" android:icon="@mipmap/ic_launcher"
+            android:title="Shopping List" />
+    </group>
+    <group android:checkableBehavior="single" android:id="@+id/a-2">
+        <item android:id="@+id/menu_pro_req" android:icon="@mipmap/ic_launcher"
+            android:title="Product Request" />
+        <item android:id="@+id/menu_orders" android:icon="@mipmap/ic_launcher"
+            android:title="My Orders" />
+        <item android:id="@+id/menu_cart" android:icon="@mipmap/ic_launcher"
+            android:title="My Cart" />
+        <item android:id="@+id/menu_about" android:icon="@mipmap/ic_launcher"
+            android:title="About Aghas" /> -->
+    </group>
+    <group android:checkableBehavior="single" android:id="@+id/a-3">
+        <item android:id="@+id/menu_logout" android:icon="@mipmap/ic_launcher"
+            android:title="Logout" />
+    </group>
+</menu>

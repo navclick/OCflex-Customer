@@ -2,6 +2,8 @@ package com.example.fightersarena.ocflex_costumer.Network;
 
 import com.example.fightersarena.ocflex_costumer.Models.CustomerService;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerServices;
+import com.example.fightersarena.ocflex_costumer.Models.OrderRequest;
+import com.example.fightersarena.ocflex_costumer.Models.OrderResponse;
 import com.example.fightersarena.ocflex_costumer.Models.Register;
 import com.example.fightersarena.ocflex_costumer.Models.RegisterRequest;
 import com.example.fightersarena.ocflex_costumer.Models.Token;
@@ -28,6 +30,9 @@ public interface IApiCaller{
 
     @POST(EndPoints.REGISTER)
     Call<Register> Register(@Body RegisterRequest registerRequest);
+
+    @POST(EndPoints.ADDORDERS)
+    Call<OrderResponse> AddOrders(@Body OrderRequest orderRequest);
 
     @GET(EndPoints.CUSTOMERSERVICES)
     Call<CustomerServices> GetCustomerServices();

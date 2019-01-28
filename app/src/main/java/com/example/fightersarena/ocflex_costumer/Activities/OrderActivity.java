@@ -4,14 +4,23 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -25,9 +34,10 @@ import java.util.Calendar;
 
 import static com.example.fightersarena.ocflex_costumer.Helpers.Constants.IS_BILLING;
 
-public class OrderActivity extends BaseActivity implements View.OnClickListener {
+public class OrderActivity extends BaseActivity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
 
-    public static Integer id;
+    public static int id;
+    String serviceName,serviceRates;
 
     Button btnNext, btnAddMoreService;
     TextView txtServiceName, txt_rates;
@@ -36,10 +46,30 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
     TimePickerDialog timePickerDialog;
     Spinner spinner;
 
+    public TextView tv;
+    public ImageView imgCart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order);
+
+
+        //Side Menu and toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_order);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_order);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_order);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        //-----------------------------------
+
+
 
         //Initialization
         txtServiceName = (TextView) findViewById(R.id.txt_servicename);
@@ -49,6 +79,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         txtSecondsPicker = (EditText) findViewById(R.id.txt_secondspicker);
         btnNext = (Button) findViewById(R.id.btn_next);
         btnAddMoreService = (Button) findViewById(R.id.btn_addmoreservice);
+        imgCart = (ImageView) findViewById(R.id.img_cart);
 
         spinner = (Spinner) findViewById(R.id.spinner_requiredhours);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -59,9 +90,14 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         spinner.setAdapter(adapter);
 
         // Setting values
-        id = Integer.parseInt(getIntent().getExtras().getString("id"));
-        String serviceName = getIntent().getExtras().getString("name");
-        String serviceRates = getIntent().getExtras().getString("rates");
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            id = extras.getInt("id");
+            serviceName = extras.getString("name");
+            serviceRates = extras.getString("rates");
+        }else{
+            OpenActivity(ServicesListActivity.class);
+        }
 
         // Implementations
         txtServiceName.setText(serviceName);
@@ -73,6 +109,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         txtHoursPicker.setOnClickListener(this);
         btnNext.setOnClickListener(this);
         btnAddMoreService.setOnClickListener(this);
+        imgCart.setOnClickListener(this);
 
 //        Log.d("service name", serviceName);
     }
@@ -91,6 +128,11 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
 
             case R.id.btn_next:
                 NextService();
+                break;
+
+            case R.id.img_cart:
+                Log.d("clicked","clicked");
+                OpenActivity(CartActivity.class);
                 break;
 
             case R.id.btn_addmoreservice:
@@ -171,4 +213,85 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener 
         timePickerDialog.show();
 
     }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_order);
+        if (id == R.id.menu_about) {
+            // Handle the camera action
+            mDrawerLayout.closeDrawers();
+            // openActivityWithFinish(AboutActivity.class);
+
+        } else if (id == R.id.menu_home) {
+            mDrawerLayout.closeDrawers();
+            // openActivity(MainActivity.class);
+            // MenuHandler.tracking(this);
+
+        } else if (id == R.id.menu_cart) {
+            mDrawerLayout.closeDrawers();
+            //MenuHandler.currentOrders(this);
+            // openActivity(CartActivity.class);
+        } else if (id == R.id.menu_pro_req) {
+            mDrawerLayout.closeDrawers();
+            // openActivityProductRequest();
+            //MenuHandler.orderHistory(this);
+
+        } else if (id == R.id.menu_profile) {
+            mDrawerLayout.closeDrawers();
+            // openActivityProfile();
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+        }
+
+        else if (id == R.id.menu_shopping) {
+            mDrawerLayout.closeDrawers();
+            // openActivity(ShoppingListActivity.class);
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+        }
+
+        else if (id == R.id.menu_orders) {
+            mDrawerLayout.closeDrawers();
+            // openActivityOrders();
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+        }
+
+        else if (id == R.id.menu_all_cat) {
+            mDrawerLayout.closeDrawers();
+            // openActivity(AllCatActivity.class);
+
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+
+        }
+        else if (id == R.id.menu_logout) {
+            //  MenuHandler.logOut(this);
+        }
+
+        return  true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbarmenu, menu);
+        MenuItem item = menu.findItem(R.id.badge);
+        MenuItemCompat.setActionView(item, R.layout.menu_cart);
+        RelativeLayout notifCount = (RelativeLayout)   MenuItemCompat.getActionView(item);
+        imgCart =notifCount.findViewById(R.id.actionbar_notifcation_img);
+        tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
+        //tv.setText("12");
+        tv.setText("0");
+        //   i.setOnClickListener(this);
+        //  tv.setOnClickListener(this);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 }

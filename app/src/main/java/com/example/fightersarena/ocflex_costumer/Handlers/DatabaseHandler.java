@@ -9,6 +9,10 @@ import android.util.Log;
 
 import com.example.fightersarena.ocflex_costumer.Models.Cart;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerService;
+import com.example.fightersarena.ocflex_costumer.Models.OrderItemRequestVM;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.fightersarena.ocflex_costumer.Helpers.Constants.DATABASE_NAME;
 import static com.example.fightersarena.ocflex_costumer.Helpers.Constants.DATABASE_VERSION;
@@ -22,6 +26,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String ORDER_TIME = "OrderTime";
     private static final String ORDER_HOURS = "OrderHours";
     private static final String RATES = "Rates";
+
+
+    List<OrderItemRequestVM> cartItem = new ArrayList<>();
 
     private static DatabaseHandler sInstance;
     public static synchronized DatabaseHandler getInstance(Context context) {
@@ -97,6 +104,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
+    public void removeCartItems() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, null, null);
+        db.close();
+    }
+
+    public void removeCartItem(int ItemID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, ItemID + " = ?",
+                new String[]{String.valueOf(ItemID)});
+        db.close();
+    }
+
     public Cursor GetCustomerService(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+TABLE_NAME ,null);
@@ -108,6 +128,36 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         //String query = "select * from "+TABLE_NAME + " Where CART_ID = '"+ id +"' ";
         Cursor res = db.rawQuery("select * from " + TABLE_NAME + " Where ServiceId = "+ id +" ",null);
         return res;
+    }
+
+    public List<OrderItemRequestVM> getCartItems() {
+        String selectQuery = "SELECT  * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                //Cart cart = new Cart();
+                OrderItemRequestVM orderitem = new OrderItemRequestVM();
+
+                orderitem.setServiceId(cursor.getInt(1));
+                orderitem.setStartDate(cursor.getString(2));
+                orderitem.setStartTime(cursor.getString(3));
+                orderitem.setHours(cursor.getInt(4));
+                orderitem.setRates(cursor.getInt(5));
+
+                // Adding contact to list
+                cartItem.add(orderitem);
+            } while (cursor.moveToNext());
+        }
+        if (cursor != null) {
+            cursor.close();
+        }
+        if (db != null) {
+            //   db.close();
+            db.close();
+        }
+        return cartItem;
     }
 
     public Cart getCartItem(long serviceid) {

@@ -13,6 +13,11 @@
         <item name="colorControlActivated">#f9a602</item>
     </style>
 
+    <style name="NavDrawerTextStyle" parent="Base.TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="style_Spinner1">
     <item name="android:background">@drawable/drop</item>
     <item name="android:dropDownSelector">@android:color/transparent</item>

@@ -33,7 +33,7 @@
         <EditText
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
-            android:text="adminone@gmail.com"
+            android:text="customerone@gmail.com"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
@@ -48,7 +48,7 @@
 
         <EditText
             android:id="@+id/txtPassword"
-            android:text="adminone"
+            android:text="customerone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="40dp"
