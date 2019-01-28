@@ -203,10 +203,11 @@ public class BillingActivity extends BaseActivity implements View.OnClickListene
             response.enqueue(new Callback<OrderResponse>() {
                 @Override
                 public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
-                    OrderResponse objResponse = response.body();
+                    Object objResponse = response.body();
+//                    OrderResponse objResponse = response.body();
                     if(objResponse == null){
                         try {
-                            Toast.makeText(BillingActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(BillingActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         } catch (NullPointerException nulle){
                             Toast.makeText(BillingActivity.this, "You are unauthorized to create order", Toast.LENGTH_SHORT).show();
                         }
@@ -215,14 +216,13 @@ public class BillingActivity extends BaseActivity implements View.OnClickListene
                             Toast.makeText(BillingActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                         }
                     }else{
-                        Boolean isError = objResponse.getIserror();
-                        if(isError == true){
-                            // TODO: Open main screen if token is set successfully
-                            Toast.makeText(BillingActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                        }else{
-
-                            OpenActivity(OrderReceiptActivity.class);
-                        }
+//                        Boolean isError = objResponse.getIserror();
+//                        if(isError == true){
+//                            Toast.makeText(BillingActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
+//                        }else{
+//
+//                            OpenActivity(OrderReceiptActivity.class);
+//                        }
                     }
                 }
                 @Override

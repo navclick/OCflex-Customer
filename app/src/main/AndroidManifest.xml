@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.OrderActivity"
+            android:name=".Activities.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.SplashActivity"/>
-        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.OrderActivity" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.ServicesListActivity"
             android:screenOrientation="portrait"
