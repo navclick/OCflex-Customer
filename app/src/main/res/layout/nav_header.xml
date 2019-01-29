@@ -5,16 +5,36 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="38dp"
     android:background="@drawable/underline"
+    android:gravity="center"
     android:orientation="vertical"
     android:paddingEnd="20dp"
     android:paddingStart="20dp">
 
     <ImageView
         android:id="@+id/imageView222"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginBottom="20dp"
         android:background="@mipmap/ic_launcher_round"
         android:contentDescription="Logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="John Doe"
+        android:textColor="#221F20"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="abc@abc.com"
+        android:textColor="#758089" />
 </LinearLayout>

@@ -14,8 +14,8 @@
     </style>
 
     <style name="NavDrawerTextStyle" parent="Base.TextAppearance.AppCompat">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#758089</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="style_Spinner1">
