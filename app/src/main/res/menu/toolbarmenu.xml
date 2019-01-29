@@ -2,8 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
         android:id="@+id/badge"
-        android:actionLayout="@layout/menu_cart"
-        android:icon="@drawable/email_icon"
+        android:icon="@drawable/toolbar_cart"
         app:showAsAction="always"
         android:title="">
     </item>
