@@ -214,26 +214,18 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
 
     }
 
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_order);
-        if (id == R.id.menu_about) {
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_billing);
+        if (id == R.id.menu_home) {
             // Handle the camera action
             mDrawerLayout.closeDrawers();
             // openActivityWithFinish(AboutActivity.class);
 
-        } else if (id == R.id.menu_home) {
-            mDrawerLayout.closeDrawers();
-            // openActivity(MainActivity.class);
-            // MenuHandler.tracking(this);
-
-        } else if (id == R.id.menu_cart) {
-            mDrawerLayout.closeDrawers();
-            //MenuHandler.currentOrders(this);
-            // openActivity(CartActivity.class);
         } else if (id == R.id.menu_pro_req) {
             mDrawerLayout.closeDrawers();
             // openActivityProductRequest();
@@ -255,14 +247,6 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
         }
 
-        else if (id == R.id.menu_orders) {
-            mDrawerLayout.closeDrawers();
-            // openActivityOrders();
-            //MenuHandler.smsTracking(this);
-            //MenuHandler.callUs(this);
-            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
-        }
-
         else if (id == R.id.menu_all_cat) {
             mDrawerLayout.closeDrawers();
             // openActivity(AllCatActivity.class);
@@ -271,9 +255,6 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
 
-        }
-        else if (id == R.id.menu_logout) {
-            //  MenuHandler.logOut(this);
         }
 
         return  true;
