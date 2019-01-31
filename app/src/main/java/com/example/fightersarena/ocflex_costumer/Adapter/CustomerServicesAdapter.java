@@ -42,8 +42,8 @@ public class CustomerServicesAdapter extends RecyclerView.Adapter<CustomerServic
 //        }
     }
 
-    public CustomerServicesAdapter(List<CustomerService> moviesList) {
-        this.customerServiceList = moviesList;
+    public CustomerServicesAdapter(List<CustomerService> objList) {
+        this.customerServiceList = objList;
     }
 
     @Override

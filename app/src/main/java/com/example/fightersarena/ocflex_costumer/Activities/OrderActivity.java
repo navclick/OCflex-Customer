@@ -15,6 +15,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -36,15 +38,17 @@ import static com.example.fightersarena.ocflex_costumer.Helpers.Constants.IS_BIL
 
 public class OrderActivity extends BaseActivity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
 
-    public static int id;
-    String serviceName,serviceRates;
+    String[] hours;
+    public static int id, serviceRates;
+    private int total;
+    String serviceName;
 
     Button btnNext, btnAddMoreService;
-    TextView txtServiceName, txt_rates;
+    TextView txtServiceName, txtTotal;
     EditText txtDatePicker, txtHoursPicker, txtSecondsPicker;
     DatePickerDialog datePickerDialog;
     TimePickerDialog timePickerDialog;
-    Spinner spinner;
+    Spinner spinnerHours;
 
     public TextView tv;
     public ImageView imgCart;
@@ -73,7 +77,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
 
         //Initialization
         txtServiceName = (TextView) findViewById(R.id.txt_servicename);
-        txt_rates = (TextView) findViewById(R.id.txt_rates);
+        txtTotal = (TextView) findViewById(R.id.txt_total);
         txtDatePicker = (EditText) findViewById(R.id.txt_date);
         txtHoursPicker = (EditText) findViewById(R.id.txt_hourspicker);
         txtSecondsPicker = (EditText) findViewById(R.id.txt_secondspicker);
@@ -81,27 +85,29 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         btnAddMoreService = (Button) findViewById(R.id.btn_addmoreservice);
         imgCart = (ImageView) findViewById(R.id.img_cart);
 
-        spinner = (Spinner) findViewById(R.id.spinner_requiredhours);
+        hours = getResources().getStringArray(R.array.hours_array);
+        spinnerHours = (Spinner) findViewById(R.id.spinner_requiredhours);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.hours_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        spinnerHours.setAdapter(adapter);
 
         // Setting values
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             id = extras.getInt("id");
             serviceName = extras.getString("name");
-            serviceRates = extras.getString("rates");
+            serviceRates = extras.getInt("rates");
+            total = serviceRates * 2;
+            txtTotal.setText(Integer.toString(total));
         }else{
             OpenActivity(ServicesListActivity.class);
         }
 
         // Implementations
         txtServiceName.setText(serviceName);
-        txt_rates.setText(serviceRates);
         //txt_rates.setText("$ " + serviceRates);
 
         // Listeners
@@ -111,7 +117,24 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         btnAddMoreService.setOnClickListener(this);
         imgCart.setOnClickListener(this);
 
-//        Log.d("service name", serviceName);
+        spinnerHours.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                int index = arg0.getSelectedItemPosition();
+                String some = hours[index];
+                some = some.replace("Hours","");
+                some = some.trim();
+                some = some.trim();
+                int hour = serviceRates * Integer.parseInt(some);
+                txtTotal.setText(String.valueOf(hour));
+//                Toast.makeText(getBaseContext(), "You have selected item : " + hours[index], Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+
     }
 
     @Override
@@ -138,7 +161,11 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
             case R.id.btn_addmoreservice:
 
                 break;
-
+//
+//            case R.id.spinner_requiredhours:
+//                String somevalue = spinnerHours.getSelectedItem().toString();
+//                Log.d("some",somevalue);
+//                break;
         }
     }
 
@@ -148,13 +175,13 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
 //        String time = hours + ":" + seconds;
 
         String serviceName = txtServiceName.getText().toString();
-        int rates = Integer.valueOf(txt_rates.getText().toString());
+        int total = Integer.valueOf(txtTotal.getText().toString());
         int hours = Integer.valueOf(txtHoursPicker.getText().toString());
         int seconds = Integer.valueOf(txtSecondsPicker.getText().toString());
 
         Cart cart = new Cart();
         cart.ServiceId = id;
-        cart.Rates = rates * hours;
+        cart.Rates = total * hours;
         cart.OrderDate = txtDatePicker.getText().toString();
         cart.OrderHours = Integer.valueOf(txtHoursPicker.getText().toString());
         cart.OrderTime = hours + ":" + seconds;

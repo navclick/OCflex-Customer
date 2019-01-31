@@ -7,9 +7,9 @@ import java.util.List;
 
 public class OrderRequest {
 
-    @SerializedName("PromoCode")
-    @Expose
-    private String promoCode;
+//    @SerializedName("PromoCode")
+//    @Expose
+//    private String promoCode;
     @SerializedName("OrderAddress")
     @Expose
     private String orderAddress;
@@ -24,15 +24,15 @@ public class OrderRequest {
     private String orderPhone;
     @SerializedName("OrderItemRequestVM")
     @Expose
-    private List<OrderItemRequestVM> orderItemRequestVM = null;
+    private List<OrderItemRequestVM> orderItemRequestVM;
 
-    public String getPromoCode() {
-        return promoCode;
-    }
-
-    public void setPromoCode(String promoCode) {
-        this.promoCode = promoCode;
-    }
+//    public String getPromoCode() {
+//        return promoCode;
+//    }
+//
+//    public void setPromoCode(String promoCode) {
+//        this.promoCode = promoCode;
+//    }
 
     public String getOrderAddress() {
         return orderAddress;

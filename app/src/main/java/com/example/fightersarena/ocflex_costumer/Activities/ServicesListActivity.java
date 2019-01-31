@@ -87,7 +87,7 @@ public class ServicesListActivity extends AppCompatActivity implements  Navigati
                 Intent intent = new Intent(ServicesListActivity.this, OrderActivity.class);
                 intent.putExtra("id", cust.getId());
                 intent.putExtra("name", cust.getName());
-                intent.putExtra("rates", cust.getRates().toString());
+                intent.putExtra("rates", cust.getRates());
                 startActivity(intent);
 
 //                Toast.makeText(getApplicationContext(), movie.getName() + " is selected!", Toast.LENGTH_SHORT).show();
@@ -224,7 +224,7 @@ public class ServicesListActivity extends AppCompatActivity implements  Navigati
                             int rates = customerList.getRates();
                             String imageUrl = customerList.getImageUrl();
 
-                            CustomerService cust = new CustomerService(id, name, 10, imageUrl);
+                            CustomerService cust = new CustomerService(id, name, rates, imageUrl);
                             customerServicesList.add(cust);
                         }
                         customerServiceAdapter.notifyDataSetChanged();

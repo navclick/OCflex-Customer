@@ -2,6 +2,7 @@ package com.example.fightersarena.ocflex_costumer.Network;
 
 import com.example.fightersarena.ocflex_costumer.Models.CustomerService;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerServices;
+import com.example.fightersarena.ocflex_costumer.Models.MyOrders;
 import com.example.fightersarena.ocflex_costumer.Models.OrderRequest;
 import com.example.fightersarena.ocflex_costumer.Models.OrderResponse;
 import com.example.fightersarena.ocflex_costumer.Models.Register;
@@ -36,6 +37,15 @@ public interface IApiCaller{
 
     @GET(EndPoints.CUSTOMERSERVICES)
     Call<CustomerServices> GetCustomerServices();
+
+    @GET(EndPoints.GETMYORDERS)
+    Call<MyOrders> GetMyOrders();
+
+    @GET(EndPoints.GETACTIVEORDERS)
+    Call<MyOrders> GetActiveOrders();
+
+    @GET(EndPoints.GETORDERHISTORY)
+    Call<MyOrders> GetOrderHistory();
 
     // Register starts
 //    @FormUrlEncoded
