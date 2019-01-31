@@ -7,13 +7,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView222"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="20dp"
-        android:background="@mipmap/ic_launcher_round"
-        android:contentDescription="Logo" />
+    <com.example.fightersarena.ocflex_costumer.Helpers.RoundRectCornerImageView.RoundRectCornerImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/profile_img"
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/textView"
