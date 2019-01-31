@@ -17,7 +17,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="25dp"
                 android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
@@ -44,9 +44,10 @@
                     android:background="#fff"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
-                    android:text="My Orders"
+                    android:text="MY ORDERS"
                     android:textColor="#444C51"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -60,20 +61,20 @@
                     android:id="@+id/textView7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:text="Active Orders"
                     android:textAllCaps="true"
                     android:textColor="@color/darkPurple"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
-                    android:background="@drawable/underline"
                     android:orientation="horizontal"
                     android:paddingBottom="20dp"
                     android:weightSum="10">
@@ -82,57 +83,57 @@
                         android:id="@+id/recyclerActiveOrders"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        />
+                        android:nestedScrollingEnabled="false"/>
 
                     <!--<LinearLayout-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:layout_gravity="center"-->
-                        <!--android:layout_weight="7"-->
-                        <!--android:orientation="horizontal">-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_weight="7"-->
+                    <!--android:orientation="horizontal">-->
 
-                        <!---->
+                    <!---->
 
-                        <!--<LinearLayout-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="match_parent"-->
-                            <!--android:orientation="vertical">-->
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="vertical">-->
 
-                            <!--<TextView-->
-                                <!--android:id="@+id/textView_80"-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:text="Personal Assistant"-->
-                                <!--android:textColor="@color/midGrey"-->
-                                <!--android:textSize="14sp" />-->
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView_80"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Personal Assistant"-->
+                    <!--android:textColor="@color/midGrey"-->
+                    <!--android:textSize="14sp" />-->
 
-                            <!--<TextView-->
-                                <!--android:id="@+id/textView_90"-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:text="06/01/2017"-->
-                                <!--android:textColor="@color/lightGrey"-->
-                                <!--android:textSize="12sp" />-->
-                        <!--</LinearLayout>-->
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView_90"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="06/01/2017"-->
+                    <!--android:textColor="@color/lightGrey"-->
+                    <!--android:textSize="12sp" />-->
+                    <!--</LinearLayout>-->
 
                     <!--</LinearLayout>-->
 
                     <!--<LinearLayout-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:layout_weight="3"-->
-                        <!--android:gravity="center|end"-->
-                        <!--android:orientation="horizontal">-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="3"-->
+                    <!--android:gravity="center|end"-->
+                    <!--android:orientation="horizontal">-->
 
-                        <!--<Button-->
-                            <!--android:id="@+id/button_30"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="25dp"-->
-                            <!--android:layout_weight="1"-->
-                            <!--android:background="@drawable/border_primary_color"-->
-                            <!--android:text="Track"-->
-                            <!--android:textColor="@drawable/btn_txt_primary_color"-->
-                            <!--android:textSize="12sp" />-->
+                    <!--<Button-->
+                    <!--android:id="@+id/button_30"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/border_primary_color"-->
+                    <!--android:text="Track"-->
+                    <!--android:textColor="@drawable/btn_txt_primary_color"-->
+                    <!--android:textSize="12sp" />-->
                     <!--</LinearLayout>-->
 
                 </LinearLayout>
@@ -148,13 +149,14 @@
                     android:id="@+id/textView_7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:text="Order History"
                     android:textAllCaps="true"
                     android:textColor="@color/darkPurple"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -162,7 +164,6 @@
                     android:layout_marginBottom="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
-                    android:background="@drawable/underline"
                     android:baselineAligned="false"
                     android:orientation="horizontal"
                     android:paddingBottom="20dp"
@@ -171,37 +172,37 @@
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recyclerCompletedOrders"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        />
+                        android:nestedScrollingEnabled="false"
+                        android:layout_height="wrap_content" />
 
                     <!--<LinearLayout-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:layout_gravity="center"-->
-                        <!--android:layout_weight="7"-->
-                        <!--android:orientation="horizontal">-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_weight="7"-->
+                    <!--android:orientation="horizontal">-->
 
-                        <!--<LinearLayout-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="match_parent"-->
-                            <!--android:orientation="vertical">-->
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="vertical">-->
 
-                            <!--<TextView-->
-                                <!--android:id="@+id/textView800"-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:text="Customized Errands"-->
-                                <!--android:textColor="@color/midGrey"-->
-                                <!--android:textSize="14sp" />-->
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView800"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Customized Errands"-->
+                    <!--android:textColor="@color/midGrey"-->
+                    <!--android:textSize="14sp" />-->
 
-                            <!--<TextView-->
-                                <!--android:id="@+id/textView900"-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:text="21/04/2017"-->
-                                <!--android:textColor="@color/lightGrey"-->
-                                <!--android:textSize="12sp" />-->
-                        <!--</LinearLayout>-->
+                    <!--<TextView-->
+                    <!--android:id="@+id/textView900"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="21/04/2017"-->
+                    <!--android:textColor="@color/lightGrey"-->
+                    <!--android:textSize="12sp" />-->
+                    <!--</LinearLayout>-->
 
                     <!--</LinearLayout>-->
 
