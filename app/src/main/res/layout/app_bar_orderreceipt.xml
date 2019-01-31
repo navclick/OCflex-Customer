@@ -15,9 +15,12 @@
 
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher_round" />
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                app:srcCompat="@drawable/toolbar_logo"
+                android:contentDescription="TODO" />
 
         </android.support.v7.widget.Toolbar>
 

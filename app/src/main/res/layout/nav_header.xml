@@ -3,18 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="38dp"
-    android:background="@drawable/underline"
-    android:orientation="vertical"
-    android:paddingEnd="20dp"
-    android:paddingStart="20dp">
+    android:layout_marginTop="30dp"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView222"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
+    <com.example.fightersarena.ocflex_costumer.Helpers.RoundRectCornerImageView.RoundRectCornerImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/profile_img"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="John Doe"
+        android:textColor="#221F20"
+        android:textSize="24sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@mipmap/ic_launcher_round"
-        android:contentDescription="Logo" />
+        android:gravity="center"
+        android:text="abc@abc.com"
+        android:textColor="#758089" />
 </LinearLayout>

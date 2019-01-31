@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OCflex_Costumer</string>
+    <string name="app_name"></string>
     <string name="account_create">Dont\'t hane an account? "<b>"Create Now"</b>"</string>
     <string name="full_name">Full Name <font color='#FF0000'>*</font></string>
     <string name="last_name">Last Name <font color='#FF0000'>*</font></string>
