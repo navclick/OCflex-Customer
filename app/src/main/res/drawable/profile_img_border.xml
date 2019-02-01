@@ -2,6 +2,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item android:drawable="@drawable/profile_img"/>
-    <item android:drawable="@drawable/profile_image"/>
+    <item android:drawable="@drawable/round_frame"/>
 
 </layer-list>
