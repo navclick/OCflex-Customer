@@ -7,13 +7,6 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.example.fightersarena.ocflex_costumer.Helpers.RoundRectCornerImageView.RoundRectCornerImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/profile_img"
-        android:scaleType="fitXY" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
