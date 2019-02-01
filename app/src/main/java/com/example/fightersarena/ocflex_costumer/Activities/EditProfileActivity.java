@@ -3,12 +3,23 @@ package com.example.fightersarena.ocflex_costumer.Activities;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
@@ -31,7 +42,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EditProfileActivity extends BaseActivity{
+public class EditProfileActivity extends BaseActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+    public TextView tv;
+    public ImageView i;
 
     public TokenHelper tokenHelper;
     public String TokenString;
@@ -53,11 +66,23 @@ public class EditProfileActivity extends BaseActivity{
             OpenActivity(LoginActivity.class);
         }else{
             //Declarations
-            txtEmail = (EditText) findViewById(R.id.txt_email);
-            txtFullName = (EditText) findViewById(R.id.txt_fullname);
-            txtAddressOne = (EditText) findViewById(R.id.txt_address);
-            txtPhone = (EditText) findViewById(R.id.txt_phone);
-            imgProfile = (ImageView) findViewById(R.id.img_profile);
+            txtEmail = (EditText) findViewById(R.id.txt_register_email);
+            txtFullName = (EditText) findViewById(R.id.txt_register_fullname);
+            txtAddressOne = (EditText) findViewById(R.id.txt_register_address);
+            txtPhone = (EditText) findViewById(R.id.txt_register_phone);
+            imgProfile = (ImageView) findViewById(R.id.img_register_profile);
+
+            //Side Menu and toolbar
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_editprofile);
+            setSupportActionBar(toolbar);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_editprofile);
+
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.setDrawerListener(toggle);
+            toggle.syncState();
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_editprofile);
+            navigationView.setNavigationItemSelectedListener(this);
 
             //Initializations
             GetProfile();
@@ -123,20 +148,71 @@ public class EditProfileActivity extends BaseActivity{
 
     }
 
-//    public Bitmap ConvertToBitmap(String src) {
-//        try {
-//            URL url = new URL(src);
-//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//            connection.setDoInput(true);
-//            connection.connect();
-//            InputStream input = connection.getInputStream();
-//            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-//            return myBitmap;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_editprofile);
+        if (id == R.id.menu_home) {
+            // Handle the camera action
+            mDrawerLayout.closeDrawers();
+            // openActivityWithFinish(AboutActivity.class);
+
+        } else if (id == R.id.menu_pro_req) {
+            mDrawerLayout.closeDrawers();
+            // openActivityProductRequest();
+            //MenuHandler.orderHistory(this);
+
+        } else if (id == R.id.menu_profile) {
+            mDrawerLayout.closeDrawers();
+            // openActivityProfile();
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+        }
+
+        else if (id == R.id.menu_shopping) {
+            mDrawerLayout.closeDrawers();
+            // openActivity(ShoppingListActivity.class);
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+        }
+
+        else if (id == R.id.menu_all_cat) {
+            mDrawerLayout.closeDrawers();
+            // openActivity(AllCatActivity.class);
+
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+
+        }
+
+        return  true;
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbarmenu, menu);
+        MenuItem item = menu.findItem(R.id.badge);
+        MenuItemCompat.setActionView(item, R.layout.menu_cart);
+        RelativeLayout notifCount = (RelativeLayout)   MenuItemCompat.getActionView(item);
+        i =notifCount.findViewById(R.id.actionbar_notifcation_img);
+        tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
+        //tv.setText("12");
+        tv.setText("0");
+        //   i.setOnClickListener(this);
+        //  tv.setOnClickListener(this);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     public class AsyncTaskLoadImage  extends AsyncTask<String, String, Bitmap> {
         private final static String TAG = "AsyncTaskLoadImage";

@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.fightersarena.ocflex_costumer.Adapter.CustomerServicesAdapter;
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
+import com.example.fightersarena.ocflex_costumer.Helpers.TokenHelper;
 import com.example.fightersarena.ocflex_costumer.Listeners.RecyclerTouchListener;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerService;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerServices;
@@ -43,6 +44,8 @@ public class ServicesListActivity extends BaseActivity implements  NavigationVie
 
     public TextView tv;
     public ImageView i;
+    public TokenHelper tokenHelper;
+    public String TokenString;
 
     private List<CustomerService> customerServicesList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -51,7 +54,15 @@ public class ServicesListActivity extends BaseActivity implements  NavigationVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        // Initializations
+        tokenHelper = new TokenHelper(this);
+        TokenString = tokenHelper.GetToken();
+
+        if(TokenString == null){
+            OpenActivity(LoginActivity.class);
+        }else
+            setContentView(R.layout.activity_main);
        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         //setSupportActionBar(toolbar);
