@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 
 import com.example.fightersarena.ocflex_costumer.Adapter.CustomerServicesAdapter;
+import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.Listeners.RecyclerTouchListener;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerService;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerServices;
@@ -38,7 +39,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ServicesListActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
+public class ServicesListActivity extends BaseActivity implements  NavigationView.OnNavigationItemSelectedListener {
 
     public TextView tv;
     public ImageView i;
@@ -123,7 +124,8 @@ public class ServicesListActivity extends AppCompatActivity implements  Navigati
 
         } else if (id == R.id.menu_profile) {
             mDrawerLayout.closeDrawers();
-            // openActivityProfile();
+            OpenActivity(EditProfileActivity.class);
+            //openActivityProfile();
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
