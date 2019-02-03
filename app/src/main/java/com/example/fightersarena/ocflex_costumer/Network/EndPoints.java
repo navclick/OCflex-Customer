@@ -11,5 +11,6 @@ public class EndPoints {
     public static final String GETACTIVEORDERS = API_PREFIX + "order/getactiveorders";
     public static final String GETORDERHISTORY = API_PREFIX + "order/getorderhistory";
     public static final String ADDORDERS = API_PREFIX + "order/addorders";
+    public static final String GETBASE64 = API_PREFIX + "helper/converttobase";
     public static final String CUSTOMERSERVICES = API_PREFIX + "customerservice/getcustomerservices";
 }
