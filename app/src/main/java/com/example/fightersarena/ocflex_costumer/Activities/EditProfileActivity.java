@@ -206,7 +206,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             }
             @Override
             public void onFailure(Call<GeneralResponse> call, Throwable t) {
-                Toast.makeText(EditProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProfileActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 //                Log.d("ApiError",t.getMessage());
             }
         });
@@ -344,40 +344,49 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_editprofile);
-        if (id == R.id.menu_home) {
+        if (id == R.id.my_orders) {
             // Handle the camera action
             mDrawerLayout.closeDrawers();
             // openActivityWithFinish(AboutActivity.class);
+            BaseActivity.startActivity(this,MyOrderActivity.class);
 
-        } else if (id == R.id.menu_pro_req) {
+        }  else if (id == R.id.menu_profile) {
             mDrawerLayout.closeDrawers();
-            // openActivityProductRequest();
-            //MenuHandler.orderHistory(this);
-
-        } else if (id == R.id.menu_profile) {
-            mDrawerLayout.closeDrawers();
-            // openActivityProfile();
+            BaseActivity.startActivity(this,EditProfileActivity.class);
+            // OpenActivity(EditProfileActivity.class);
+            //openActivityProfile();
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
         }
 
-        else if (id == R.id.menu_shopping) {
+        else if (id == R.id.menu_all_setting) {
             mDrawerLayout.closeDrawers();
+            BaseActivity.startActivity(this,SettingActivity.class);
             // openActivity(ShoppingListActivity.class);
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
         }
 
-        else if (id == R.id.menu_all_cat) {
+        else if (id == R.id.menu_service) {
             mDrawerLayout.closeDrawers();
+            BaseActivity.startActivity(this,ServicesListActivity.class);
+
             // openActivity(AllCatActivity.class);
 
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
 
+        } else if (id == R.id.menu_pro_logout) {
+            mDrawerLayout.closeDrawers();
+            // openActivity(AllCatActivity.class);
+
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+            logOut();
         }
 
         return  true;
