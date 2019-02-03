@@ -25,4 +25,46 @@ public class TokenHelper {
         String restoredText = sharedPreferences.getString("token", null);
         return restoredText;
     }
+
+    public boolean SetUserName(String userName){
+        SharedPreferences.Editor editor = sharedPreferences.edit().putString("username", userName);
+        editor.commit();
+        return true;
+    }
+
+    public String GetUserName(){
+        String restoredText = sharedPreferences.getString("username", null);
+        return restoredText;
+    }
+
+
+
+    public boolean SetUserEmail(String useremail){
+        SharedPreferences.Editor editor = sharedPreferences.edit().putString("useremail", useremail);
+        editor.commit();
+        return true;
+    }
+
+    public String GetUserEmail(){
+        String restoredText = sharedPreferences.getString("useremail", null);
+        return restoredText;
+    }
+
+    public boolean SetUserPhoto(String usephoto){
+        SharedPreferences.Editor editor = sharedPreferences.edit().putString("userphoto", usephoto);
+        editor.commit();
+        return true;
+    }
+
+    public String GetUserPhoto(){
+        String restoredText = sharedPreferences.getString("userphoto", null);
+        return restoredText;
+    }
+    public boolean removeALL() {
+        android.content.SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+
+        prefsEditor.clear();
+        return prefsEditor.commit();
+    }
+
 }

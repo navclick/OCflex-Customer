@@ -21,6 +21,7 @@ import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.Models.Cart;
 import com.example.fightersarena.ocflex_costumer.Models.OrderItemRequestVM;
 import com.example.fightersarena.ocflex_costumer.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -47,6 +48,28 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_cart);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        //Show pic and name on drawer menu
+
+        View header = navigationView.getHeaderView(0);
+        TextView t = (TextView) header.findViewById(R.id.txt_main_name);
+        TextView tEmail = (TextView) header.findViewById(R.id.txt_email);
+        ImageView profile_img= (ImageView) header.findViewById(R.id.img_nav_profile);
+        tEmail.setText(tokenHelper.GetUserEmail());
+
+        t.setText(tokenHelper.GetUserName());
+
+        //profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
+        Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
+
+
+
+
+
+
+
+        ///--------
 
         btnAddMoreCart = (Button) findViewById(R.id.btn_addmorecart);
 
@@ -83,42 +106,53 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_billing);
-        if (id == R.id.menu_home) {
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_cart);
+
+        if (id == R.id.my_orders) {
             // Handle the camera action
             mDrawerLayout.closeDrawers();
             // openActivityWithFinish(AboutActivity.class);
+            BaseActivity.startActivity(this,MyOrderActivity.class);
 
-        } else if (id == R.id.menu_pro_req) {
+        }  else if (id == R.id.menu_profile) {
             mDrawerLayout.closeDrawers();
-            // openActivityProductRequest();
-            //MenuHandler.orderHistory(this);
-
-        } else if (id == R.id.menu_profile) {
-            mDrawerLayout.closeDrawers();
-            // openActivityProfile();
+            BaseActivity.startActivity(this,EditProfileActivity.class);
+            // OpenActivity(EditProfileActivity.class);
+            //openActivityProfile();
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
         }
 
-        else if (id == R.id.menu_shopping) {
+        else if (id == R.id.menu_all_setting) {
             mDrawerLayout.closeDrawers();
+            BaseActivity.startActivity(this,SettingActivity.class);
             // openActivity(ShoppingListActivity.class);
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
         }
 
-        else if (id == R.id.menu_all_cat) {
+        else if (id == R.id.menu_service) {
             mDrawerLayout.closeDrawers();
+            BaseActivity.startActivity(this,ServicesListActivity.class);
+
             // openActivity(AllCatActivity.class);
 
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
 
+        } else if (id == R.id.menu_pro_logout) {
+            mDrawerLayout.closeDrawers();
+            // openActivity(AllCatActivity.class);
+
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+            logOut();
         }
+
 
         return  true;
     }

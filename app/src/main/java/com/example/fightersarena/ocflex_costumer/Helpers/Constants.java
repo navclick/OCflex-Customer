@@ -1,5 +1,8 @@
 package com.example.fightersarena.ocflex_costumer.Helpers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Constants {
 
     // Network
@@ -19,4 +22,43 @@ public class Constants {
 
     // On billing screen
     public static boolean IS_BILLING = false;
+
+
+    // Network
+
+
+    public final static String TAG = "test";
+
+    // Splash screen
+
+
+    public static final int ORDER_PENDING = 1;
+    public static final int ORDER_ASSIGNED = 2;
+    public static final int ORDER_ACTIVE = 3;
+    public static final int ORDER_COMPLETED = 4;
+    public static final int ORDER_CANCELLED_BY_CUSTOMER = 5;
+    public static final int ORDER_CANCELLED_BY_ASSOCIATE = 6;
+
+
+
+    public static final Map<Integer, String> OrderStatus = new HashMap<Integer, String>();
+
+    public static void init(){
+
+        OrderStatus.put(1,"Pending");
+        OrderStatus.put(2,"Assigned");
+        OrderStatus.put(3,"Active");
+        OrderStatus.put(4,"Completed");
+        OrderStatus.put(5,"Cancelled by Customer");
+        OrderStatus.put(6,"Cancelled by Associate");
+
+
+
+    }
+
+    public static final String MSG_SERVICE_STATUS_UPDATED= "Service status updated";
+
+    public static final String MSG_SERVICE_STATUS_UPDATE_FAILED= "Service status updatedion failed!";
+    public static final String MESSAGE_REQUESTED_PERMISSION_DENIED = "Requested permissions required to continue";
+
 }

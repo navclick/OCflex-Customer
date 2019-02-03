@@ -66,6 +66,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     private void Register(){
         try {
+            showProgress();
             IApiCaller callerResponse = ApiClient.createService(IApiCaller.class);
             String fullname = txtFullName.getText().toString();
             String email = txtEmail.getText().toString();
@@ -88,6 +89,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     Register objResponse = response.body();
                     if(objResponse == null){
                         try {
+                            hideProgress();
 //                            JSONObject jObjError = new JSONObject(response.errorBody().string());
 //                            String err = jObjError.getString("error_description").toString();
 //                            Log.d("Error", err);
@@ -95,15 +97,18 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                             Toast.makeText(RegisterActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
 
                         } catch (Exception e) {
+                            hideProgress();
                             Log.d("Exception", e.getMessage());
                             Toast.makeText(RegisterActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                         }
                     }else{
                         Boolean isError = objResponse.getIserror();
                         if(isError == true){
+                            hideProgress();
                             // TODO: Open main screen if token is set successfully
                             Toast.makeText(RegisterActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         }else{
+                            hideProgress();
                             OpenActivity(LoginActivity.class);
                         }
                     }
@@ -112,11 +117,14 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 public void onFailure(Call<Register> call, Throwable t) {
                     Toast.makeText(RegisterActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
 //                Log.d("ApiError",t.getMessage());
+
+                    hideProgress();
                 }
             });
 
         }catch (Exception e){
             Log.d("error",e.getMessage());
+            hideProgress();
             Toast.makeText(RegisterActivity.this, "Email or password is not correct", Toast.LENGTH_SHORT).show();
         }
     }
