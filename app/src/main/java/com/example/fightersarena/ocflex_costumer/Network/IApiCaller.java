@@ -12,6 +12,7 @@ import com.example.fightersarena.ocflex_costumer.Models.Token;
 import com.example.fightersarena.ocflex_costumer.Models.UserResponse;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -53,7 +54,7 @@ public interface IApiCaller{
 
     @Multipart
     @POST(EndPoints.GETBASE64)
-    Call<GeneralResponse> GetBase64(@Part MultipartBody.Part file);
+    Call<GeneralResponse> GetBase64(@Part MultipartBody.Part image);
 
     // Register starts
 //    @FormUrlEncoded

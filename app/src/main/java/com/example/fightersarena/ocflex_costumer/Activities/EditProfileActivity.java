@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -30,6 +31,7 @@ import android.widget.Toast;
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.Helpers.TokenHelper;
 import com.example.fightersarena.ocflex_costumer.Models.GeneralResponse;
+import com.example.fightersarena.ocflex_costumer.Models.Register;
 import com.example.fightersarena.ocflex_costumer.Models.UserResponse;
 import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
 import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
@@ -59,10 +61,11 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
     Bitmap bmp;
 
     public TokenHelper tokenHelper;
-    public String TokenString;
+    public String TokenString, mediaPath;
 
     EditText txtFullName, txtPhone, txtAddressOne, txtEmail;
     TextView txtviewUploadPhoto;
+    Button btnUpdateProfile;
     private AsyncTask mMyTask;
 
     @Override
@@ -84,6 +87,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             txtPhone = (EditText) findViewById(R.id.txt_register_phone);
             txtviewUploadPhoto = (TextView) findViewById(R.id.txtview_uploadphoto);
             imgProfile = (ImageView) findViewById(R.id.img_register_profile);
+            btnUpdateProfile = (Button) findViewById(R.id. btn_updateprofile);
 
             //Side Menu and toolbar
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_editprofile);
@@ -99,6 +103,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
             // Listeners
             txtviewUploadPhoto.setOnClickListener(this);
+            btnUpdateProfile.setOnClickListener(this);
 
             //Initializations
             GetProfile();
@@ -167,6 +172,45 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
     private String ConvertToBase64() {
         String base64 = "";
+
+        File file = new File(mediaPath);
+
+        // Parsing any Media type file
+//        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+//        MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("image", file.getName(), requestBody);
+//        RequestBody filename = RequestBody.create(MediaType.parse("multipart/form-data"), file.getName());
+
+        RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
+        MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("image", file.getName(), requestBody);
+        //RequestBody filename = RequestBody.create(MediaType.parse("text/plain"), file.getName());
+
+        IApiCaller apiCaller = ApiClient.createService(IApiCaller.class);
+        Call<GeneralResponse> call = apiCaller.GetBase64(fileToUpload);
+
+        call.enqueue(new Callback<GeneralResponse>() {
+            @Override
+            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+                GeneralResponse serverResponse = response.body();
+                if (serverResponse != null) {
+                    if (serverResponse.getIserror()) {
+                        Log.d("error",serverResponse.getMessage());
+                        //Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.d("success",serverResponse.getMessage());
+                        //Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    assert serverResponse != null;
+                    Log.v("Response", serverResponse.toString());
+                }
+            }
+            @Override
+            public void onFailure(Call<GeneralResponse> call, Throwable t) {
+                Toast.makeText(EditProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+//                Log.d("ApiError",t.getMessage());
+            }
+        });
+
 //        try {
 //            String token = TokenString;
 //            token = "Bearer " + token;
@@ -218,6 +262,10 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             case R.id.txtview_uploadphoto:
                 OpenGallery();
                 break;
+
+            case R.id.btn_updateprofile:
+                ConvertToBase64();
+                break;
         }
     }
 
@@ -234,6 +282,17 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             switch (requestCode){
                 case 1:
                     Uri selectedImage = data.getData();
+
+                    String[] filePathColumn = {MediaStore.Images.Media.DATA};
+                    Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+                    assert cursor != null;
+                    cursor.moveToFirst();
+
+                    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                    mediaPath = cursor.getString(columnIndex);
+                    Log.d("filepath", mediaPath);
+
+
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
                         imgProfile.setImageBitmap(bitmap);
