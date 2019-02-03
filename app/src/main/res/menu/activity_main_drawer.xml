@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single" android:id="@+id/a-1">
-        <item android:id="@+id/menu_home" android:icon="@mipmap/my_orders"
+        <item android:id="@+id/my_orders" android:icon="@mipmap/my_orders"
             android:title="My Orders" />
         <item android:id="@+id/menu_profile" android:icon="@mipmap/edit_profile"
             android:title="Edit Profile" />
-        <item android:id="@+id/menu_all_cat" android:icon="@mipmap/settings"
+        <item android:id="@+id/menu_all_setting" android:icon="@mipmap/settings"
             android:title="Settings" />
-        <item android:id="@+id/menu_shopping" android:icon="@mipmap/services"
+        <item android:id="@+id/menu_service" android:icon="@mipmap/services"
             android:title="Services" />
-        <item android:id="@+id/menu_pro_req" android:icon="@mipmap/logout"
+        <item android:id="@+id/menu_pro_logout" android:icon="@mipmap/logout"
             android:title="Logout" />
     </group>
 </menu>

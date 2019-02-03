@@ -24,9 +24,26 @@ public class SplashActivity extends BaseActivity {
 
             @Override
             public void run() {
-                Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+             //   Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+               // startActivity(i);
+                //finish();
+
+                Intent i;
+
+                if(tokenHelper.GetToken()==null || tokenHelper.GetToken()=="") {
+                    i = new Intent(SplashActivity.this, LoginActivity.class);
+                }
+                else{
+                    i = new Intent(SplashActivity.this, ServicesListActivity.class);
+
+                }
+
+                //i = new Intent(SplashScreen.this, LanuageSelection.class);
+
+
                 startActivity(i);
                 finish();
+
             }
         }, SPLASH_TIME_OUT);
     }

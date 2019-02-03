@@ -1,11 +1,10 @@
 package com.example.fightersarena.ocflex_costumer.Activities;
 
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,29 +17,29 @@ import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.R;
 import com.squareup.picasso.Picasso;
 
-public class OrderReceiptActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class SettingActivity extends BaseActivity implements  NavigationView.OnNavigationItemSelectedListener{
+
     public TextView tv;
     public ImageView i;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.order_receipt);
+        setContentView(R.layout.settings);
 
-        //Side Menu and toolbar
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_orderreceipt);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_setting);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_orderreceipt);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_setting);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_orderreceipt);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_setting);
         navigationView.setNavigationItemSelectedListener(this);
 
         //-----------------------------------
+
 //Show pic and name on drawer menu
 
         View header = navigationView.getHeaderView(0);
@@ -65,15 +64,16 @@ public class OrderReceiptActivity extends BaseActivity implements NavigationView
     }
 
 
-//side menu and tool bar
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_orderreceipt);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_setting);
+
+
+
 
         if (id == R.id.my_orders) {
             // Handle the camera action
@@ -137,6 +137,7 @@ public class OrderReceiptActivity extends BaseActivity implements NavigationView
         //  tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
+
 
 
 

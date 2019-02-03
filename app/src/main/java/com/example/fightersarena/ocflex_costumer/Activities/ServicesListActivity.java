@@ -30,6 +30,7 @@ import com.example.fightersarena.ocflex_costumer.Models.CustomerServices;
 import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
 import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
 import com.example.fightersarena.ocflex_costumer.R;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 
@@ -79,6 +80,28 @@ public class ServicesListActivity extends BaseActivity implements  NavigationVie
 
         //-----------------------------------
 
+//Show pic and name on drawer menu
+
+        View header = navigationView.getHeaderView(0);
+        TextView t = (TextView) header.findViewById(R.id.txt_main_name);
+        TextView tEmail = (TextView) header.findViewById(R.id.txt_email);
+        ImageView profile_img= (ImageView) header.findViewById(R.id.img_nav_profile);
+        tEmail.setText(tokenHelper.GetUserEmail());
+
+        t.setText(tokenHelper.GetUserName());
+
+        //profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
+        Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
+
+
+
+
+
+
+
+        ///--------
+
+
 
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerCustomerServices);
@@ -122,42 +145,54 @@ public class ServicesListActivity extends BaseActivity implements  NavigationVie
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_billing);
-        if (id == R.id.menu_home) {
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_services);
+
+
+
+
+        if (id == R.id.my_orders) {
             // Handle the camera action
             mDrawerLayout.closeDrawers();
             // openActivityWithFinish(AboutActivity.class);
+            BaseActivity.startActivity(this,MyOrderActivity.class);
 
-        } else if (id == R.id.menu_pro_req) {
+        }  else if (id == R.id.menu_profile) {
             mDrawerLayout.closeDrawers();
-            // openActivityProductRequest();
-            //MenuHandler.orderHistory(this);
-
-        } else if (id == R.id.menu_profile) {
-            mDrawerLayout.closeDrawers();
-            OpenActivity(EditProfileActivity.class);
+            BaseActivity.startActivity(this,EditProfileActivity.class);
+            // OpenActivity(EditProfileActivity.class);
             //openActivityProfile();
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
         }
 
-        else if (id == R.id.menu_shopping) {
+        else if (id == R.id.menu_all_setting) {
             mDrawerLayout.closeDrawers();
+            BaseActivity.startActivity(this,SettingActivity.class);
             // openActivity(ShoppingListActivity.class);
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
         }
 
-        else if (id == R.id.menu_all_cat) {
+        else if (id == R.id.menu_service) {
             mDrawerLayout.closeDrawers();
+            BaseActivity.startActivity(this,ServicesListActivity.class);
+
             // openActivity(AllCatActivity.class);
 
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
 
+        } else if (id == R.id.menu_pro_logout) {
+            mDrawerLayout.closeDrawers();
+            // openActivity(AllCatActivity.class);
+
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+            logOut();
         }
 
         return  true;
@@ -181,6 +216,7 @@ public class ServicesListActivity extends BaseActivity implements  NavigationVie
     }
 
     private void GetCustomerServices(){
+       showProgress();
         try {
             IApiCaller token = ApiClient.createService(IApiCaller.class);
             Call<CustomerServices> response = token.GetCustomerServices();
@@ -191,16 +227,19 @@ public class ServicesListActivity extends BaseActivity implements  NavigationVie
                     CustomerServices obj = response.body();
                     if(obj == null){
                         try {
+                            hideProgress();
                             JSONObject jObjError = new JSONObject(response.errorBody().string());
                             String err = jObjError.getString("error_description").toString();
                             Log.d("Error", err);
                             Toast.makeText(ServicesListActivity.this, err, Toast.LENGTH_SHORT).show();
 
                         } catch (Exception e) {
+                            hideProgress();
                             Log.d("Exception", e.getMessage());
                             Toast.makeText(ServicesListActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                         }
                     }else{
+                        hideProgress();
                         List<CustomerServices.Value> list = obj.getValue();
                         for (CustomerServices.Value customerList: list){
 
@@ -219,11 +258,13 @@ public class ServicesListActivity extends BaseActivity implements  NavigationVie
                 public void onFailure(Call<CustomerServices> call, Throwable t) {
                     Toast.makeText(ServicesListActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
 //                Log.d("ApiError",t.getMessage());
+                    hideProgress();
                 }
             });
 
         }catch (Exception e){
             Log.d("error",e.getMessage());
+            hideProgress();
             Toast.makeText(ServicesListActivity.this, "Email or password is not correct", Toast.LENGTH_SHORT).show();
         }
     }
