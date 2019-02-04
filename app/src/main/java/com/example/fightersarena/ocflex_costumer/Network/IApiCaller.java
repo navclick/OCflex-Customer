@@ -9,6 +9,7 @@ import com.example.fightersarena.ocflex_costumer.Models.OrderResponse;
 import com.example.fightersarena.ocflex_costumer.Models.Register;
 import com.example.fightersarena.ocflex_costumer.Models.RegisterRequest;
 import com.example.fightersarena.ocflex_costumer.Models.Token;
+import com.example.fightersarena.ocflex_costumer.Models.UpdateProfile;
 import com.example.fightersarena.ocflex_costumer.Models.UserResponse;
 
 import okhttp3.MultipartBody;
@@ -33,6 +34,9 @@ public interface IApiCaller{
 
     @GET(EndPoints.GETUSER)
     Call<UserResponse> GetUser();
+
+    @POST(EndPoints.UPDATEUSER)
+    Call<GeneralResponse> UpdateProfile(@Body UpdateProfile profileRequest);
 
     @POST(EndPoints.REGISTER)
     Call<Register> Register(@Body RegisterRequest registerRequest);

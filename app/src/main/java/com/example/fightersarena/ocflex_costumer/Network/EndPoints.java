@@ -5,6 +5,7 @@ public class EndPoints {
 
     public static final String LOGIN = "oauth/token";
 
+    public static final String UPDATEUSER = API_PREFIX + "accounts/updateuser";
     public static final String REGISTER = API_PREFIX + "accounts/create";
     public static final String GETUSER = API_PREFIX + "accounts/getuser";
     public static final String GETMYORDERS = API_PREFIX + "order/getmyorders";

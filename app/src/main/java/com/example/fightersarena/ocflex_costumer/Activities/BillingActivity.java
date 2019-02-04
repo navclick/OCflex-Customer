@@ -92,14 +92,7 @@ public class BillingActivity extends BaseActivity implements View.OnClickListene
             //profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
             Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
 
-
-
-
-
-
-
             ///--------
-
 
             txtFullName = (EditText) findViewById(R.id.txt_fullname);
             txtAddress = (EditText) findViewById(R.id.txt_address);
@@ -226,12 +219,12 @@ public class BillingActivity extends BaseActivity implements View.OnClickListene
             response.enqueue(new Callback<OrderResponse>() {
                 @Override
                 public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
-                    Object objResponse = response.body();
+                    OrderResponse objResponse = response.body();
 //                    OrderResponse objResponse = response.body();
                     if(objResponse == null){
                         try {
                             hideProgress();
-//                            Toast.makeText(BillingActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BillingActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         } catch (NullPointerException nulle){
                             Toast.makeText(BillingActivity.this, "You are unauthorized to create order", Toast.LENGTH_SHORT).show();
                         }
@@ -240,13 +233,12 @@ public class BillingActivity extends BaseActivity implements View.OnClickListene
                             Toast.makeText(BillingActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                         }
                     }else{
-//                        Boolean isError = objResponse.getIserror();
-//                        if(isError == true){
-//                            Toast.makeText(BillingActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
-//                        }else{
-//
-//                            OpenActivity(OrderReceiptActivity.class);
-//                        }
+                        Boolean isError = objResponse.getIserror();
+                        if(isError == true){
+                            Toast.makeText(BillingActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        }else{
+                            OpenActivity(OrderReceiptActivity.class);
+                        }
                         hideProgress();
                     }
                 }

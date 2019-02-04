@@ -32,6 +32,7 @@ import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.Helpers.TokenHelper;
 import com.example.fightersarena.ocflex_costumer.Models.GeneralResponse;
 import com.example.fightersarena.ocflex_costumer.Models.Register;
+import com.example.fightersarena.ocflex_costumer.Models.UpdateProfile;
 import com.example.fightersarena.ocflex_costumer.Models.UserResponse;
 import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
 import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
@@ -62,6 +63,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
     public TokenHelper tokenHelper;
     public String TokenString, mediaPath;
+    public static String imgBase64;
 
     EditText txtFullName, txtPhone, txtAddressOne, txtEmail;
     TextView txtviewUploadPhoto;
@@ -168,91 +170,108 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
     private void UpdateProfile(){
 
+        try {
+
+            showProgress();
+            ConvertToBase64();
+
+            IApiCaller callerResponse = ApiClient.createService(IApiCaller.class);
+
+            String fullname = txtFullName.getText().toString();
+            String email = txtAddressOne.getText().toString();
+            String phone = txtPhone.getText().toString();
+
+            UpdateProfile request = new UpdateProfile();
+            request.setFullName(fullname);
+            request.setAddressOne(email);
+            request.setPhoneNumber(phone);
+            request.setImage(imgBase64);
+
+            Call<GeneralResponse> response = callerResponse.UpdateProfile(request);
+
+            response.enqueue(new Callback<GeneralResponse>() {
+                @Override
+                public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+                    GeneralResponse objResponse = response.body();
+                    if(objResponse == null){
+                        try {
+                            hideProgress();
+//                            JSONObject jObjError = new JSONObject(response.errorBody().string());
+//                            String err = jObjError.getString("error_description").toString();
+//                            Log.d("Error", err);
+//                            Toast.makeText(RegisterActivity.this, err, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditProfileActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        } catch (Exception e) {
+                            hideProgress();
+                            Log.d("Exception", e.getMessage());
+                            Toast.makeText(EditProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Boolean isError = objResponse.getIserror();
+                        if(isError == true){
+                            hideProgress();
+                            // TODO: Open main screen if token is set successfully
+                            Toast.makeText(EditProfileActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        }else{
+                            hideProgress();
+                            Toast.makeText(EditProfileActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                            //OpenActivity(LoginActivity.class);
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<GeneralResponse> call, Throwable t) {
+                    Toast.makeText(EditProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+//                Log.d("ApiError",t.getMessage());
+
+                    hideProgress();
+                }
+            });
+
+        }catch (Exception e){
+            Log.d("error",e.getMessage());
+            hideProgress();
+            Toast.makeText(EditProfileActivity.this, "Email or password is not correct", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    private String ConvertToBase64() {
-        String base64 = "";
+    public void ConvertToBase64() {
+        if(mediaPath != null && mediaPath != ""){
+            File file = new File(mediaPath);
+            if(file.exists()){
+                RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
+                MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("image", file.getName(), requestBody);
 
-        File file = new File(mediaPath);
+                IApiCaller apiCaller = ApiClient.createService(IApiCaller.class);
+                Call<GeneralResponse> call = apiCaller.GetBase64(fileToUpload);
 
-        // Parsing any Media type file
-//        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-//        MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("image", file.getName(), requestBody);
-//        RequestBody filename = RequestBody.create(MediaType.parse("multipart/form-data"), file.getName());
-
-        RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
-        MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("image", file.getName(), requestBody);
-        //RequestBody filename = RequestBody.create(MediaType.parse("text/plain"), file.getName());
-
-        IApiCaller apiCaller = ApiClient.createService(IApiCaller.class);
-        Call<GeneralResponse> call = apiCaller.GetBase64(fileToUpload);
-
-        call.enqueue(new Callback<GeneralResponse>() {
-            @Override
-            public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
-                GeneralResponse serverResponse = response.body();
-                if (serverResponse != null) {
-                    if (serverResponse.getIserror()) {
-                        Log.d("error",serverResponse.getMessage());
-                        //Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
-                    } else {
-                        Log.d("success",serverResponse.getMessage());
-                        //Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                call.enqueue(new Callback<GeneralResponse>() {
+                    @Override
+                    public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+                        GeneralResponse serverResponse = response.body();
+                        if (serverResponse != null) {
+                            if (serverResponse.getIserror()) {
+                                Log.d("error",serverResponse.getMessage());
+                                //Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                            } else {
+                                Log.d("success",serverResponse.getMessage());
+                                imgBase64 = serverResponse.getMessage();
+                                //imgBase64 = serverResponse.getMessage();
+                                //Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            assert serverResponse != null;
+                            Log.v("Response", serverResponse.toString());
+                        }
                     }
-                } else {
-                    assert serverResponse != null;
-                    Log.v("Response", serverResponse.toString());
-                }
+                    @Override
+                    public void onFailure(Call<GeneralResponse> call, Throwable t) {
+                        Toast.makeText(EditProfileActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
-            @Override
-            public void onFailure(Call<GeneralResponse> call, Throwable t) {
-                Toast.makeText(EditProfileActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-//                Log.d("ApiError",t.getMessage());
-            }
-        });
-
-//        try {
-//            String token = TokenString;
-//            token = "Bearer " + token;
-//            IApiCaller apiCaller = ApiClient.createService(IApiCaller.class, true);
-//
-//            File file = new File("http://192.168.100.2:82/images/dummyuserone.jpg");
-//            RequestBody reqFile = RequestBody.create(MediaType.parse(getContentResolver().getType(selectedImageUri)), file);
-//            MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), reqFile);
-//
-//            Call<GeneralResponse> response = apiCaller.GetBase64(body);
-//
-//            response.enqueue(new Callback<GeneralResponse>() {
-//                @Override
-//                public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
-//                    GeneralResponse objResponse = response.body();
-//                    if(objResponse == null){
-//                        try {
-//                            Toast.makeText(EditProfileActivity.this, "Server error", Toast.LENGTH_SHORT).show();
-//                        } catch (Exception e) {
-//                            Log.d("Exception", e.getMessage());
-//                            Toast.makeText(EditProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }else{
-//                        if(objResponse.getIserror()){
-//                            OpenActivity(LoginActivity.class);
-//                        }else{
-//
-//                        }
-//                    }
-//                }
-//                @Override
-//                public void onFailure(Call<GeneralResponse> call, Throwable t) {
-//                    Toast.makeText(EditProfileActivity.this, "Invalid request", Toast.LENGTH_SHORT).show();
-////                Log.d("ApiError",t.getMessage());
-//                }
-//            });
-//
-//        }catch (Exception e){
-//            Log.d("error",e.getMessage());
-//            Toast.makeText(EditProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-//        }
-        return base64;
+        }
     }
 
     @Override
@@ -264,7 +283,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                 break;
 
             case R.id.btn_updateprofile:
-                ConvertToBase64();
+                UpdateProfile();
                 break;
         }
     }
@@ -410,8 +429,8 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
     public class AsyncTaskLoadImage  extends AsyncTask<String, String, Bitmap> {
         private final static String TAG = "AsyncTaskLoadImage";
-//        private ImageButton imageView;
-//        public AsyncTaskLoadImage(ImageButton imageView) {
+//        private ImageView imageView;
+//        public AsyncTaskLoadImage(ImageView imageView) {
 //            this.imageView = imageView;
 //        }
         @Override
