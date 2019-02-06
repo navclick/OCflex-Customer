@@ -15,7 +15,7 @@ public class CustomerService {
         this.id = id;
         this.name = name;
         this.rates = rates;
-        this.imageUrl = name;
+        this.imageUrl = imageUrl;
     }
 
     private String name,imageUrl;

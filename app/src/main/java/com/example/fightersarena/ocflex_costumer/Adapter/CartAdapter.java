@@ -41,7 +41,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ListViewHolder
     @Override
     public void onBindViewHolder(CartAdapter.ListViewHolder holder, int position) {
         CartVM cart = cartList.get(position);
-        holder.name.setText(cart.getServiceName());
+        String servicename = cart.getServiceName();
+        holder.name.setText(servicename);
     }
 
     @Override

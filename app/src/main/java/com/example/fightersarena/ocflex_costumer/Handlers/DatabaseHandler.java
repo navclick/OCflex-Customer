@@ -51,10 +51,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CreateCart = "CREATE TABLE "+ TABLE_NAME +" ( " + CART_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + SERVICE_ID + " ," + SERVICE_NAME + " ,"
-                + ORDER_DATE + ", " + ORDER_TIME + ", " + ORDER_HOURS + ", " + RATES + " ) ";
+        String CreateCart = "CREATE TABLE "+ TABLE_NAME +" ( " + CART_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + SERVICE_ID + " INTEGER, "
+                + SERVICE_NAME + " TEXT,"
+                + ORDER_DATE + " TEXT, "
+                + ORDER_TIME + " TEXT, "
+                + ORDER_HOURS + " INTEGER, "
+                + RATES + " INTEGER);";
+//        String CreateCart = "Create table "+" Cart "+ " (" +"Id"+" integer primary key autoincrement, serviceid integer, servicename text, orderdate text, ordertime text, hours integer, rates integer)";
         Log.d("CreateCart",CreateCart);
         db.execSQL(CreateCart);
+
+        ContentValues values = new ContentValues();
+        values.put(SERVICE_ID, "1");
+        values.put(SERVICE_NAME , "Personal Assistant");
+        values.put(ORDER_DATE , "2/6/2019");
+        values.put(ORDER_TIME , "10:00");
+        values.put(ORDER_HOURS , 2);
+        values.put(RATES, 30);
+        db.insert(TABLE_NAME, null, values);
     }
 
     @Override

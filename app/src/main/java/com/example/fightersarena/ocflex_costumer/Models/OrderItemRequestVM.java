@@ -32,7 +32,7 @@ public class OrderItemRequestVM {
 
     public String getServiceName() { return serviceName; }
 
-    public void setServiceName(String serviceId) {
+    public void setServiceName(String serviceName) {
         this.serviceName = serviceName;
     }
 

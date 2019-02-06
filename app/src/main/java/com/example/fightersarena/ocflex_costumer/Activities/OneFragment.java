@@ -114,22 +114,6 @@ public class OneFragment extends BaseFragment {
         return view;
     }
 
-    private void prepareMovieData() {
-        CustomerService cust = new CustomerService(1,"sss", 10, "http://192.168.100.2:82/images/dummyproduct.jpg");
-        customerServicesList.add(cust);
-
-        CustomerService cus1 = new CustomerService(2,"Service One", 55, "http://192.168.100.2:82/images/dummyproduct.jpg");
-        customerServicesList.add(cus1);
-
-        cust = new CustomerService(3,"Service Two", 30, "http://192.168.100.2:82/images/dummyproduct.jpg");
-        customerServicesList.add(cust);
-
-        cust = new CustomerService(4,"Service Three", 40, "http://192.168.100.2:82/images/dummyproduct.jpg");
-        customerServicesList.add(cust);
-
-        customerServiceAdapter.notifyDataSetChanged();
-    }
-
 
     private void GetCustomerServices(){
         showProgress();
@@ -162,7 +146,7 @@ public class OneFragment extends BaseFragment {
                             int id = customerList.getId();
                             String name = customerList.getName();
                             int rates = customerList.getRates();
-                            String imageUrl = customerList.getImageUrl();
+                            String imageUrl = customerList.getImage();
 
                             CustomerService cust = new CustomerService(id, name, rates, imageUrl);
                             customerServicesList.add(cust);
