@@ -40,7 +40,7 @@
 
         <activity
             android:name=".Activities.ServicesListActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.OrderActivity"
@@ -52,7 +52,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.MyOrderActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.TrackingActivity"
@@ -77,7 +77,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.BillingActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.LoginActivity"
@@ -85,11 +85,11 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.EditProfileActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.SettingActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity
