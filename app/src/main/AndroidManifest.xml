@@ -33,6 +33,12 @@
             </intent-filter>
         </activity>
         <activity
+        android:name=".Activities.ServiceListTabMainActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
+        <activity
             android:name=".Activities.ServicesListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

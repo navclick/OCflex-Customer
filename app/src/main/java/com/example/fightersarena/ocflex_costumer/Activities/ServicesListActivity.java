@@ -63,7 +63,7 @@ public class ServicesListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         OpenActivity(ServiceListTabMainActivity.class);
 
-      
+
 
     }
 
