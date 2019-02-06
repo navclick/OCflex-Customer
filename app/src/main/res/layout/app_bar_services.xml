@@ -31,12 +31,10 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabSelectedTextColor="@color/colorPrimaryDark"
-            app:tabTextColor="@color/colordailog"
+            app:tabSelectedTextColor="@color/darkPurple"
+            app:tabTextColor="#7C8082"
+            app:tabIndicatorColor="@color/green"
             >
-
-
-
 
         </android.support.design.widget.TabLayout>
 
