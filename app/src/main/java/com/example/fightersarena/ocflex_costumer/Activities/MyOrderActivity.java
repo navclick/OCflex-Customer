@@ -70,6 +70,7 @@ public class MyOrderActivity extends BaseActivity  implements  NavigationView.On
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_myorders);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_myorders);
 

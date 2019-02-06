@@ -30,20 +30,32 @@
             app:layout_constraintVertical_bias="0.13999999"
             app:srcCompat="@drawable/ocf_logo" />
 
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:gravity="center"
+            android:lines="3"
+            android:text="We will make your time count by doing the mundane things so you can have quality time for the more important things in life." />
+
         <EditText
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
             android:drawableLeft="@drawable/email_icon"
             android:drawablePadding="15dp"
             android:hint="Email Address"
             android:inputType="textEmailAddress"
-            android:paddingLeft="15dp"
             android:paddingBottom="20dp"
+            android:paddingLeft="15dp"
             android:textColor="#758089"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:theme="@style/MyCheckBox" />
 
         <EditText
             android:id="@+id/txtPassword"
@@ -59,7 +71,8 @@
             android:paddingBottom="20dp"
             android:paddingLeft="15dp"
             android:textColor="#758089"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:theme="@style/MyCheckBox" />
 
         <TextView
             android:id="@+id/textView2"
@@ -75,7 +88,7 @@
 
         <Button
             android:id="@+id/btn_signin"
-            style="android:attr/borderlessButtonStyle"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"

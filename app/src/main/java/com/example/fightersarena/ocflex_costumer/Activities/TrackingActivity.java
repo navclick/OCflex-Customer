@@ -36,6 +36,7 @@ public class TrackingActivity extends BaseActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_tracking);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_tracking);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_tracking);
 

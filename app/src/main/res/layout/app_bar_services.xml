@@ -27,8 +27,24 @@
                 android:contentDescription="TODO" />
 
         </android.support.v7.widget.Toolbar>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabSelectedTextColor="@color/colorPrimaryDark"
+            app:tabTextColor="@color/colordailog"
+            >
+
+
+
+
+        </android.support.design.widget.TabLayout>
 
     </android.support.design.widget.AppBarLayout>
-    <include layout="@layout/content_serviceslist" />
-
+    <!--<include layout="@layout/content_serviceslist" /> -->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 </android.support.design.widget.CoordinatorLayout>

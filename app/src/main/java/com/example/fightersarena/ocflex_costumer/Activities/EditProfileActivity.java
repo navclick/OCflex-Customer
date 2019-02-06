@@ -93,6 +93,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
             //Side Menu and toolbar
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_editprofile);
+            toolbar.setTitle("");
             setSupportActionBar(toolbar);
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_editprofile);
 

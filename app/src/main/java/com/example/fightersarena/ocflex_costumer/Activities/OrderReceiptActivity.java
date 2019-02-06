@@ -30,6 +30,7 @@ public class OrderReceiptActivity extends BaseActivity implements NavigationView
         //Side Menu and toolbar
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_orderreceipt);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_orderreceipt);
 

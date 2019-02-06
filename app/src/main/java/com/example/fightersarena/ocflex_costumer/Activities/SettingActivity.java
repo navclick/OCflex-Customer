@@ -28,6 +28,7 @@ public class SettingActivity extends BaseActivity implements  NavigationView.OnN
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_setting);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_setting);
 
