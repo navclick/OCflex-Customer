@@ -3,9 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    android:orientation="vertical"
-    android:paddingEnd="20dp"
-    android:paddingStart="20dp">
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,7 +12,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp">
 
             <RelativeLayout
                 android:id="@+id/page_title"
@@ -76,50 +76,70 @@
                 android:id="@+id/textView33"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:text="If you enjoy working with people, having flexible hours,     and doing a variety of jobs come join our OCflexhelp team. You may be able to enjoy a flexible schedule, assist clients, perform a variety of jobs and keep your tips.  Come and enjoy a flexible schedule, assisting clients and/or performing a variety of jobs as a Care Associate and keeping your tips!"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Come and enjoy a flexible schedule, assisting clients and/or performing a variety of jobs as a Care Associate and keeping your tips!"
                 android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textView34"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Requirements" />
+                android:layout_marginBottom="10dp"
+                android:text="Requirements"
+                android:textColor="@color/darkPurple" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Minimum age: 18 years old A clear photo of yourself A valid Driver’s license Updated car insurance Live Scan" />
+                android:text="@string/requirments" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Please read and accept OCflexhelp’s T&amp;C and Privacy Policy before applying for Care Associate position.      Download the application and agreement, fill it out, email and/or mail to us and we will get back to you in a timely manner." />
+                android:layout_marginBottom="20dp"
+                android:text="@string/emp_opp_third"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/textView32"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Download" />
+                android:layout_marginBottom="10dp"
+                android:text="Download"
+                android:textColor="@color/darkPurple"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView35"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:text="Application" />
 
             <TextView
                 android:id="@+id/textView36"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:text="Agreement" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="If and when needed, the Key(s) Agreement must be filled out, signed by both parties e-mailed, and/or copied            and text to 949.432.0263 OCflexhelp upon accepting our          clients key(s) and when returning our client key(s) after     the slip has been initialed by our client upon receipt               of their key(s)." />
+                android:text="If and when needed, the Key(s) Agreement must be filled out, signed by both parties e-mailed, and/or copied            and text to 949.432.0263 OCflexhelp upon accepting our          clients key(s) and when returning our client key(s) after     the slip has been initialed by our client upon receipt               of their key(s)."
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btn_emp_back"

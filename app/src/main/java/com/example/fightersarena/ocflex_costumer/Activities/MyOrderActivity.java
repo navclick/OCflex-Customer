@@ -43,7 +43,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MyOrderActivity extends BaseActivity  implements  NavigationView.OnNavigationItemSelectedListener{
+public class MyOrderActivity extends BaseActivity  implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener{
 
     private List<MyOrder> myOrderList = new ArrayList<>();
     private List<MyOrder> myOrderHistoryList = new ArrayList<>();
@@ -341,9 +341,22 @@ public class MyOrderActivity extends BaseActivity  implements  NavigationView.On
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText("0");
-        //   i.setOnClickListener(this);
-        //  tv.setOnClickListener(this);
+        i.setOnClickListener(this);
+        tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+
+            case R.id.actionbar_notifcation_img:
+                OpenActivity(CartActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(CartActivity.class);
+                break;
+        }
+    }
 }

@@ -134,26 +134,29 @@ You may not use our logos or “design” service marks (as opposed to our servi
 \n\n
 In addition, you may not use our service marks or trademarks, whether design or word marks, in the following ways:
 \n\n
-in any service name or publication title;
+1. in any service name or publication title;
         \n\n
-in, as, or as part of, your own service or trademarks;
-to identify products or services that are not ours;
-in a manner likely to cause confusion;
-in a manner that implies inaccurately that we sponsor or endorse, or are otherwise connected with, your own activities, products and services;
-as hidden or embedded text in web pages in an effort to cause a search of our marks to result in a hit on a page not maintained by us in a </string>
-    manner disparaging of our brand.
+2. in, as, or as part of, your own service or trademarks;
+        \n\n
+3. to identify products or services that are not ours;
+\n\n
+4. in a manner likely to cause confusion;
+        \n\n
+5. in a manner that implies inaccurately that we sponsor or endorse, or are otherwise connected with, your own activities, products and services;
+        \n\n
+6. as hidden or embedded text in web pages in an effort to cause a search of our marks to result in a hit on a page not maintained by us in a manner disparaging of our brand.</string>
     <string name="THIRDPARTY_LINKS">
 10.1 Certain content, products and services available via our Service may include materials from third-parties.
-
+\n\n
 10.2 Third-party links on this app/website may direct you to third-party app/websites that are not affiliated with us. We are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not have any liability or responsibility for any third-party materials or app/websites, or for any other materials, products, or services of third-parties.
-
+\n\n
 10.3 We are not liable for any harm or damages related to the purchase or use of goods, services, resources, content, or any other transactions made in connection with any third-party app/websites. Please review carefully the third-party’s policies and practices and make sure you understand them before you engage in any transaction. Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.
 </string>
     <string name="USER_COMMENTS_FEEDBACK_AND_OTHER_SUBMISSIONS">
 11.1 If, at our request, you send certain specific submissions (for example contest entries) or without a request from us you send creative ideas, suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, ‘comments’), you agree that we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise use in any medium any comments that you forward to us. We are and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any comments; or (3) to respond to any comments.
-
+\n\n
 11.2 We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party’s intellectual property or these Terms of Service.
-
+\n\n
 11.3 You agree that your comments will not violate any right of any third-party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your comments will not contain libelous or otherwise unlawful, abusive or obscene material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related app/website. You may not use a false e-mail address, pretend to be someone other than yourself, or otherwise mislead us or third-parties as to the origin of any comments. You are solely responsible for any comments you make and their accuracy. We take no responsibility and assume no liability for any comments posted by you or any third-party.
 </string>
     <string name="PERSONAL_INFORMATION">
@@ -161,7 +164,7 @@ Your submission of personal information through the app/website is governed by o
 </string>
     <string name="ERRORS_INACCURACIES_AND_OMISSIONS">
 13.1 Occasionally there may be information on our app/website or in the Service that contains typographical errors, inaccuracies or omissions that may relate to product descriptions, pricing, promotions, offers, product shipping charges, transit times and availability. We reserve the right to correct any errors, inaccuracies or omissions, and to change or update information or cancel orders if any information in the Service or on any related app/website is inaccurate at any time without prior notice (including after you have submitted your order).
-
+\n\n
 13.2 We undertake no obligation to update, amend or clarify information in the Service or on any related app/website, including without limitation, pricing information, except as required by law. No specified update or refresh date applied in the Service or on any related app/website should be taken to indicate that all information in the Service or on any related app/website has been modified or updated.
 </string>
     <string name="PROHIBITED_USES">
@@ -172,11 +175,11 @@ Your submission of personal information through the app/website is governed by o
 </string>
     <string name="GENERAL_CONDITIONS">
 16.1 We reserve the right to refuse our service to anyone for any reason at any time.
-
+\n\n
 16.2 You understand that your personal information (not including credit card information), may be transferred and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices.
-
+\n\n
 16.3 You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service or any contact on the app/website through which the service is provided, without express written permission by us.
-
+\n\n
 16.4 The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.
 </string>
     <string name="SEVERABILITY">
@@ -184,30 +187,41 @@ Your submission of personal information through the app/website is governed by o
 </string>
     <string name="TERMINATION">
 18.1 The obligations and liabilities of the parties incurred prior to the termination date shall survive the termination of this agreement for all purposes.
-
+\n\n
 18.2 These Terms of Service are effective unless and until terminated by either you or us. You may terminate these Terms of Service at any time by notifying us that you no longer wish to use our Services, or when you cease using our app/website.
-
+\n\n
 18.3 If in our sole judgment you fail, or we suspect that you have failed, to comply with any term or provision of these Terms of Service, we also may terminate this agreement at any time without notice and you will remain liable for all amounts due up to and including the date of termination; and/or accordingly may deny you access to our Services (or any part thereof).
 </string>
     <string name="ENTIRE_AGREEMENT">
 19.1 The failure of us to exercise or enforce any right or provision of these Terms of Service shall not constitute a waiver of such right or provision.
-
+\n\n
 19.2 These Terms of Service and any policies or operating rules posted by us on this app/website or in respect to The Service constitutes the entire agreement and understanding between you and us and govern your use of the Service, superseding any prior or contemporaneous agreements, communications and proposals, whether oral or written, between you and us (including, but not limited to, any prior versions of the Terms of Service).
-
+\n\n
 19.3 Any ambiguities in the interpretation of these Terms of Service shall not be construed against the drafting party.
 </string>
     <string name="GOVERNING_LAW_AND_ARBITRATION_CLAUSE">
 20.1 These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of the State of California.
-
+\n\n
 20.2 Any dispute arising hereunder shall be subject to mandatory arbitration in Los Angeles County under the procedures provided by JAMS.
 </string>
     <string name="CHANGES_TO_TERMS_OF_SERVICE">
 21.1 You can review the most current version of the Terms of Service at any time at this page.
-
+\n\n
 21.2 We reserve the right, at our sole discretion, to update, change or replace any part of these Terms of Service by posting updates and changes to our app/website. It is your responsibility to check our app/website periodically for changes. Your continued use of or access to our app/website or the Service following the posting of any changes to these Terms of Service constitutes acceptance of those changes.
 </string>
     <string name="CONTACT_INFORMATION">
 Questions about the Terms of Service should be sent to us at ocflexhelp@gmail.com.
 </string>
+
+    <string name="requirments">\u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020Minimum age: 18 years old\n\n
+        \u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020A clear photo of yourself\n\n
+        \u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020A valid Driver’s license\n\n
+        \u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020Updated car insurance\n\n
+        \u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020Live Scan\n
+    </string>
+
+    <string name="emp_opp_third">
+        Please read and accept OCflexhelp’s <font color='#7300AB'>Terms &amp; Conditions</font> and <font color='#7300AB'>Privacy Policy</font> before applying for Care Associate position.      Download the application and agreement, fill it out, email and/or mail to us and we will get back to you in a timely manner.
+    </string>
 
 </resources>

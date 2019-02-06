@@ -46,7 +46,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
     String[] hours;
     public static int id, serviceRates;
     private int total;
-    String serviceName;
+    public static String serviceName;
 
     Button btnNext, btnAddMoreService;
     TextView txtServiceName, txtTotal;
