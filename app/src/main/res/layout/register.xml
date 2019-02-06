@@ -114,16 +114,16 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/check_terms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="0dp"
                     android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
                     android:text="I accept the "
                     android:theme="@style/MyCheckBox" />
 
                 <TextView
-                    android:id="@+id/textView37"
+                    android:id="@+id/txt_terms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/term"

@@ -61,5 +61,7 @@ public class Constants {
     public static final String MSG_SERVICE_STATUS_UPDATE_FAILED= "Service status updatedion failed!";
     public static final String MESSAGE_REQUESTED_PERMISSION_DENIED = "Requested permissions required to continue";
 
+    public static final String MESSAGE_ACCEPT_TERMS = "You must agreed to our terms and conditions ";
+
 
 }
