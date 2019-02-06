@@ -23,7 +23,7 @@
             android:value="AIzaSyCqITNqgnieoz27O3JQcRUblt6zC6nmfzg" />
 
         <activity
-            android:name=".Activities.CustomerExperienceActivity"
+            android:name=".Activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -85,7 +85,7 @@
             android:name=".Activities.SettingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Activities.SplashActivity"
+        <activity android:name=".Activities.CustomerExperienceActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>

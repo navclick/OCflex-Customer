@@ -78,6 +78,7 @@ public class ServicesListActivity extends BaseActivity implements  NavigationVie
 
         //setSupportActionBar(toolbar);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_services);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_services);
 
