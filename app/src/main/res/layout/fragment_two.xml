@@ -94,6 +94,9 @@
                 android:id="@+id/Btn_faqs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="left|center"
+                android:textAllCaps="false"
                 android:text="FAQs"
                 android:textColor="#151515"
                 android:textSize="14sp" />
@@ -138,6 +141,9 @@
                 android:id="@+id/Btn_trams"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="left|center"
+                android:textAllCaps="false"
                 android:text="Terms &amp; Conditions"
                 android:textColor="#151515"
                 android:textSize="14sp" />
@@ -182,6 +188,9 @@
                 android:id="@+id/Btn_emp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="left|center"
+                android:textAllCaps="false"
                 android:text="Employment Opportunities"
                 android:textColor="#151515"
                 android:textSize="14sp" />
