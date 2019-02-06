@@ -26,6 +26,7 @@ import com.example.fightersarena.ocflex_costumer.Adapter.MyOrdersAdapter;
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.Helpers.TokenHelper;
 import com.example.fightersarena.ocflex_costumer.Listeners.RecyclerTouchListener;
+import com.example.fightersarena.ocflex_costumer.Models.Cart;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerService;
 import com.example.fightersarena.ocflex_costumer.Models.MyOrder;
 import com.example.fightersarena.ocflex_costumer.Models.MyOrders;
@@ -340,7 +341,7 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
         i =notifCount.findViewById(R.id.actionbar_notifcation_img);
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
-        tv.setText("0");
+        tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
         i.setOnClickListener(this);
         tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
