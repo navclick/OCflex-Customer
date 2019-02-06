@@ -114,7 +114,7 @@
 
         <activity android:name=".Activities.TermsDailog"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"></activity>
+            android:theme="@style/NoTitleDialog"></activity>
 
 
 
