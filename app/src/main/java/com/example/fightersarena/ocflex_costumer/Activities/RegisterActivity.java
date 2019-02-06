@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
+import com.example.fightersarena.ocflex_costumer.Helpers.Constants;
 import com.example.fightersarena.ocflex_costumer.Helpers.GeneralHelper;
 import com.example.fightersarena.ocflex_costumer.Models.Register;
 import com.example.fightersarena.ocflex_costumer.Models.RegisterRequest;
@@ -22,10 +25,12 @@ import retrofit2.Response;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener {
 
+
     //Declarations
     Button btnRegister;
     EditText txtFullName, txtEmail, txtPassword, txtRepeatPassword;
-
+    TextView txt_terms;
+    CheckBox check_terms;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,24 +43,39 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         txtPassword = (EditText) findViewById(R.id.txt_password);
         txtRepeatPassword = (EditText) findViewById(R.id.txt_repeatpassword);
 
+
+        txt_terms = (TextView) findViewById(R.id.txt_terms);
+        check_terms = (CheckBox) findViewById(R.id.check_terms);
+
         //Listeners
         btnRegister.setOnClickListener(this);
+        txt_terms.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_register:
+
+              if(check_terms.isChecked()){
                 if(isValidate()){
                     Register();
-                }else{
-                    break;
-                }
+
+                }}
+                else{
+                  showMessageDailog("SignIn", Constants.MESSAGE_ACCEPT_TERMS);
+
+              }
                 break;
+            case R.id.txt_terms:
+                OpenActivity(TermsDailog.class);
+                break;
+
         }
     }
 
     private boolean isValidate(){
+
         if(!ValidationUtility.EditTextValidator(txtFullName, txtEmail, txtPassword, txtRepeatPassword)){
             GeneralHelper.ShowToast(this, "Email or password can not be empty!");
             return false;
