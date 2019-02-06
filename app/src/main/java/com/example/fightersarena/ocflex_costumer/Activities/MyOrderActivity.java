@@ -146,6 +146,7 @@ public class MyOrderActivity extends BaseActivity  implements  NavigationView.On
 //        }));
 
         GetActiveOrders();
+        GetOrderHistory();
 
     }
 
@@ -186,7 +187,6 @@ public class MyOrderActivity extends BaseActivity  implements  NavigationView.On
                         }
                         myOrderAdapter.notifyDataSetChanged();
                         hideProgress();
-                        GetOrderHistory();
                     }
                 }
                 @Override
@@ -200,7 +200,7 @@ public class MyOrderActivity extends BaseActivity  implements  NavigationView.On
         }catch (Exception e){
             Log.d("error",e.getMessage());
             Toast.makeText(MyOrderActivity.this, "Email or password is not correct", Toast.LENGTH_SHORT).show();
-       hideProgress();
+            hideProgress();
         }
     }
 
@@ -230,7 +230,7 @@ public class MyOrderActivity extends BaseActivity  implements  NavigationView.On
                     }else{
                         List<MyOrders.Value> list = obj.getValue();
                         for (MyOrders.Value customerList: list){
-hideProgress();
+                            hideProgress();
                             int id = customerList.getId();
                             String servicename = customerList.getServiceName();
                             int total = customerList.getRates() * customerList.getHours();
@@ -239,7 +239,7 @@ hideProgress();
                             MyOrder ord = new MyOrder(id, servicename, total, date);
                             myOrderHistoryList.add(ord);
                         }
-                        myOrderAdapter.notifyDataSetChanged();
+                        myOrderHistoryAdapter.notifyDataSetChanged();
                     }
                 }
                 @Override

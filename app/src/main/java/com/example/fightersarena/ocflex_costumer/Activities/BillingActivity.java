@@ -33,6 +33,7 @@ import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
 import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
 import com.example.fightersarena.ocflex_costumer.R;
 import com.example.fightersarena.ocflex_costumer.Utility.ValidationUtility;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
@@ -193,6 +194,7 @@ public class BillingActivity extends BaseActivity implements View.OnClickListene
        showProgress();
 
         try {
+
             String token = "Bearer " + TokenString;
             IApiCaller callerResponse = ApiClient.createService(IApiCaller.class, token);
 
@@ -215,11 +217,20 @@ public class BillingActivity extends BaseActivity implements View.OnClickListene
             request.setOrderPostal(postal);
             request.setOrderItemRequestVM(cartitems);
 
+            Gson gson = new Gson();
+            String Reslog= gson.toJson(request);
+            Log.d("test", Reslog);
+
             Call<OrderResponse> response = callerResponse.AddOrders(request);
 
             response.enqueue(new Callback<OrderResponse>() {
                 @Override
                 public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
+
+                    Gson gson = new Gson();
+                    String Reslog= gson.toJson(response);
+                    Log.d("response", Reslog);
+
                     OrderResponse objResponse = response.body();
 //                    OrderResponse objResponse = response.body();
                     if(objResponse == null){

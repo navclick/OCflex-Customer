@@ -29,11 +29,15 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
+import com.example.fightersarena.ocflex_costumer.Helpers.GeneralHelper;
 import com.example.fightersarena.ocflex_costumer.Models.Cart;
 import com.example.fightersarena.ocflex_costumer.R;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import static com.example.fightersarena.ocflex_costumer.Helpers.Constants.IS_BILLING;
 
@@ -51,8 +55,8 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
     TimePickerDialog timePickerDialog;
     Spinner spinnerHours;
 
+    ImageView imgCart;
     public TextView tv;
-    public ImageView imgCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,11 +93,6 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
 
 
-
-
-
-
-
         ///--------
 
         //Initialization
@@ -104,7 +103,6 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         txtSecondsPicker = (EditText) findViewById(R.id.txt_secondspicker);
         btnNext = (Button) findViewById(R.id.btn_next);
         btnAddMoreService = (Button) findViewById(R.id.btn_addmoreservice);
-        imgCart = (ImageView) findViewById(R.id.img_cart);
 
         hours = getResources().getStringArray(R.array.hours_array);
         spinnerHours = (Spinner) findViewById(R.id.spinner_requiredhours);
@@ -123,6 +121,10 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
             serviceRates = extras.getInt("rates");
             total = serviceRates * 2;
             txtTotal.setText(Integer.toString(total));
+
+            String currentDate = GeneralHelper.getDateTime();
+            txtDatePicker.setText(currentDate);
+
         }else{
             OpenActivity(ServicesListActivity.class);
         }
@@ -136,7 +138,10 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         txtHoursPicker.setOnClickListener(this);
         btnNext.setOnClickListener(this);
         btnAddMoreService.setOnClickListener(this);
-        imgCart.setOnClickListener(this);
+
+        imgCart = findViewById(R.id.badge);
+//        imgCart = (ImageView) findViewById(R.id.badge);
+        //imgCart.setOnMenuItemClickListener(this);
 
         spinnerHours.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -174,19 +179,17 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
                 NextService();
                 break;
 
-            case R.id.img_cart:
-                Log.d("clicked","clicked");
+            case R.id.btn_addmoreservice:
+                OpenActivity(ServicesListActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_img:
                 OpenActivity(CartActivity.class);
                 break;
 
-            case R.id.btn_addmoreservice:
-
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(ServicesListActivity.class);
                 break;
-//
-//            case R.id.spinner_requiredhours:
-//                String somevalue = spinnerHours.getSelectedItem().toString();
-//                Log.d("some",somevalue);
-//                break;
         }
     }
 
@@ -199,12 +202,14 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         int total = Integer.valueOf(txtTotal.getText().toString());
         int hours = Integer.valueOf(txtHoursPicker.getText().toString());
         int seconds = Integer.valueOf(txtSecondsPicker.getText().toString());
+        int orderhours = Integer.parseInt(spinnerHours.getSelectedItem().toString().replace("Hours","").trim());
 
         Cart cart = new Cart();
         cart.ServiceId = id;
-        cart.Rates = total * hours;
+        cart.ServiceName = serviceName;
+        cart.Rates = serviceRates;
         cart.OrderDate = txtDatePicker.getText().toString();
-        cart.OrderHours = Integer.valueOf(txtHoursPicker.getText().toString());
+        cart.OrderHours = orderhours;
         cart.OrderTime = hours + ":" + seconds;
         boolean response = Cart.addToCart(cart,this);
         if(response == false){
@@ -237,7 +242,8 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
                         // set day of month , month and year value in the edit text
-                        txtDatePicker.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                        txtDatePicker.setText((monthOfYear + 1) + "/" + dayOfMonth + "/" + year);
+                        //txtDatePicker.setText(mMonth + "/" + mDay + "/" + mYear);
 
                     }
                 }, mYear, mMonth, mDay);
@@ -329,8 +335,8 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText("0");
-        //   i.setOnClickListener(this);
-        //  tv.setOnClickListener(this);
+        imgCart.setOnClickListener(this);
+        tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 

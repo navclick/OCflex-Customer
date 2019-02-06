@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView800"
+            android:id="@+id/txt_inactivename"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Customized Errands"
@@ -22,7 +22,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/somename"
+            android:id="@+id/txt_inactivedate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="21/04/2017"

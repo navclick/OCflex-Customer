@@ -16,11 +16,12 @@ public class MyOrderHistoryAdapter extends RecyclerView.Adapter<MyOrderHistoryAd
     private List<MyOrder> myOrdersList;
 
     public class ListViewHolder extends RecyclerView.ViewHolder{
-        public TextView somename;
+        public TextView txtInActiveName,txtInActiveDate;
 
         public ListViewHolder(View view) {
             super(view);
-            somename = (TextView) view.findViewById(R.id.somename);
+            txtInActiveName = (TextView) view.findViewById(R.id.txt_inactivename);
+            txtInActiveDate = (TextView) view.findViewById(R.id.txt_inactivedate);
         }
     }
 
@@ -39,7 +40,8 @@ public class MyOrderHistoryAdapter extends RecyclerView.Adapter<MyOrderHistoryAd
     @Override
     public void onBindViewHolder(MyOrderHistoryAdapter.ListViewHolder holder, int position) {
         MyOrder myOrders = myOrdersList.get(position);
-        holder.somename.setText(myOrders.getServiceName());
+        holder.txtInActiveName.setText(myOrders.getServiceName());
+        holder.txtInActiveDate.setText(myOrders.getStartDate());
     }
 
     @Override

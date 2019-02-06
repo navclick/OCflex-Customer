@@ -179,7 +179,7 @@
                     android:layout_marginStart="20dp"
                     android:ems="10"
                     android:hint="1810  Clay Street, Indianapolis, Indiana"
-                    android:inputType="date"
+                    android:inputType="text"
                     android:textColor="#758089"
                     android:textSize="16sp"
                     android:theme="@style/MyCheckBox" />

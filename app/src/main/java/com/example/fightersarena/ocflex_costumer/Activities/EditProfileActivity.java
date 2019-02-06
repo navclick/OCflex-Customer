@@ -176,15 +176,17 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             showProgress();
             ConvertToBase64();
 
-            IApiCaller callerResponse = ApiClient.createService(IApiCaller.class);
+            String token = TokenString;
+            token = "Bearer " + token;
+            IApiCaller callerResponse = ApiClient.createService(IApiCaller.class, token);
 
             String fullname = txtFullName.getText().toString();
-            String email = txtAddressOne.getText().toString();
+            String address = txtAddressOne.getText().toString();
             String phone = txtPhone.getText().toString();
 
             UpdateProfile request = new UpdateProfile();
             request.setFullName(fullname);
-            request.setAddressOne(email);
+            request.setAddressOne(address);
             request.setPhoneNumber(phone);
             request.setImage(imgBase64);
 

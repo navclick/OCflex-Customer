@@ -8,6 +8,9 @@ public class OrderItemRequestVM {
     @SerializedName("ServiceId")
     @Expose
     private Integer serviceId;
+    @SerializedName("ServiceName")
+    @Expose
+    private String serviceName;
     @SerializedName("Hours")
     @Expose
     private Integer hours;
@@ -21,12 +24,16 @@ public class OrderItemRequestVM {
     @Expose
     private String startTime;
 
-    public Integer getServiceId() {
-        return serviceId;
-    }
+    public Integer getServiceId() { return serviceId; }
 
     public void setServiceId(Integer serviceId) {
         this.serviceId = serviceId;
+    }
+
+    public String getServiceName() { return serviceName; }
+
+    public void setServiceName(String serviceId) {
+        this.serviceName = serviceName;
     }
 
     public Integer getHours() {
