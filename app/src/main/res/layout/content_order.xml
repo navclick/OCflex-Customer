@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="48dp"
     android:orientation="vertical">
 
     <ScrollView
@@ -13,6 +14,45 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
+
+            <RelativeLayout
+                android:id="@+id/page_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/active_divider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignWithParentIfMissing="false"
+                    android:layout_centerHorizontal="false"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="false"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="0dp"
+                    android:background="#444C51" />
+
+                <TextView
+                    android:id="@+id/active_textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="false"
+                    android:layout_centerHorizontal="false"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="false"
+                    android:background="#fff"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="ORDER"
+                    android:textAllCaps="true"
+                    android:textColor="#444C51"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textView13"

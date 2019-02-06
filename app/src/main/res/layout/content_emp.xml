@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="48dp"
     android:background="#fff"
     android:orientation="vertical">
 
@@ -14,7 +15,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingEnd="20dp"
-            android:paddingStart="20dp">
+            android:paddingStart="20dp"
+            android:paddingTop="20dp">
 
             <RelativeLayout
                 android:id="@+id/page_title"
@@ -150,6 +152,7 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/round_corner"
+                android:paddingBottom="20dp"
                 android:text="Back"
                 android:textColor="@drawable/txt_round_corner" />
         </LinearLayout>
