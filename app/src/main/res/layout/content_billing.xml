@@ -74,8 +74,8 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:ems="10"
+                    android:hint="Enter Full Name"
                     android:inputType="text"
-                    android:text="John"
                     android:textColor="#758089"
                     android:textSize="16sp" />
 
@@ -104,8 +104,8 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:ems="10"
-                    android:inputType="number"
-                    android:text="House Number and Street Name"
+                    android:hint="Enter Street Address"
+                    android:inputType="text"
                     android:textColor="#758089"
                     android:textSize="16sp" />
 
@@ -135,6 +135,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:ems="10"
+                    android:hint="Enter Town/City"
                     android:inputType="text"
                     android:textColor="#758089"
                     android:textSize="16sp" />
@@ -153,7 +154,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
-                    android:text="Post Code"
+                    android:text="Postal Code"
                     android:textSize="16sp" />
 
                 <EditText
@@ -163,6 +164,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:ems="10"
+                    android:hint="Enter Postal Code"
                     android:inputType="number"
                     android:textColor="#758089"
                     android:textSize="16sp" />
@@ -191,6 +193,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     android:ems="10"
+                    android:hint="Enter Phone Number"
                     android:inputType="number"
                     android:textColor="#758089"
                     android:textSize="16sp" />

@@ -94,7 +94,7 @@
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Please read and accept OCflexhelp’s TC and Privacy Policy before applying for Care Associate position.      Download the application and agreement, fill it out, email and/or mail to us and we will get back to you in a timely manner." />
+                android:text="Please read and accept OCflexhelp’s T&amp;C and Privacy Policy before applying for Care Associate position.      Download the application and agreement, fill it out, email and/or mail to us and we will get back to you in a timely manner." />
 
             <TextView
                 android:id="@+id/textView32"

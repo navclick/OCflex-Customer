@@ -10,8 +10,7 @@
     <ImageView
         android:id="@+id/img_nav_profile"
         android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:background="@drawable/profile_img_border" />
+        android:layout_height="110dp" />
 
     <TextView
         android:id="@+id/txt_main_name"

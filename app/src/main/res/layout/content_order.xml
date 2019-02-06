@@ -223,7 +223,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1.75"
                     android:gravity="right|end"
-                    android:text="Total Price"
+                    android:text="Total Price $"
                     android:textColor="#758089"
                     android:textSize="16sp" />
 

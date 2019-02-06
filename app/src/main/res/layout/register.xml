@@ -38,7 +38,6 @@
 
             <EditText
                 android:id="@+id/txt_fullname"
-                android:text="Customer Three"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
@@ -51,11 +50,11 @@
                 android:paddingLeft="14dp"
                 android:paddingRight="15dp"
                 android:textColor="#758089"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:theme="@style/MyCheckBox" />
 
             <EditText
                 android:id="@+id/txt_email"
-                android:text="customerthree@gmail.com"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
@@ -68,11 +67,11 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:textColor="#758089"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:theme="@style/MyCheckBox" />
 
             <EditText
                 android:id="@+id/txt_password"
-                android:text="customer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -86,11 +85,11 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:textColor="#758089"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:theme="@style/MyCheckBox" />
 
             <EditText
                 android:id="@+id/txt_repeatpassword"
-                android:text="customer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -104,7 +103,32 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:textColor="#758089"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:theme="@style/MyCheckBox" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="0dp"
+                    android:text="I accept the "
+                    android:theme="@style/MyCheckBox" />
+
+                <TextView
+                    android:id="@+id/textView37"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/term"
+                    android:textColor="@color/darkPurple" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btn_register"

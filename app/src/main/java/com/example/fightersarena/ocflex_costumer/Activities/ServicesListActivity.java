@@ -69,6 +69,45 @@ public class ServicesListActivity extends BaseActivity {
 
         //setSupportActionBar(toolbar);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_services);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_services);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_servicelist);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        //-----------------------------------
+
+//Show pic and name on drawer menu
+
+        View header = navigationView.getHeaderView(0);
+        TextView t = (TextView) header.findViewById(R.id.txt_main_name);
+        TextView tEmail = (TextView) header.findViewById(R.id.txt_email);
+        ImageView profile_img= (ImageView) header.findViewById(R.id.img_nav_profile);
+        tEmail.setText(tokenHelper.GetUserEmail());
+
+        t.setText(tokenHelper.GetUserName());
+
+        //profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
+        Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
+
+
+
+
+
+
+
+        ///--------
+
+
+
+        
+
 
 /*
         recyclerView = (RecyclerView) findViewById(R.id.recyclerCustomerServices);
