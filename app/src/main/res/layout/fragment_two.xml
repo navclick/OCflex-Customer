@@ -90,8 +90,8 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView42"
+            <Button
+                android:id="@+id/Btn_faqs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FAQs"
@@ -134,8 +134,8 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView42"
+            <Button
+                android:id="@+id/Btn_trams"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Terms &amp; Conditions"

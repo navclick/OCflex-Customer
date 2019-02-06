@@ -6,6 +6,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,26 +19,30 @@ import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.R;
 import com.squareup.picasso.Picasso;
 
-public class EmploymentOppActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class FaqsActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
+
+
     public TextView tv;
     public ImageView i, imgProfile;
-    Button btn_emp_back;
+
+    Button btn_faqs_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employment_opportunity);
+        setContentView(R.layout.activity_faqs);
 
+        btn_faqs_back=(Button) findViewById(R.id.btn_faqs_back);
         //Side Menu and toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_emp);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_faqs);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_emp);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_faqs);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_emp);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_faqs);
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -53,21 +58,8 @@ public class EmploymentOppActivity extends BaseActivity implements NavigationVie
 
         //profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
         Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
-        btn_emp_back = (Button) findViewById(R.id.btn_emp_back);
-        btn_emp_back.setOnClickListener(this);
+        btn_faqs_back.setOnClickListener(this);
 
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()){
-
-            case R.id.btn_emp_back:
-                this.onBackPressed();
-                break;
-
-
-        }
     }
 
 
@@ -76,7 +68,7 @@ public class EmploymentOppActivity extends BaseActivity implements NavigationVie
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_emp);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_faqs);
         if (id == R.id.my_orders) {
             // Handle the camera action
             mDrawerLayout.closeDrawers();
@@ -141,5 +133,16 @@ public class EmploymentOppActivity extends BaseActivity implements NavigationVie
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+
+            case R.id.btn_faqs_back:
+                this.onBackPressed();
+                break;
+
+
+        }
+    }
 
 }
