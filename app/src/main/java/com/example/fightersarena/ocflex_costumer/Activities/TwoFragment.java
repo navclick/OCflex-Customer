@@ -12,7 +12,7 @@ import com.example.fightersarena.ocflex_costumer.Base.BaseFragment;
 import com.example.fightersarena.ocflex_costumer.R;
 
 public class TwoFragment extends BaseFragment implements View.OnClickListener {
-Button Btn_emp, Btn_faqs;
+Button Btn_emp, Btn_faqs,Btn_trams;
     public TwoFragment() {
         // Required empty public constructor
     }
@@ -32,10 +32,12 @@ Button Btn_emp, Btn_faqs;
 
         Btn_emp = (Button) view.findViewById(R.id.Btn_emp);
         Btn_faqs = (Button) view.findViewById(R.id.Btn_faqs);
-
+        Btn_trams = (Button) view.findViewById(R.id.Btn_trams);
 
         Btn_emp.setOnClickListener(this);
         Btn_faqs.setOnClickListener(this);
+
+        Btn_trams.setOnClickListener(this);
         return view;
     }
 
@@ -51,6 +53,11 @@ Button Btn_emp, Btn_faqs;
             case R.id.Btn_faqs:
 
                 OpenActivity(FaqsActivity.class);
+                break;
+
+            case R.id.Btn_trams:
+
+                OpenActivity(TermsActivity.class);
                 break;
 
 

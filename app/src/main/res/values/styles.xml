@@ -28,6 +28,11 @@
         <item name="colorControlActivated">#9ACE3B</item>
     </style>
 
+
+    <style name="NoTitleDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
     <style name="style_Spinner1">
     <item name="android:background">@drawable/drop</item>
     <item name="android:dropDownSelector">@android:color/transparent</item>
