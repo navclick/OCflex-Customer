@@ -9,6 +9,8 @@
             android:title="Settings" />
         <item android:id="@+id/menu_service" android:icon="@mipmap/services"
             android:title="Services" />
+        <item android:id="@+id/menu_customer_experience" android:icon="@mipmap/customer_experience"
+            android:title="Customer Experience" />
         <item android:id="@+id/menu_pro_logout" android:icon="@mipmap/logout"
             android:title="Logout" />
     </group>
