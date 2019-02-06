@@ -38,7 +38,6 @@
 
             <EditText
                 android:id="@+id/txt_fullname"
-                android:text="Customer Three"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
@@ -55,7 +54,6 @@
 
             <EditText
                 android:id="@+id/txt_email"
-                android:text="customerthree@gmail.com"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
@@ -72,7 +70,6 @@
 
             <EditText
                 android:id="@+id/txt_password"
-                android:text="customer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -90,7 +87,6 @@
 
             <EditText
                 android:id="@+id/txt_repeatpassword"
-                android:text="customer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"

@@ -39,19 +39,4 @@ public class ApiClient {
         }
         return retrofit.create(serviceClass);
     }
-
-    public static <S> S createService(Class<S> serviceClass, Boolean isImage) {
-        httpClient.interceptors().clear();
-        httpClient.addInterceptor( chain -> {
-            Request original = chain.request();
-            Request request = original.newBuilder()
-                    .addHeader("Accept","multipart/form-data")
-                    .build();
-            return chain.proceed(request);
-        });
-        builder.client(httpClient.build());
-        retrofit = builder.build();
-
-        return retrofit.create(serviceClass);
-    }
 }

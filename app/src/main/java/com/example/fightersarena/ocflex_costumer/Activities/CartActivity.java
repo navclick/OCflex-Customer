@@ -1,5 +1,6 @@
 package com.example.fightersarena.ocflex_costumer.Activities;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.MenuItemCompat;
@@ -7,6 +8,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -17,12 +21,19 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.fightersarena.ocflex_costumer.Adapter.CartAdapter;
+import com.example.fightersarena.ocflex_costumer.Adapter.CustomerServicesAdapter;
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
+import com.example.fightersarena.ocflex_costumer.Listeners.RecyclerTouchListener;
 import com.example.fightersarena.ocflex_costumer.Models.Cart;
+import com.example.fightersarena.ocflex_costumer.Models.CartVM;
+import com.example.fightersarena.ocflex_costumer.Models.CustomerService;
+import com.example.fightersarena.ocflex_costumer.Models.CustomerServices;
 import com.example.fightersarena.ocflex_costumer.Models.OrderItemRequestVM;
 import com.example.fightersarena.ocflex_costumer.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartActivity extends BaseActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
@@ -31,6 +42,10 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
     public ImageView i;
 
     Button btnAddMoreCart;
+
+    private List<CartVM> cartList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private CartAdapter cartAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +79,6 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
         Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
 
 
-
-
-
-
-
         ///--------
 
         btnAddMoreCart = (Button) findViewById(R.id.btn_addmorecart);
@@ -76,16 +86,30 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
         // Listeners
         btnAddMoreCart.setOnClickListener(this);
 
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerMenuCart);
+        cartAdapter = new CartAdapter(cartList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(cartAdapter);
+
         GetCartItem();
     }
 
     private void GetCartItem(){
         List<OrderItemRequestVM> cartItems = Cart.getCartItems(this);
         if(cartItems.size() > 0){
-            for (OrderItemRequestVM customerList: cartItems){
-                int id = customerList.getServiceId();
-                Log.d("Id",String.valueOf(id));
+            for (OrderItemRequestVM cartListItem: cartItems){
+                int id = cartListItem.getServiceId();
+                String servicename = cartListItem.getServiceName();
+                int total = cartListItem.getHours() * cartListItem.getRates();
+                String date = cartListItem.getStartDate();
+
+                CartVM cart = new CartVM(id, servicename, date, total);
+                cartList.add(cart);
             }
+            cartAdapter.notifyDataSetChanged();
+
         }else{
             Log.d("data","empty");
         }

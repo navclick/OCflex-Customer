@@ -9,11 +9,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Cart {
-    public int ServiceId;
-    public String OrderDate;
-    public String OrderTime;
-    public int OrderHours;
-    public int Rates;
+    public int ServiceId, OrderHours, Rates;
+    public String ServiceName, OrderDate, OrderTime;
 
     public static boolean addToCart(Cart cart, Context context){
 
@@ -27,6 +24,7 @@ public class Cart {
         if(newItem){
             Cart cartItem = new Cart();
             cartItem.ServiceId = cart.ServiceId;
+            cartItem.ServiceName = cart.ServiceName;
             cartItem.OrderDate = cart.OrderDate;
             cartItem.OrderTime = cart.OrderTime;
             cartItem.OrderHours = cart.OrderHours;

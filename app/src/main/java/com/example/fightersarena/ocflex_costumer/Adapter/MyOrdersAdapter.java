@@ -16,11 +16,12 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ListVi
     private List<MyOrder> myOrdersList;
 
     public class ListViewHolder extends RecyclerView.ViewHolder{
-        public TextView name;
+        public TextView name, date;
 
         public ListViewHolder(View view) {
             super(view);
-            name = (TextView) view.findViewById(R.id.name);
+            name = (TextView) view.findViewById(R.id.txt_name);
+            date = (TextView) view.findViewById(R.id.txt_date);
         }
     }
 
@@ -40,6 +41,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ListVi
     public void onBindViewHolder(MyOrdersAdapter.ListViewHolder holder, int position) {
         MyOrder myOrders = myOrdersList.get(position);
         holder.name.setText(myOrders.getServiceName());
+        holder.date.setText(myOrders.getStartDate());
     }
 
     @Override

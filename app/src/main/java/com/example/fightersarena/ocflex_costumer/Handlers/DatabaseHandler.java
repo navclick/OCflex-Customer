@@ -22,6 +22,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private final static String TABLE_NAME = "Cart";
     private static final String CART_ID = "Id";
     private static final String SERVICE_ID = "ServiceId";
+    private static final String SERVICE_NAME = "ServiceName";
     private static final String ORDER_DATE = "OrderDate";
     private static final String ORDER_TIME = "OrderTime";
     private static final String ORDER_HOURS = "OrderHours";
@@ -50,8 +51,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CreateCart = "CREATE TABLE "+ TABLE_NAME +" ( " + CART_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + SERVICE_ID + ", " + ORDER_DATE + ", "
-                + ORDER_TIME + ", " + ORDER_HOURS + ", " + RATES + " ) ";
+        String CreateCart = "CREATE TABLE "+ TABLE_NAME +" ( " + CART_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + SERVICE_ID + " ," + SERVICE_NAME + " ,"
+                + ORDER_DATE + ", " + ORDER_TIME + ", " + ORDER_HOURS + ", " + RATES + " ) ";
+        Log.d("CreateCart",CreateCart);
         db.execSQL(CreateCart);
     }
 
@@ -71,6 +73,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
             ContentValues values = new ContentValues();
             values.put(SERVICE_ID, data.ServiceId);
+            values.put(SERVICE_NAME, data.ServiceName);
             values.put(ORDER_DATE, data.OrderDate);
             values.put(ORDER_TIME, data.OrderTime);
             values.put(ORDER_HOURS, data.OrderHours);
@@ -106,7 +109,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public void removeCartItems() {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, null, null);
+        db.execSQL("DELETE FROM " + TABLE_NAME);
         db.close();
     }
 
@@ -141,10 +144,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 OrderItemRequestVM orderitem = new OrderItemRequestVM();
 
                 orderitem.setServiceId(cursor.getInt(1));
-                orderitem.setStartDate(cursor.getString(2));
-                orderitem.setStartTime(cursor.getString(3));
-                orderitem.setHours(cursor.getInt(4));
-                orderitem.setRates(cursor.getInt(5));
+                orderitem.setServiceName(cursor.getString(2));
+                orderitem.setStartDate(cursor.getString(3));
+                orderitem.setStartTime(cursor.getString(4));
+                orderitem.setHours(cursor.getInt(5));
+                orderitem.setRates(cursor.getInt(6));
 
                 // Adding contact to list
                 cartItem.add(orderitem);
@@ -171,10 +175,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             do {
                 //cartItem.Id = cursor.getInt(0);
                 cartItem.ServiceId = cursor.getInt(1);
-                cartItem.OrderDate = cursor.getString(2);
-                cartItem.OrderTime = cursor.getString(3);
-                cartItem.OrderHours = cursor.getInt(4);
-                cartItem.Rates = cursor.getInt(5);
+                cartItem.ServiceName = cursor.getString(2);
+                cartItem.OrderDate = cursor.getString(3);
+                cartItem.OrderTime = cursor.getString(4);
+                cartItem.OrderHours = cursor.getInt(5);
+                cartItem.Rates = cursor.getInt(6);
                 // Adding contact to list
             } while (cursor.moveToNext());
         }

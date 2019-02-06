@@ -49,10 +49,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ServicesListActivity extends BaseActivity implements  NavigationView.OnNavigationItemSelectedListener {
+public class ServicesListActivity extends BaseActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
+    ImageView imgCart;
     public TextView tv;
-    public ImageView i;
+
     public TokenHelper tokenHelper;
     public String TokenString;
 
@@ -380,14 +381,27 @@ public class ServicesListActivity extends BaseActivity implements  NavigationVie
         MenuItem item = menu.findItem(R.id.badge);
         MenuItemCompat.setActionView(item, R.layout.menu_cart);
         RelativeLayout notifCount = (RelativeLayout)   MenuItemCompat.getActionView(item);
-        i =notifCount.findViewById(R.id.actionbar_notifcation_img);
+        imgCart =notifCount.findViewById(R.id.actionbar_notifcation_img);
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText("0");
-     //   i.setOnClickListener(this);
-      //  tv.setOnClickListener(this);
+        imgCart.setOnClickListener(this);
+        tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+
+            case R.id.actionbar_notifcation_img:
+                OpenActivity(CartActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(ServicesListActivity.class);
+                break;
+        }
+    }
 }
