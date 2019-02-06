@@ -21,4 +21,182 @@
         <item>PM</item>
         <item>AM</item>
     </string-array>
+
+    <string name="GENERAL_TERMS">
+1.1 By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this app/website.
+
+1.2 You may not use our app/website for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).
+
+1.3 You must not transmit any worms or viruses or any code of a destructive nature.
+
+1.4 A breach or violation of any of the Terms will result in an immediate termination of your Services.
+
+1.5 You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service or any contact on the app/website through which the service is provided, without express written permission by us.
+
+1.6 The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.
+</string>
+    <string name="HIRING_AN_INDEPENDENT_CONTRACTOR">
+2.1 Independent contractors are available for personal services that are non-medical in nature.
+
+2.2 All Independent contractors must pay for and get a Live Scan background check done.
+
+2.3 Independent contractors will create a profile with a clear picture.
+
+2.4 Independent contractors shall show proof of auto insurance before engaging in any services.
+
+2.5 Independent contractors shall show up to perform their service at least five minutes prior to the beginning of the service.
+
+2.6 Independent contractors are strictly prohibited from engaging in any service(s) that they deem to be potentially injurious to themselves or any third-party. Any Independent contractors choosing to proceed regardless of the dangers of a service do so at his/her own risk.
+
+2.7 The client/customer hires the Independent contractors at his/her/its own risk. We do not guarantee or warrant or represent that the Independent contractors will perform the services to any level of quality.
+
+2.8 Payment for services, plus mileage expenses, is required to be paid in advance of the services beginning.
+
+2.9 Clients/customers shall be in the car with the Independent contractors while the Independent contractors are driving.
+
+2.10 We do not take responsibility for accuracy of completeness of any service that is listed on our app/website. Such listings are done at the discretion of the client/customer and Independent contractors.
+
+2.11 Subject to the other provisions of the Terms of Service we will not be liable for any direct, indirect or consequential loss (including, without limitation, pure economic loss, loss of profits, loss of business, depletion of goodwill and similar loss), costs, damages, charges or expenses caused directly or indirectly by independent contractors, or our customers/clients.
+</string>
+    <string name="TERMS_FOR_INDEPENDENT_CONTRACTORS">
+3.1 Independent contractors will be paid every two weeks and go through a review every six months.
+
+3.2 Any persons under the age of 18 who chose to act as Independent contractors must have a written consent form signed by a parent or guardian.
+
+3.3 Independent contractors enter a client/customer’s home at his/her own risk and agree to absolve and release us from any liability or damages that may occur.
+
+3.4 Independent contractors are strictly prohibited from driving vehicles that are not their own.
+
+3.5 Independent contracts may be terminated by us immediately for any physical, emotional, or verbal abuse of a customer/client, or for engaging in any illegal activity or wilful misconduct or gross negligence.
+
+3.6 Independent contractors must agree and acknowledge that all customers/clients serviced by the Independent contractors as part of this Service are the sole property of us and no Independent contractors may circumvent us and work with the customer/client directly if such customer/client was introduced to the Independent contractor by us. Any such circumvention shall be cause of monetary damages against the Independent contractors.
+
+3.7 Independent contractors must keep any and all information related to customers/clients, including, but not limited to, customer/clients’ contact information, strictly confidential and must not share this information with nay third-party or use this information for personal gain.
+</string>
+    <string name="Limitation_of_Liability">
+4.1. Our total liability in contract, tort (including negligence or breach of statutory duty), misrepresentation, restitution or otherwise, arising in connection with us being in breach of our obligations under the Terms of Service is limited to any monies you have spent using our app/website, if any.
+
+4.2. We are not responsible for personal injuries you suffer while performing services, while working with Independent contractors, loss of profit, loss of business, harm to reputation, or depletion of goodwill in each case whether direct, indirect or consequential, or any claims for consequential compensation whatsoever (howsoever caused) which arise out of or in connection with the Terms of Service.
+
+4.3. All warranties, conditions and other terms implied by statute or common law are, to the fullest extent permitted by law, excluded from the Terms of Service.
+
+4.4 In no case shall OCflexhelp, our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind, including, without limitation lost profits, lost revenue, lost savings, loss of data, replacement costs, or any similar damages, whether based in contract, tort (including negligence), strict liability or otherwise, arising from your use of any of the Service or from any services performed or requested using the Service, or for any other claim related in any way to your use of the service or any product, including, but not limited to, any errors or omissions in any content, or any loss or damage of any kind incurred as a result of the use of any service, even if advised of their possibility. Because some states or jurisdictions do not allow the exclusion or the limitation of liability for consequential or incidental damages, in such states or jurisdictions, our liability shall be limited to the maximum extent permitted by law.
+
+4.5 Information provided on the app/website is provided “as is” without warranty of any kind, either express or implied, including without limitation, warranties of merchantability, fitness for a particular purpose or noninfringement.
+
+We periodically change, improve, or update the information on the app/website without notice.
+
+We assume no liability or responsibility for any errors or omissions in the content of the app/website.
+
+Your use of the app/website is at your own risk. Under no circumstances and under no legal theory shall we, our partners, employees, affiliates, suppliers or vendors or any other party involved in creating, producing or delivering the app/website’s contents be liable to you or any other person for any indirect, special, incidental or consequential damages of any character arising from your access to, or use of, the app/website.
+</string>
+    <string name="ASSIGNMENT">
+5.1 We may assign the Terms of Service or any part of it to any person, firm or company
+
+5.2 You will not be entitled to assign the Terms of Service or any part of it without our prior written consent.
+</string>
+    <string name="COPYRIGHT_AND_OTHER_INTELLECTUAL_PROPERTY_RIGHTS">
+6.1 You agree that all content on the App/website including but not limited to text, logos, photographs, images, buttons, icons, graphics, illustrations, designs, written and other material including the program and code that operates the App/website (together the “Content”) are protected by copyright, trade mark and/ or other proprietary rights owned by or licensed to us.
+
+6.2 You agree that you will not copy, reproduce, transmit, distribute, publish, display, commercially exploit, or create derivative works of, a</string>
+    ny part of the Content without our express written consent, save that you may print out, or
+    otherwise electronically copy, one or more
+    <string name="the App/website or any of our other sales catalogues for your personal noncommercial use only with the express purpose ">of placing an order with us.
+
+6.3 You may not modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, frame in another app/website, use on any website, transfer, or sell any content appearing on this app/website. Furthermore, you may not attempt to view, disclose, copy, reverse engineer, disassemble, decompile or otherwise examine the app/website source code.
+
+6.4 We are not liable for ensuring the intellectual property rights of any images that are placed on our app/website by users. The user solely takes responsibility for ensuring that no third-party copyright, trademark, or other intellectual property rights are infringed when they post any content on the app/website.
+</string>
+    <string name="ACCURACY_COMPLETENESS_AND_TIMELINESS_OF_INFORMATION">
+7.1 We are not responsible if information made available on this app/website is not accurate, complete or current. The material on this app/website is provided for general information only and should not be relied upon or used as the sole basis for making decisions without consulting primary, more accurate, more complete or timelier sources of information. Any reliance on the material on this app/website is at your own risk.
+
+7.2 This app/website may contain certain historical information. Historical information, necessarily, is not current and is provided for your reference only. We reserve the right to modify the contents of this app/website at any time, but we have no obligation to update any information on our app/website. You agree that it is your responsibility to monitor changes to our app/website.
+</string>
+    <string name="MODIFICATIONS_TO_THE_SERVICE_AND_PRICES">
+8.1 We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time.
+
+8.2 We shall not be liable to you or to any third-party for any modification, price change, suspension or discontinuance of the Service.
+</string>
+    <string name="SERVICE_MARKS_TRADEMARKS">
+Our service marks and trademarks identify our services and let the public know the source of those products and services. You may make fair use of our marks in advertising and promotional materials, and in referencing our products and services (for example, in a magazine article) without our permission, provided you follow standard trademark usage practices and provide proper attribution. Other uses require our written permission. If you are in doubt as to whether you need our permission for a specific type of use, please ask us.
+
+You may not use our logos or “design” service marks (as opposed to our service marks consisting solely of words) under any circumstances without our prior written authorization.
+
+In addition, you may not use our service marks or trademarks, whether design or word marks, in the following ways:
+
+in any service name or publication title;
+in, as, or as part of, your own service or trademarks;
+to identify products or services that are not ours;
+in a manner likely to cause confusion;
+in a manner that implies inaccurately that we sponsor or endorse, or are otherwise connected with, your own activities, products and services;
+as hidden or embedded text in web pages in an effort to cause a search of our marks to result in a hit on a page not maintained by us in a </string>
+    manner disparaging of our brand.
+    <string name="THIRDPARTY_LINKS">
+10.1 Certain content, products and services available via our Service may include materials from third-parties.
+
+10.2 Third-party links on this app/website may direct you to third-party app/websites that are not affiliated with us. We are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not have any liability or responsibility for any third-party materials or app/websites, or for any other materials, products, or services of third-parties.
+
+10.3 We are not liable for any harm or damages related to the purchase or use of goods, services, resources, content, or any other transactions made in connection with any third-party app/websites. Please review carefully the third-party’s policies and practices and make sure you understand them before you engage in any transaction. Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.
+</string>
+    <string name="USER_COMMENTS_FEEDBACK_AND_OTHER_SUBMISSIONS">
+11.1 If, at our request, you send certain specific submissions (for example contest entries) or without a request from us you send creative ideas, suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, ‘comments’), you agree that we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise use in any medium any comments that you forward to us. We are and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any comments; or (3) to respond to any comments.
+
+11.2 We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party’s intellectual property or these Terms of Service.
+
+11.3 You agree that your comments will not violate any right of any third-party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your comments will not contain libelous or otherwise unlawful, abusive or obscene material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related app/website. You may not use a false e-mail address, pretend to be someone other than yourself, or otherwise mislead us or third-parties as to the origin of any comments. You are solely responsible for any comments you make and their accuracy. We take no responsibility and assume no liability for any comments posted by you or any third-party.
+</string>
+    <string name="PERSONAL_INFORMATION">
+Your submission of personal information through the app/website is governed by our Privacy Policy.
+</string>
+    <string name="ERRORS_INACCURACIES_AND_OMISSIONS">
+13.1 Occasionally there may be information on our app/website or in the Service that contains typographical errors, inaccuracies or omissions that may relate to product descriptions, pricing, promotions, offers, product shipping charges, transit times and availability. We reserve the right to correct any errors, inaccuracies or omissions, and to change or update information or cancel orders if any information in the Service or on any related app/website is inaccurate at any time without prior notice (including after you have submitted your order).
+
+13.2 We undertake no obligation to update, amend or clarify information in the Service or on any related app/website, including without limitation, pricing information, except as required by law. No specified update or refresh date applied in the Service or on any related app/website should be taken to indicate that all information in the Service or on any related app/website has been modified or updated.
+</string>
+    <string name="PROHIBITED_USES">
+14.1 In addition to other prohibitions as set forth in the Terms of Service, you are prohibited from using the app/website or its content: (a) for any unlawful purpose; (b) to solicit others to perform or participate in any unlawful acts; (c) to violate any international, federal, provincial or state regulations, rules, laws, or local ordinances; (d) to infringe upon or violate our intellectual property rights or the intellectual property rights of others; (e) to harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate based on gender, sexual orientation, religion, ethnicity, race, age, national origin, or disability; (f) to submit false or misleading information; (g) to upload or transmit viruses or any other type of malicious code that will or may be used in any way that will affect the functionality or operation of the Service or of any related app/website, other app/websites, or the Internet; (h) to collect or track the personal information of others; (i) to spam, phish, pharm, pretext, spider, crawl, or scrape; (j) for any obscene or immoral purpose; or (k) to interfere with or circumvent the security features of the Service or any related app/website, other app/websites, or the Internet. We reserve the right to terminate your use of the Service or any related app/website for violating any of the prohibited uses.
+</string>
+    <string name="INDEMNIFICATION">
+15.1 You agree to indemnify, defend and hold harmless OCflexhelp and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys’ fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they incorporate by reference, or your violation of any law or the rights of a third-party.
+</string>
+    <string name="GENERAL_CONDITIONS">
+16.1 We reserve the right to refuse our service to anyone for any reason at any time.
+
+16.2 You understand that your personal information (not including credit card information), may be transferred and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices.
+
+16.3 You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service or any contact on the app/website through which the service is provided, without express written permission by us.
+
+16.4 The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.
+</string>
+    <string name="SEVERABILITY">
+17.1 In the event that any provision of these Terms of Service is determined to be unlawful, void or unenforceable, such provision shall nonetheless be enforceable to the fullest extent permitted by applicable law, and the unenforceable portion shall be deemed to be severed from these Terms of Service, such determination shall not affect the validity and enforceability of any other remaining provisions.
+</string>
+    <string name="TERMINATION">
+18.1 The obligations and liabilities of the parties incurred prior to the termination date shall survive the termination of this agreement for all purposes.
+
+18.2 These Terms of Service are effective unless and until terminated by either you or us. You may terminate these Terms of Service at any time by notifying us that you no longer wish to use our Services, or when you cease using our app/website.
+
+18.3 If in our sole judgment you fail, or we suspect that you have failed, to comply with any term or provision of these Terms of Service, we also may terminate this agreement at any time without notice and you will remain liable for all amounts due up to and including the date of termination; and/or accordingly may deny you access to our Services (or any part thereof).
+</string>
+    <string name="ENTIRE_AGREEMENT">
+19.1 The failure of us to exercise or enforce any right or provision of these Terms of Service shall not constitute a waiver of such right or provision.
+
+19.2 These Terms of Service and any policies or operating rules posted by us on this app/website or in respect to The Service constitutes the entire agreement and understanding between you and us and govern your use of the Service, superseding any prior or contemporaneous agreements, communications and proposals, whether oral or written, between you and us (including, but not limited to, any prior versions of the Terms of Service).
+
+19.3 Any ambiguities in the interpretation of these Terms of Service shall not be construed against the drafting party.
+</string>
+    <string name="GOVERNING_LAW_AND_ARBITRATION_CLAUSE">
+20.1 These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of the State of California.
+
+20.2 Any dispute arising hereunder shall be subject to mandatory arbitration in Los Angeles County under the procedures provided by JAMS.
+</string>
+    <string name="CHANGES_TO_TERMS_OF_SERVICE">
+21.1 You can review the most current version of the Terms of Service at any time at this page.
+
+21.2 We reserve the right, at our sole discretion, to update, change or replace any part of these Terms of Service by posting updates and changes to our app/website. It is your responsibility to check our app/website periodically for changes. Your continued use of or access to our app/website or the Service following the posting of any changes to these Terms of Service constitutes acceptance of those changes.
+</string>
+    <string name="CONTACT_INFORMATION">
+Questions about the Terms of Service should be sent to us at ocflexhelp@gmail.com.
+</string>
+
 </resources>
