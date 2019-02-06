@@ -23,9 +23,6 @@
             android:value="AIzaSyCqITNqgnieoz27O3JQcRUblt6zC6nmfzg" />
 
         <activity
-
-            android:name=".Activities.ServiceListTabMainActivity"
-
             android:name=".Activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
