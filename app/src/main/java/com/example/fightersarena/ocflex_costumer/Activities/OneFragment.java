@@ -1,34 +1,22 @@
 package com.example.fightersarena.ocflex_costumer.Activities;
 
-import android.Manifest;
-import android.annotation.TargetApi;
+
+import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
-
 import com.example.fightersarena.ocflex_costumer.Adapter.CustomerServicesAdapter;
-import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
-import com.example.fightersarena.ocflex_costumer.Helpers.Constants;
+import com.example.fightersarena.ocflex_costumer.Base.BaseFragment;
 import com.example.fightersarena.ocflex_costumer.Helpers.TokenHelper;
 import com.example.fightersarena.ocflex_costumer.Listeners.RecyclerTouchListener;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerService;
@@ -36,57 +24,76 @@ import com.example.fightersarena.ocflex_costumer.Models.CustomerServices;
 import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
 import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
 import com.example.fightersarena.ocflex_costumer.R;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ServicesListActivity extends BaseActivity {
+public class OneFragment extends BaseFragment {
+    public TokenHelper tokenHelper;
+    public String TokenString;
 
+    private List<CustomerService> customerServicesList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private CustomerServicesAdapter customerServiceAdapter;
 
+    public OneFragment() {
+        // Required empty public constructor
+    }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
+        tokenHelper = new TokenHelper(getActivity().getApplicationContext());
+        TokenString = tokenHelper.GetToken();
+        if(TokenString == null){
+            OpenActivity(LoginActivity.class);
+        }
 
-
+    }
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        OpenActivity(ServiceListTabMainActivity.class);
-        // Initializations
-
-          //  setContentView(R.layout.activity_main);
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        //setSupportActionBar(toolbar);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
 
 
-/*
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerCustomerServices);
+
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+
+
+        View view = inflater.inflate(R.layout.fragment_one,
+                container, false);
+
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerCustomerServices);
 
         customerServiceAdapter = new CustomerServicesAdapter(customerServicesList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(customerServiceAdapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity().getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 CustomerService cust = customerServicesList.get(position);
 
                 Log.d("cust",String.valueOf(cust.getId()));
 
-                Intent intent = new Intent(ServicesListActivity.this, OrderActivity.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), OrderActivity.class);
                 intent.putExtra("id", cust.getId());
                 intent.putExtra("name", cust.getName());
                 intent.putExtra("rates", cust.getRates());
@@ -103,13 +110,10 @@ public class ServicesListActivity extends BaseActivity {
 
         //prepareMovieData();
         GetCustomerServices();
-   */
+
+        return view;
     }
 
-
-
-
-/*
     private void prepareMovieData() {
         CustomerService cust = new CustomerService(1,"sss", 10, "http://192.168.100.2:82/images/dummyproduct.jpg");
         customerServicesList.add(cust);
@@ -126,8 +130,9 @@ public class ServicesListActivity extends BaseActivity {
         customerServiceAdapter.notifyDataSetChanged();
     }
 
+
     private void GetCustomerServices(){
-       showProgress();
+        showProgress();
         try {
             IApiCaller token = ApiClient.createService(IApiCaller.class);
             Call<CustomerServices> response = token.GetCustomerServices();
@@ -142,12 +147,12 @@ public class ServicesListActivity extends BaseActivity {
                             JSONObject jObjError = new JSONObject(response.errorBody().string());
                             String err = jObjError.getString("error_description").toString();
                             Log.d("Error", err);
-                            Toast.makeText(ServicesListActivity.this, err, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity().getApplicationContext(), err, Toast.LENGTH_SHORT).show();
 
                         } catch (Exception e) {
                             hideProgress();
                             Log.d("Exception", e.getMessage());
-                            Toast.makeText(ServicesListActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
                         }
                     }else{
                         hideProgress();
@@ -167,7 +172,7 @@ public class ServicesListActivity extends BaseActivity {
                 }
                 @Override
                 public void onFailure(Call<CustomerServices> call, Throwable t) {
-                    Toast.makeText(ServicesListActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
 //                Log.d("ApiError",t.getMessage());
                     hideProgress();
                 }
@@ -176,11 +181,8 @@ public class ServicesListActivity extends BaseActivity {
         }catch (Exception e){
             Log.d("error",e.getMessage());
             hideProgress();
-            Toast.makeText(ServicesListActivity.this, "Email or password is not correct", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity().getApplicationContext(), "Email or password is not correct", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-*/
 
 }
