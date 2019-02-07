@@ -19,7 +19,7 @@ import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.Models.Cart;
 import com.example.fightersarena.ocflex_costumer.R;
 
-public class CustomerExperienceActivity extends BaseActivity implements  NavigationView.OnNavigationItemSelectedListener {
+public class CustomerExperienceActivity extends BaseActivity implements  NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     public TextView tv;
     public ImageView i, imgProfile;
     Bitmap bmp;
@@ -129,11 +129,25 @@ public class CustomerExperienceActivity extends BaseActivity implements  Navigat
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
-        //   i.setOnClickListener(this);
-        //  tv.setOnClickListener(this);
+          i.setOnClickListener(this);
+         tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
 
 
+            case R.id.actionbar_notifcation_img:
+                OpenActivity(CartActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(CartActivity.class);
+                break;
+
+
+        }
+    }
 
 }

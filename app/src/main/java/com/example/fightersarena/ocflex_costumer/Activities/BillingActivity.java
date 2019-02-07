@@ -180,10 +180,17 @@ public class BillingActivity extends BaseActivity implements View.OnClickListene
             case R.id.btn_order:
                 if(isValidate()){
                     Order();
-                }else{
-                    break;
                 }
                 break;
+            case R.id.actionbar_notifcation_img:
+                OpenActivity(CartActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(CartActivity.class);
+                break;
+
+
         }
     }
 
@@ -364,8 +371,8 @@ public class BillingActivity extends BaseActivity implements View.OnClickListene
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
-        //   i.setOnClickListener(this);
-        //  tv.setOnClickListener(this);
+          i.setOnClickListener(this);
+          tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 }
