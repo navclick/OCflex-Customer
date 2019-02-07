@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -20,6 +21,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -55,14 +57,20 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
     DatePickerDialog datePickerDialog;
     TimePickerDialog timePickerDialog;
     Spinner spinnerHours;
-
+CheckBox checkone,checktwo,checkthree;
     ImageView imgCart;
     public TextView tv;
+    public Boolean ProcessOder=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order);
+
+
+        checkone = (CheckBox) findViewById(R.id.checkone);
+        checktwo = (CheckBox) findViewById(R.id.checktwo);
+        checkthree = (CheckBox) findViewById(R.id.checkthree);
 
 
         //Side Menu and toolbar
@@ -202,7 +210,39 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
             case R.id.actionbar_notifcation_textview:
                 OpenActivity(ServicesListActivity.class);
                 break;
+
+            case R.id.checkone:
+                setCheckboxes();
+                break;
+
+            case R.id.checktwo:
+                setCheckboxes();
+                break;
+
+            case R.id.checkthree:
+                setCheckboxes();
+                break;
+
         }
+    }
+
+    public  void setCheckboxes(){
+
+        if(checkone.isChecked()==true && checktwo.isChecked()==true && checkthree.isChecked() ){
+
+            btnNext.setBackground(ContextCompat.getDrawable(this, R.drawable.round_corner));
+            btnNext.setTextColor( getResources().getColor(R.color.colorPrimary));
+            ProcessOder=true;
+        }
+        else{
+
+            btnNext.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_disable));
+            btnNext.setTextColor( getResources().getColor(R.color.colordisbale));
+            ProcessOder=false;
+
+        }
+
+
     }
 
     private void NextService(){
@@ -210,6 +250,11 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
 //        String date = txtDatePicker.getText().toString();
 //        String time = hours + ":" + seconds;
 
+        if(!ProcessOder){
+
+            return ;
+
+        }
         String serviceName = txtServiceName.getText().toString();
         int total = Integer.valueOf(txtTotal.getText().toString());
         int hours = Integer.valueOf(txtHoursPicker.getText().toString());
