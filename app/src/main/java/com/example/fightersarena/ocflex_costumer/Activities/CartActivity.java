@@ -126,7 +126,7 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
             btnCheckOut.setVisibility(View.GONE);
 
             text_add.setVisibility(View.GONE);
-            txt_msg.setVisibility(View.GONE);
+           // txt_msg.setVisibility(View.GONE);
             recyclerView.setVisibility(View.GONE);
             Log.d("data","empty");
         }
