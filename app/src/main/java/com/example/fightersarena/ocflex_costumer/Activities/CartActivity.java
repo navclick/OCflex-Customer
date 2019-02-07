@@ -104,6 +104,8 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
         clearRecyclerView();
         List<OrderItemRequestVM> cartItems = Cart.getCartItems(this);
         if(cartItems.size() > 0){
+
+            btnCheckOut.setVisibility(View.VISIBLE);
             for (OrderItemRequestVM cartListItem: cartItems){
                 int id = cartListItem.getServiceId();
                 String servicename = cartListItem.getServiceName();
@@ -116,6 +118,9 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
             cartAdapter.notifyDataSetChanged();
 
         }else{
+
+            btnCheckOut.setVisibility(View.INVISIBLE);
+
             Log.d("data","empty");
         }
     }

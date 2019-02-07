@@ -129,25 +129,23 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
         recyclerViewOrderHistory.setItemAnimator(new DefaultItemAnimator());
         recyclerViewOrderHistory.setAdapter(myOrderHistoryAdapter);
 
-//        recyclerViewActiveOrders.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerViewActiveOrders, new RecyclerTouchListener.ClickListener() {
-//            @Override
-//            public void onClick(View view, int position) {
-//                MyOrder order = myOrderList.get(position);
-//
-//                Log.d("cust",String.valueOf(order.getId()));
-//
-//                Intent intent = new Intent(ServicesListActivity.this, OrderActivity.class);
-//                intent.putExtra("id", order.getId());
-//                intent.putExtra("name", order.getName());
-//                intent.putExtra("rates", order.getRates());
-//                startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onLongClick(View view, int position) {
-//
-//            }
-//        }));
+       recyclerViewActiveOrders.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerViewActiveOrders, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                MyOrder order = myOrderList.get(position);
+
+                Log.d("cust",String.valueOf(order.getId()));
+
+                Intent intent = new Intent(MyOrderActivity.this, TrackingActivity.class);
+
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+      }));
 
         GetActiveOrders();
         GetOrderHistory();
