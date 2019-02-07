@@ -212,7 +212,7 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
         i =notifCount.findViewById(R.id.actionbar_notifcation_img);
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
-        tv.setText("0");
+        tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
         i.setOnClickListener(this);
         tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);

@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
+import com.example.fightersarena.ocflex_costumer.Models.Cart;
 import com.example.fightersarena.ocflex_costumer.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -196,7 +197,7 @@ public class TrackingActivity extends BaseActivity implements OnMapReadyCallback
         i =notifCount.findViewById(R.id.actionbar_notifcation_img);
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
-        tv.setText("0");
+        tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
         //   i.setOnClickListener(this);
         //  tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);

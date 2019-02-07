@@ -24,6 +24,7 @@ import com.example.fightersarena.ocflex_costumer.Adapter.CustomerServicesAdapter
 import com.example.fightersarena.ocflex_costumer.Adapter.MyOrderHistoryAdapter;
 import com.example.fightersarena.ocflex_costumer.Adapter.MyOrdersAdapter;
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
+import com.example.fightersarena.ocflex_costumer.Helpers.Constants;
 import com.example.fightersarena.ocflex_costumer.Helpers.TokenHelper;
 import com.example.fightersarena.ocflex_costumer.Listeners.RecyclerTouchListener;
 import com.example.fightersarena.ocflex_costumer.Models.Cart;
@@ -341,6 +342,8 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
         i =notifCount.findViewById(R.id.actionbar_notifcation_img);
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
+
+        Log.d(Constants.TAG,String.valueOf(Cart.getCartItemsCount(this)));
         tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
         i.setOnClickListener(this);
         tv.setOnClickListener(this);
