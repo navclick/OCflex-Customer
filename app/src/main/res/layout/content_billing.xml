@@ -78,7 +78,8 @@
                     android:hint="Enter Full Name"
                     android:inputType="text"
                     android:textColor="#758089"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:theme="@style/MyCheckBox" />
 
             </LinearLayout>
 
@@ -108,7 +109,8 @@
                     android:hint="Enter Street Address"
                     android:inputType="text"
                     android:textColor="#758089"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:theme="@style/MyCheckBox" />
 
 
             </LinearLayout>
@@ -139,7 +141,8 @@
                     android:hint="Enter Town/City"
                     android:inputType="text"
                     android:textColor="#758089"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:theme="@style/MyCheckBox" />
             </LinearLayout>
 
             <LinearLayout
@@ -168,7 +171,8 @@
                     android:hint="Enter Postal Code"
                     android:inputType="number"
                     android:textColor="#758089"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:theme="@style/MyCheckBox" />
             </LinearLayout>
 
             <LinearLayout
@@ -197,7 +201,8 @@
                     android:hint="Enter Phone Number"
                     android:inputType="number"
                     android:textColor="#758089"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:theme="@style/MyCheckBox" />
             </LinearLayout>
 
             <Button

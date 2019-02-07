@@ -61,13 +61,15 @@
                 android:layout_height="wrap_content"
                 android:text="Service"
                 android:textAllCaps="true"
-                android:textSize="12sp" />
+                android:textColor="@color/darkPurple"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_servicename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginTop="10dp"
                 android:text="" />
 
@@ -78,7 +80,9 @@
                 android:layout_marginBottom="10dp"
                 android:text="Date"
                 android:textAllCaps="true"
-                android:textSize="12sp" />
+                android:textColor="@color/darkPurple"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <!--<DatePicker-->
             <!--android:id="@+id/date_picker"-->
@@ -90,17 +94,17 @@
 
             <EditText
                 android:id="@+id/txt_date"
-                android:focusableInTouchMode="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="30dp"
-                android:background="#d4d4d4"
+                android:layout_marginBottom="20dp"
+                android:background="#EDF2F4"
+                android:focusableInTouchMode="false"
                 android:hint="Select Date..."
-                android:padding="15dp"
-                android:textColor="#897"
-                android:textColorHint="#090"
-                android:textSize="20sp"
+                android:padding="10dp"
+                android:textColor="#758089"
+                android:textColorHint="#758089"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -110,19 +114,30 @@
                 android:layout_marginBottom="10dp"
                 android:text="Required Hours"
                 android:textAllCaps="true"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/spinner_requiredhours"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp" />
+                android:textColor="@color/darkPurple"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:layout_marginBottom="20dp"
+                android:background="#EDF2F4"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/spinner_requiredhours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView22"
@@ -130,7 +145,9 @@
                     android:layout_height="wrap_content"
                     android:text="Select Time"
                     android:textAllCaps="true"
-                    android:textSize="12sp" />
+                    android:textColor="@color/darkPurple"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <!--<EditText-->
                 <!--android:id="@+id/txt_timepicker"-->
@@ -164,15 +181,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:background="#EDF2F4"
                 android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/txt_hourspicker"
-                    android:focusableInTouchMode="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="5"
+                    android:focusableInTouchMode="false"
                     android:gravity="center"
                     android:inputType="textPersonName"
                     android:text="10" />
@@ -187,11 +205,11 @@
 
                 <EditText
                     android:id="@+id/txt_secondspicker"
-                    android:focusableInTouchMode="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="5"
+                    android:focusableInTouchMode="false"
                     android:gravity="center"
                     android:inputType="textPersonName"
                     android:text="00" />
@@ -212,11 +230,47 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:text="I agree to pay $5 an hour extra charge for weekends/after hours.**"
+                    android:textColor="#758089"
+                    android:textSize="12sp"
+                    android:theme="@style/MyCheckBox" />
+
+                <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:text="I agree to pay $15 an hour extra charge on Holidays.**"
+                    android:textColor="#758089"
+                    android:textSize="12sp"
+                    android:theme="@style/MyCheckBox" />
+
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:text="Please check to accept for After hours, Holidays and/or Weekend extra charge.**"
+                    android:textColor="#758089"
+                    android:textSize="12sp"
+                    android:theme="@style/MyCheckBox" />
 
                 <RadioGroup
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
 
                     <RadioButton
                         android:id="@+id/radioButton3"
@@ -294,14 +348,16 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="10">
 
                 <Button
                     android:id="@+id/btn_next"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="5"
                     android:background="@drawable/round_corner"
                     android:text="Next"
                     android:textAllCaps="false"
@@ -311,8 +367,10 @@
                     android:id="@+id/btn_addmoreservice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="5"
                     android:background="@drawable/border_primary_color"
-                    android:text="Add more services"
+                    android:text="Add More"
                     android:textAllCaps="false"
                     android:textColor="@drawable/btn_txt_primary_color" />
             </LinearLayout>
