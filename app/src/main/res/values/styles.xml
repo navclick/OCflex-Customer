@@ -29,8 +29,9 @@
     </style>
 
 
-    <style name="NoTitleDialog" parent="@android:style/Theme.Dialog">
+    <style name="NoTitleDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
     </style>
 
     <style name="style_Spinner1">

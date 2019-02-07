@@ -141,6 +141,7 @@ public class TrackingActivity extends BaseActivity implements OnMapReadyCallback
         else if (id == R.id.menu_all_setting) {
             mDrawerLayout.closeDrawers();
             BaseActivity.startActivity(this,SettingActivity.class);
+
             // openActivity(ShoppingListActivity.class);
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
@@ -157,7 +158,23 @@ public class TrackingActivity extends BaseActivity implements OnMapReadyCallback
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
 
-        } else if (id == R.id.menu_pro_logout) {
+        }
+        else if (id == R.id.menu_customer_experience) {
+            mDrawerLayout.closeDrawers();
+            BaseActivity.startActivity(this,CustomerExperienceActivity.class);
+
+            // openActivity(AllCatActivity.class);
+
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+
+        }
+
+
+
+
+        else if (id == R.id.menu_pro_logout) {
             mDrawerLayout.closeDrawers();
             // openActivity(AllCatActivity.class);
 
@@ -166,7 +183,6 @@ public class TrackingActivity extends BaseActivity implements OnMapReadyCallback
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
             logOut();
         }
-
         return  true;
     }
 

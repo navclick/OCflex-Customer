@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_marginTop="48dp"
     android:layout_height="match_parent" android:orientation="vertical">
 
     <ScrollView
@@ -14,12 +15,54 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/page_title"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/active_divider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignWithParentIfMissing="false"
+                    android:layout_centerHorizontal="false"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="false"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="0dp"
+                    android:background="#444C51" />
+
+                <TextView
+                    android:id="@+id/active_textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="false"
+                    android:layout_centerHorizontal="false"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="false"
+                    android:background="#fff"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="SETTINGS"
+                    android:textAllCaps="true"
+                    android:textColor="#444C51"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -29,14 +72,15 @@
                     android:layout_marginBottom="10dp"
                     android:text="SAVED CARD"
                     android:textColor="@color/darkPurple"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:baselineAligned="false"
                     android:orientation="horizontal"
-                    android:weightSum="3"
-                    android:baselineAligned="false">
+                    android:weightSum="3">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -50,7 +94,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="**** **** **** 2525"
-                            android:textColor="#758089" />
+                            android:textColor="#758089"
+                            android:theme="@style/MyCheckBox" />
 
                         <TextView
                             android:id="@+id/textView300"
@@ -104,9 +149,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:baselineAligned="false"
                     android:orientation="horizontal"
-                    android:weightSum="3"
-                    android:baselineAligned="false">
+                    android:weightSum="3">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -120,7 +165,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="**** **** **** 2525"
-                            android:textColor="#758089" />
+                            android:textColor="#758089"
+                            android:theme="@style/MyCheckBox" />
 
                         <TextView
                             android:id="@+id/textView30"
@@ -186,13 +232,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:text="ADD A CARD"
-                    android:textSize="12sp" />
+                    android:textColor="@color/darkPurple"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spinner2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/textView14"
@@ -209,15 +258,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:ems="16"
-                    android:hint="1234 5678 9012 3456"
+                    android:hint="Enter Card Number"
                     android:inputType="number"
                     android:textColor="#758089"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:theme="@style/MyCheckBox" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
                     android:baselineAligned="false"
                     android:orientation="horizontal"
                     android:weightSum="10">
@@ -243,10 +292,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:hint="Enter Expiry Date"
                             android:inputType="textPersonName"
-                            android:text="Name"
                             android:textColor="#758089"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:theme="@style/MyCheckBox" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -270,10 +320,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="CVV"
+                            android:hint="Enter CVV"
                             android:inputType="number"
                             android:textColor="#758089"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:theme="@style/MyCheckBox" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -285,7 +336,8 @@
                     android:text="Card Postal Code"
                     android:textColor="#758089"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <EditText
                     android:id="@+id/editText9"
@@ -295,7 +347,8 @@
                     android:hint="Card Postal Code"
                     android:inputType="textPersonName"
                     android:textColor="#758089"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:visibility="gone" />
 
             </LinearLayout>
 

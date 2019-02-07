@@ -207,4 +207,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         return cartItem;
     }
+
+
+    public int getItemCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
 }

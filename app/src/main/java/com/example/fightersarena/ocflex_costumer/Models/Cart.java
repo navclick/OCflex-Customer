@@ -49,5 +49,19 @@ public class Cart {
     public static void removeCartItems(Context context){
         DatabaseHandler databaseHelper = DatabaseHandler.getInstance(context);
         databaseHelper.removeCartItems();
+
+
+
     }
+
+
+    public static int getCartItemsCount(Context context){
+        DatabaseHandler databaseHelper = DatabaseHandler.getInstance(context);
+       int count= databaseHelper.getItemCount();
+    return count;
+
+
+    }
+
+
 }

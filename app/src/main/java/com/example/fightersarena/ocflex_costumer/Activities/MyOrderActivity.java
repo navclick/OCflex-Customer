@@ -26,6 +26,7 @@ import com.example.fightersarena.ocflex_costumer.Adapter.MyOrdersAdapter;
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.Helpers.TokenHelper;
 import com.example.fightersarena.ocflex_costumer.Listeners.RecyclerTouchListener;
+import com.example.fightersarena.ocflex_costumer.Models.Cart;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerService;
 import com.example.fightersarena.ocflex_costumer.Models.MyOrder;
 import com.example.fightersarena.ocflex_costumer.Models.MyOrders;
@@ -284,6 +285,7 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
         else if (id == R.id.menu_all_setting) {
             mDrawerLayout.closeDrawers();
             BaseActivity.startActivity(this,SettingActivity.class);
+
             // openActivity(ShoppingListActivity.class);
             //MenuHandler.smsTracking(this);
             //MenuHandler.callUs(this);
@@ -300,7 +302,23 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
             //MenuHandler.callUs(this);
             //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
 
-        } else if (id == R.id.menu_pro_logout) {
+        }
+        else if (id == R.id.menu_customer_experience) {
+            mDrawerLayout.closeDrawers();
+            BaseActivity.startActivity(this,CustomerExperienceActivity.class);
+
+            // openActivity(AllCatActivity.class);
+
+            //MenuHandler.smsTracking(this);
+            //MenuHandler.callUs(this);
+            //ActivityManager.showPopup(BookingActivity.this, Constant.CALL_NOW_DESCRIPTION, Constant.CALL_NOW_HEADING, Constant.CANCEL_BUTTON, Constant.CALL_NOW_BUTTON, Constant.CALL_BUTTON, Constant.PopupType.INFORMATION.ordinal());
+
+        }
+
+
+
+
+        else if (id == R.id.menu_pro_logout) {
             mDrawerLayout.closeDrawers();
             // openActivity(AllCatActivity.class);
 
@@ -323,7 +341,7 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
         i =notifCount.findViewById(R.id.actionbar_notifcation_img);
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
-        tv.setText("0");
+        tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
         i.setOnClickListener(this);
         tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
