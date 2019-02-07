@@ -326,4 +326,10 @@ public class ServiceListTabMainActivity extends BaseActivity  implements View.On
         tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+        System.exit(0);
+    }
 }
