@@ -119,7 +119,7 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
 
         }else{
 
-            btnCheckOut.setVisibility(View.INVISIBLE);
+            btnCheckOut.setVisibility(View.GONE);
 
             Log.d("data","empty");
         }
