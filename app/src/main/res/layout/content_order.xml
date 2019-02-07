@@ -358,10 +358,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:layout_weight="5"
-                    android:background="@drawable/round_corner"
+                    android:background="@drawable/btn_disable"
                     android:text="Next"
                     android:textAllCaps="false"
-                    android:textColor="@drawable/txt_round_corner" />
+                    android:textColor="#758089" />
 
                 <Button
                     android:id="@+id/btn_addmoreservice"
