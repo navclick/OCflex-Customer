@@ -88,6 +88,7 @@ public class BaseActivity extends AppCompatActivity {
 
         tokenHelper.removeALL();
         // openActivity(Login.class);
+        this.deleteDatabase(Constants.DATABASE_NAME);
         startActivity(this,LoginActivity.class);
     }
 
