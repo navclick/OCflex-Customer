@@ -39,7 +39,7 @@ import java.util.List;
 
 public class CartActivity extends BaseActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
-    public TextView tv;
+    public TextView tv,txt_msg,text_add;
     public ImageView i;
 
     Button btnAddMoreCart, btnCheckOut;
@@ -85,7 +85,8 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
 
         btnAddMoreCart = (Button) findViewById(R.id.btn_addmorecart);
         btnCheckOut = (Button) findViewById(R.id.btn_checkout);
-
+        txt_msg =(TextView) findViewById(R.id.txt_msg);
+        text_add =(TextView) findViewById(R.id.text_add);
         // Listeners
         btnAddMoreCart.setOnClickListener(this);
         btnCheckOut.setOnClickListener(this);
@@ -106,6 +107,9 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
         if(cartItems.size() > 0){
 
             btnCheckOut.setVisibility(View.VISIBLE);
+            text_add.setVisibility(View.VISIBLE);
+            txt_msg.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
             for (OrderItemRequestVM cartListItem: cartItems){
                 int id = cartListItem.getServiceId();
                 String servicename = cartListItem.getServiceName();
@@ -121,6 +125,9 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
 
             btnCheckOut.setVisibility(View.GONE);
 
+            text_add.setVisibility(View.GONE);
+            txt_msg.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.GONE);
             Log.d("data","empty");
         }
     }

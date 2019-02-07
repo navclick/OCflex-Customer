@@ -58,12 +58,12 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/text_add"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
                     android:text="Added to Cart"
                     android:textAllCaps="true"
                     android:textColor="@color/darkPurple"
@@ -73,16 +73,17 @@
                     android:id="@+id/recyclerMenuCart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginStart="20dp" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp" />
 
             </LinearLayout>
 
             <TextView
+                android:id="@+id/txt_msg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Cart is Empty"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="Cart is Empty" />
 
 
         </LinearLayout>
