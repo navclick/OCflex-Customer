@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,6 +23,8 @@ import com.example.fightersarena.ocflex_costumer.R;
 public class CustomerExperienceActivity extends BaseActivity implements  NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     public TextView tv;
     public ImageView i, imgProfile;
+
+    public Button btn_back;
     Bitmap bmp;
 
     @Override
@@ -41,7 +44,8 @@ public class CustomerExperienceActivity extends BaseActivity implements  Navigat
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_cuse);
         navigationView.setNavigationItemSelectedListener(this);
-
+        btn_back = (Button) findViewById(R.id.btn_back);
+        btn_back.setOnClickListener(this);
         // Listeners
 
     }
@@ -137,6 +141,11 @@ public class CustomerExperienceActivity extends BaseActivity implements  Navigat
     public void onClick(View v) {
         switch (v.getId()) {
 
+
+
+            case R.id.btn_back:
+                this.onBackPressed();
+                break;
 
             case R.id.actionbar_notifcation_img:
                 OpenActivity(CartActivity.class);
