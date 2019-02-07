@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.fightersarena.ocflex_costumer.Activities.LoginActivity;
+import com.example.fightersarena.ocflex_costumer.Handlers.DatabaseHandler;
 import com.example.fightersarena.ocflex_costumer.Helpers.Constants;
 import com.example.fightersarena.ocflex_costumer.Helpers.ProgressLoader;
 import com.example.fightersarena.ocflex_costumer.Helpers.TokenHelper;
@@ -88,6 +89,9 @@ public class BaseActivity extends AppCompatActivity {
 
         tokenHelper.removeALL();
         // openActivity(Login.class);
+
+        DatabaseHandler databaseHelper = DatabaseHandler.getInstance(this);
+        databaseHelper.removeCartItems();
         this.deleteDatabase(Constants.DATABASE_NAME);
         startActivity(this,LoginActivity.class);
     }
