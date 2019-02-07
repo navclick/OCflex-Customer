@@ -60,7 +60,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 //        String CreateCart = "Create table "+" Cart "+ " (" +"Id"+" integer primary key autoincrement, serviceid integer, servicename text, orderdate text, ordertime text, hours integer, rates integer)";
         Log.d("CreateCart",CreateCart);
         db.execSQL(CreateCart);
-
+/*
         ContentValues values = new ContentValues();
         values.put(SERVICE_ID, "1");
         values.put(SERVICE_NAME , "Personal Assistant");
@@ -69,6 +69,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(ORDER_HOURS , 2);
         values.put(RATES, 30);
         db.insert(TABLE_NAME, null, values);
+  */
     }
 
     @Override
