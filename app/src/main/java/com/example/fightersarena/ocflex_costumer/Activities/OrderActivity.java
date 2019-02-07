@@ -361,7 +361,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         imgCart =notifCount.findViewById(R.id.actionbar_notifcation_img);
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
-        tv.setText("0");
+        tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
         imgCart.setOnClickListener(this);
         tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
