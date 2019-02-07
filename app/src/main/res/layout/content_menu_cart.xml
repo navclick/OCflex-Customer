@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="48dp"
     android:background="#fff"
     android:orientation="vertical">
 
@@ -17,7 +18,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
@@ -76,6 +77,12 @@
                     android:layout_marginStart="20dp" />
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Cart is Empty"
+                android:gravity="center"/>
 
 
         </LinearLayout>
