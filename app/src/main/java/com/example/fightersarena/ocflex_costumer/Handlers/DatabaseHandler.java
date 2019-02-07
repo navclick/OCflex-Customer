@@ -148,6 +148,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     public List<OrderItemRequestVM> getCartItems() {
+        cartItem.clear();
         String selectQuery = "SELECT  * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

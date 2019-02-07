@@ -25,6 +25,7 @@ import com.example.fightersarena.ocflex_costumer.Adapter.CartAdapter;
 import com.example.fightersarena.ocflex_costumer.Adapter.CustomerServicesAdapter;
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.Listeners.RecyclerTouchListener;
+import com.example.fightersarena.ocflex_costumer.Models.Billing;
 import com.example.fightersarena.ocflex_costumer.Models.Cart;
 import com.example.fightersarena.ocflex_costumer.Models.CartVM;
 import com.example.fightersarena.ocflex_costumer.Models.CustomerService;
@@ -41,7 +42,7 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
     public TextView tv;
     public ImageView i;
 
-    Button btnAddMoreCart;
+    Button btnAddMoreCart, btnCheckOut;
 
     private List<CartVM> cartList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -83,9 +84,11 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
         ///--------
 
         btnAddMoreCart = (Button) findViewById(R.id.btn_addmorecart);
+        btnCheckOut = (Button) findViewById(R.id.btn_checkout);
 
         // Listeners
         btnAddMoreCart.setOnClickListener(this);
+        btnCheckOut.setOnClickListener(this);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerMenuCart);
         cartAdapter = new CartAdapter(cartList);
@@ -98,6 +101,7 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     private void GetCartItem(){
+        clearRecyclerView();
         List<OrderItemRequestVM> cartItems = Cart.getCartItems(this);
         if(cartItems.size() > 0){
             for (OrderItemRequestVM cartListItem: cartItems){
@@ -116,11 +120,28 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
+    private void clearRecyclerView() {
+        cartList.clear();
+        cartAdapter.notifyDataSetChanged();
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_addmorecart:
                 OpenActivity(ServicesListActivity.class);
+                break;
+
+            case R.id.btn_checkout:
+                OpenActivity(BillingActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_img:
+                OpenActivity(CartActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(CartActivity.class);
                 break;
         }
     }
@@ -192,8 +213,8 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText("0");
-        //   i.setOnClickListener(this);
-        //  tv.setOnClickListener(this);
+        i.setOnClickListener(this);
+        tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 }

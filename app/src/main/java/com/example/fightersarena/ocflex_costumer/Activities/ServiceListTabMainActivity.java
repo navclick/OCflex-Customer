@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class ServiceListTabMainActivity extends BaseActivity  implements NavigationView.OnNavigationItemSelectedListener {
+public class ServiceListTabMainActivity extends BaseActivity  implements View.OnClickListener ,NavigationView.OnNavigationItemSelectedListener {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     public TextView tv;
@@ -251,6 +251,20 @@ public class ServiceListTabMainActivity extends BaseActivity  implements Navigat
         return  true;
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+
+            case R.id.actionbar_notifcation_img:
+                OpenActivity(CartActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(CartActivity.class);
+                break;
+        }
+    }
+
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
@@ -291,8 +305,8 @@ public class ServiceListTabMainActivity extends BaseActivity  implements Navigat
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText("0");
-        //   i.setOnClickListener(this);
-        //  tv.setOnClickListener(this);
+        i.setOnClickListener(this);
+        tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 }

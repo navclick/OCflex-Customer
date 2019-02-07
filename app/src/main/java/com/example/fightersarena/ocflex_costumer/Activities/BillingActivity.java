@@ -131,10 +131,18 @@ public class BillingActivity extends BaseActivity implements View.OnClickListene
                         String postal = objResponse.getValue().getPostalCode();
 
                         txtFullName.setText(fullname);
-                        txtAddress.setText(address);
-                        txtPhone.setText(phone);
-                        txtCity.setText(city);
-                        txtPostal.setText(postal);
+                        if (address.length() != 0 && !address.equals("None") && address != "None") {
+                            txtAddress.setText(address);
+                        }
+                        if (phone.length() != 0 && !phone.equals("None") && !phone.equals(null)) {
+                            txtPhone.setText(phone);
+                        }
+                        if (city.length() != 0 && !city.equals("None") && !city.equals(null)) {
+                            txtCity.setText(city);
+                        }
+                        if (postal.length() != 0 && !postal.equals("None") && !postal.equals(null)) {
+                            txtPostal.setText(postal);
+                        }
 
 //                        Billing billing = new Billing();
 //                        billing.setFullName(reqfullname);

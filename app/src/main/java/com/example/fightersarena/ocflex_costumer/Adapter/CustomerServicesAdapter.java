@@ -60,7 +60,6 @@ public class CustomerServicesAdapter extends RecyclerView.Adapter<CustomerServic
     public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.layout_customerservices, parent, false);
-
         return new ListViewHolder(itemView);
     }
 

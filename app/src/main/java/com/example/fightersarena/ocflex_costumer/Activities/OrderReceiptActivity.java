@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,9 +19,10 @@ import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
 import com.example.fightersarena.ocflex_costumer.R;
 import com.squareup.picasso.Picasso;
 
-public class OrderReceiptActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class OrderReceiptActivity extends BaseActivity implements View.OnClickListener ,NavigationView.OnNavigationItemSelectedListener {
     public TextView tv;
     public ImageView i;
+    public Button btnOrderHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,8 @@ public class OrderReceiptActivity extends BaseActivity implements NavigationView
         Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
 
 
-
+        btnOrderHistory = (Button) findViewById(R.id.btn_orderhistory);
+        btnOrderHistory.setOnClickListener(this);
 
 
 
@@ -134,11 +137,26 @@ public class OrderReceiptActivity extends BaseActivity implements NavigationView
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText("0");
-        //   i.setOnClickListener(this);
-        //  tv.setOnClickListener(this);
+        i.setOnClickListener(this);
+        tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_orderhistory:
+                OpenActivity(MyOrderActivity.class);
+                break;
 
+            case R.id.actionbar_notifcation_img:
+                OpenActivity(CartActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(CartActivity.class);
+                break;
+        }
+    }
 }

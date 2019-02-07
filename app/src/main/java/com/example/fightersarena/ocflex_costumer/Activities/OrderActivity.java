@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -101,6 +102,12 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         txtDatePicker = (EditText) findViewById(R.id.txt_date);
         txtHoursPicker = (EditText) findViewById(R.id.txt_hourspicker);
         txtSecondsPicker = (EditText) findViewById(R.id.txt_secondspicker);
+
+        txtDatePicker.setInputType(InputType.TYPE_NULL);
+        txtHoursPicker.setInputType(InputType.TYPE_NULL);
+        txtSecondsPicker.setInputType(InputType.TYPE_NULL);
+
+
         btnNext = (Button) findViewById(R.id.btn_next);
         btnAddMoreService = (Button) findViewById(R.id.btn_addmoreservice);
 
@@ -136,6 +143,7 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         // Listeners
         txtDatePicker.setOnClickListener(this);
         txtHoursPicker.setOnClickListener(this);
+        txtSecondsPicker.setOnClickListener(this);
         btnNext.setOnClickListener(this);
         btnAddMoreService.setOnClickListener(this);
 
@@ -172,6 +180,10 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
                 break;
 
             case R.id.txt_hourspicker:
+                OpenTimePicker();
+                break;
+
+            case R.id.txt_secondspicker:
                 OpenTimePicker();
                 break;
 
@@ -265,7 +277,6 @@ public class OrderActivity extends BaseActivity implements View.OnClickListener,
         }, hour, minute, true);//Yes 24 hour time
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
-
     }
 
 

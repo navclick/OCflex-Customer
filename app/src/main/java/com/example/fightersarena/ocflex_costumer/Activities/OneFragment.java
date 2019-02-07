@@ -118,6 +118,7 @@ public class OneFragment extends BaseFragment {
     private void GetCustomerServices(){
         showProgress();
         try {
+            customerServicesList.clear();
             IApiCaller token = ApiClient.createService(IApiCaller.class);
             Call<CustomerServices> response = token.GetCustomerServices();
 
