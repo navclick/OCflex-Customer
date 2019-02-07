@@ -155,6 +155,10 @@ CheckBox checkone,checktwo,checkthree;
         btnNext.setOnClickListener(this);
         btnAddMoreService.setOnClickListener(this);
 
+        checkone.setOnClickListener(this);
+        checktwo.setOnClickListener(this);
+        checkthree.setOnClickListener(this);
+
         imgCart = findViewById(R.id.badge);
 //        imgCart = (ImageView) findViewById(R.id.badge);
         //imgCart.setOnMenuItemClickListener(this);
