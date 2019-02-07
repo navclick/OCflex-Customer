@@ -108,7 +108,7 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
 
             btnCheckOut.setVisibility(View.VISIBLE);
             text_add.setVisibility(View.VISIBLE);
-            txt_msg.setVisibility(View.VISIBLE);
+            txt_msg.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
             for (OrderItemRequestVM cartListItem: cartItems){
                 int id = cartListItem.getServiceId();
@@ -126,7 +126,7 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
             btnCheckOut.setVisibility(View.GONE);
 
             text_add.setVisibility(View.GONE);
-           // txt_msg.setVisibility(View.GONE);
+            txt_msg.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
             Log.d("data","empty");
         }
@@ -225,8 +225,8 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
-        i.setOnClickListener(this);
-        tv.setOnClickListener(this);
+      //  i.setOnClickListener(this);
+       // tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 }
