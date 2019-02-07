@@ -34,6 +34,8 @@ import com.example.fightersarena.ocflex_costumer.Models.MyOrders;
 import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
 import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
 import com.example.fightersarena.ocflex_costumer.R;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
@@ -96,7 +98,7 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
         t.setText(tokenHelper.GetUserName());
 
         //profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
-        Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
+        Picasso.with(this).load(tokenHelper.GetUserPhoto()).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).resize(110, 110).centerCrop().into(profile_img);
 
 
 
