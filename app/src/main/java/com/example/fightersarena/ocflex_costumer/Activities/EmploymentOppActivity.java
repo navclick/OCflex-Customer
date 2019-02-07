@@ -67,6 +67,14 @@ public class EmploymentOppActivity extends BaseActivity implements NavigationVie
                 this.onBackPressed();
                 break;
 
+            case R.id.actionbar_notifcation_img:
+                OpenActivity(CartActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(CartActivity.class);
+                break;
+
 
         }
     }
@@ -153,8 +161,8 @@ public class EmploymentOppActivity extends BaseActivity implements NavigationVie
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
-        //   i.setOnClickListener(this);
-        //  tv.setOnClickListener(this);
+           i.setOnClickListener(this);
+          tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 
