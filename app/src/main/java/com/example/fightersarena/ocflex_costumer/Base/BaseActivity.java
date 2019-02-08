@@ -92,7 +92,7 @@ public class BaseActivity extends AppCompatActivity {
 
         DatabaseHandler databaseHelper = DatabaseHandler.getInstance(this);
         databaseHelper.removeCartItems();
-        this.deleteDatabase(Constants.DATABASE_NAME);
+       // this.deleteDatabase(Constants.DATABASE_NAME);
         startActivity(this,LoginActivity.class);
     }
 

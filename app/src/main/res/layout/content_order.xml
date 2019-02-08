@@ -233,7 +233,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/checkone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -244,11 +244,11 @@
                     android:theme="@style/MyCheckBox" />
 
                 <CheckBox
-                    android:id="@+id/checkBox3"
+                    android:id="@+id/checktwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:paddingStart="10dp"
                     android:text="I agree to pay $15 an hour extra charge on Holidays.**"
@@ -257,7 +257,7 @@
                     android:theme="@style/MyCheckBox" />
 
                 <CheckBox
-                    android:id="@+id/checkBox2"
+                    android:id="@+id/checkthree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -358,10 +358,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:layout_weight="5"
-                    android:background="@drawable/round_corner"
+                    android:background="@drawable/btn_disable"
                     android:text="Next"
                     android:textAllCaps="false"
-                    android:textColor="@drawable/txt_round_corner" />
+                    android:textColor="#758089" />
 
                 <Button
                     android:id="@+id/btn_addmoreservice"

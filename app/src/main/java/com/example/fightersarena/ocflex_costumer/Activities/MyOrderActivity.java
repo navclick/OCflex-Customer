@@ -34,6 +34,8 @@ import com.example.fightersarena.ocflex_costumer.Models.MyOrders;
 import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
 import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
 import com.example.fightersarena.ocflex_costumer.R;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
@@ -96,7 +98,7 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
         t.setText(tokenHelper.GetUserName());
 
         //profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
-        Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
+        Picasso.with(this).load(tokenHelper.GetUserPhoto()).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).resize(110, 110).centerCrop().into(profile_img);
 
 
 
@@ -127,25 +129,23 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
         recyclerViewOrderHistory.setItemAnimator(new DefaultItemAnimator());
         recyclerViewOrderHistory.setAdapter(myOrderHistoryAdapter);
 
-//        recyclerViewActiveOrders.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerViewActiveOrders, new RecyclerTouchListener.ClickListener() {
-//            @Override
-//            public void onClick(View view, int position) {
-//                MyOrder order = myOrderList.get(position);
-//
-//                Log.d("cust",String.valueOf(order.getId()));
-//
-//                Intent intent = new Intent(ServicesListActivity.this, OrderActivity.class);
-//                intent.putExtra("id", order.getId());
-//                intent.putExtra("name", order.getName());
-//                intent.putExtra("rates", order.getRates());
-//                startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onLongClick(View view, int position) {
-//
-//            }
-//        }));
+       recyclerViewActiveOrders.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerViewActiveOrders, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                MyOrder order = myOrderList.get(position);
+
+                Log.d("cust",String.valueOf(order.getId()));
+
+                Intent intent = new Intent(MyOrderActivity.this, TrackingActivity.class);
+
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+      }));
 
         GetActiveOrders();
         GetOrderHistory();

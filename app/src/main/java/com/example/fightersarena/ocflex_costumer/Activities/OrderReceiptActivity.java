@@ -176,4 +176,11 @@ public class OrderReceiptActivity extends BaseActivity implements View.OnClickLi
                 break;
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        BaseActivity.startActivity(this,ServiceListTabMainActivity.class);
+
+    }
 }

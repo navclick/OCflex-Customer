@@ -18,7 +18,7 @@ import com.example.fightersarena.ocflex_costumer.Models.Cart;
 import com.example.fightersarena.ocflex_costumer.R;
 import com.squareup.picasso.Picasso;
 
-public class SettingActivity extends BaseActivity implements  NavigationView.OnNavigationItemSelectedListener{
+public class SettingActivity extends BaseActivity implements  NavigationView.OnNavigationItemSelectedListener,View.OnClickListener{
 
     public TextView tv;
     public ImageView i;
@@ -152,12 +152,24 @@ public class SettingActivity extends BaseActivity implements  NavigationView.OnN
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
-        //   i.setOnClickListener(this);
-        //  tv.setOnClickListener(this);
+        i.setOnClickListener(this);
+        tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
 
+            case R.id.actionbar_notifcation_img:
+                OpenActivity(CartActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(CartActivity.class);
+                break;
+        }
+    }
 
 
 }

@@ -25,7 +25,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 
-public class TrackingActivity extends BaseActivity implements OnMapReadyCallback,NavigationView.OnNavigationItemSelectedListener {
+public class TrackingActivity extends BaseActivity implements OnMapReadyCallback,NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     public TextView tv;
     public ImageView i;
     private GoogleMap mMap;
@@ -198,12 +198,27 @@ public class TrackingActivity extends BaseActivity implements OnMapReadyCallback
         tv = (TextView) notifCount.findViewById(R.id.actionbar_notifcation_textview);
         //tv.setText("12");
         tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
-        //   i.setOnClickListener(this);
-        //  tv.setOnClickListener(this);
+          i.setOnClickListener(this);
+          tv.setOnClickListener(this);
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
 
+
+            case R.id.actionbar_notifcation_img:
+                OpenActivity(CartActivity.class);
+                break;
+
+            case R.id.actionbar_notifcation_textview:
+                OpenActivity(CartActivity.class);
+                break;
+
+
+        }
+    }
 
 
 }

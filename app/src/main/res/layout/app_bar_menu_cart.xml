@@ -9,13 +9,14 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#fff"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar_cart"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#fff"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <ImageView
@@ -23,9 +24,9 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:contentDescription="TODO"
                 android:textAlignment="center"
-                app:srcCompat="@drawable/toolbar_logo"
-                android:contentDescription="TODO" />
+                app:srcCompat="@drawable/toolbar_logo" />
 
         </android.support.v7.widget.Toolbar>
 

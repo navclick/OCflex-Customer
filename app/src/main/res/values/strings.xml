@@ -20,6 +20,8 @@
 
     </string>
 
+    <string name="button_undo">undo</string>
+
     <string-array name="country_array">
         <item>Saudi Arabia</item>
         <item>Pakistan</item>
@@ -213,11 +215,7 @@ Your submission of personal information through the app/website is governed by o
 Questions about the Terms of Service should be sent to us at ocflexhelp@gmail.com.
 </string>
 
-    <string name="requirments">\u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020Minimum age: 18 years old\n\n
-        \u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020A clear photo of yourself\n\n
-        \u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020A valid Driver’s license\n\n
-        \u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020Updated car insurance\n\n
-        \u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020Live Scan\n
+    <string name="requirments">\u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020Minimum age: 18 years old\n\n\u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020A clear photo of yourself\n\n\u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020Avalid Driver’s license\n\n\u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020Updated car insurance\n\n\u0020\u0020\u0020<font color='#7300AB'>\u2022</font>\u0020\u0020\u0020\u0020\u0020Live Scan\n
     </string>
 
     <string name="emp_opp_third">

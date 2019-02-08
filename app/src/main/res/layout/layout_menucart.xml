@@ -2,19 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="20dp"
-    android:layout_marginStart="20dp"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
         android:background="@drawable/underline"
         android:orientation="horizontal"
         android:paddingBottom="20dp"
+        android:paddingTop="20dp"
         android:weightSum="10">
 
         <LinearLayout
@@ -60,6 +56,25 @@
                 android:layout_height="wrap_content"
                 android:text="$150"
                 android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/undo_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_undo"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:layout_gravity="end|center_vertical"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                />
+
+            <!-- quick and dirty divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_gravity="bottom"
+                />
         </LinearLayout>
 
     </LinearLayout>

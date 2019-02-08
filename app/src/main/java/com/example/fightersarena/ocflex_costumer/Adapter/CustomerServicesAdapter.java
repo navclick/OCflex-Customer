@@ -69,7 +69,7 @@ public class CustomerServicesAdapter extends RecyclerView.Adapter<CustomerServic
         //holder.name.setText(customerService.getName());
         String imageurl = customerService.getImageUrl();
         Log.d("imageurl",imageurl);
-        Picasso.with(holder.imgViewServices.getContext()).load(imageurl).resize(700, 300).centerCrop().into(holder.imgViewServices);
+        Picasso.with(holder.imgViewServices.getContext()).load(imageurl).into(holder.imgViewServices);
         //holder.imgViewServices.setImageURI(customerService.getImageUrl());
     }
 
