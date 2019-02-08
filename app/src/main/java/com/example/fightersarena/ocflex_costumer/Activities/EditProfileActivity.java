@@ -38,6 +38,7 @@ import com.example.fightersarena.ocflex_costumer.Models.UserResponse;
 import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
 import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
 import com.example.fightersarena.ocflex_costumer.R;
+import com.google.gson.Gson;
 
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -69,7 +70,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
     EditText txtFullName, txtPhone, txtAddressOne, txtEmail;
     TextView txtviewUploadPhoto;
     Button btnUpdateProfile;
-    private AsyncTask mMyTask;
+    private AsyncTask mMyTask, updateTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,7 +176,11 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         try {
 
             showProgress();
-            ConvertToBase64();
+
+            //String imageurl = Base64String();
+            if(mediaPath != null){
+                updateTask = new AsyncTaskLoad().execute(mediaPath);
+            }
 
             String token = TokenString;
             token = "Bearer " + token;
@@ -191,12 +196,21 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             request.setPhoneNumber(phone);
             request.setImage(imgBase64);
 
+            Gson gson = new Gson();
+            String Reslog= gson.toJson(request);
+            Log.d("response", Reslog);
+
             Call<GeneralResponse> response = callerResponse.UpdateProfile(request);
 
             response.enqueue(new Callback<GeneralResponse>() {
                 @Override
                 public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
                     GeneralResponse objResponse = response.body();
+
+                    Gson gson = new Gson();
+                    String Reslog= gson.toJson(response);
+                    Log.d("response", Reslog);
+
                     if(objResponse == null){
                         try {
                             hideProgress();
@@ -240,6 +254,23 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
+    private String Base64String(){
+
+        String encodedImage = "";
+        if(mediaPath == null || mediaPath.equals(""))
+        {
+            encodedImage = "";
+        }else{
+            Bitmap bm = BitmapFactory.decodeFile(mediaPath);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] byteArrayImage = baos.toByteArray();
+            encodedImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
+            encodedImage = encodedImage.replace("\n","");
+        }
+        return encodedImage;
+    }
+
     public void ConvertToBase64() {
         if(mediaPath != null && mediaPath != ""){
             File file = new File(mediaPath);
@@ -260,7 +291,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                                 //Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
                             } else {
                                 Log.d("success",serverResponse.getMessage());
-                                imgBase64 = serverResponse.getMessage();
+                                imgBase64 = serverResponse.getMessage().toString();
                                 //imgBase64 = serverResponse.getMessage();
                                 //Toast.makeText(getApplicationContext(), serverResponse.getMessage(),Toast.LENGTH_SHORT).show();
                             }
@@ -325,41 +356,6 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                     break;
             }
     }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultcode, Intent intent)
-//    {
-//        super.onActivityResult(requestCode, resultcode, intent);
-//
-//        if (requestCode == 1)
-//        {
-//            if (intent != null && resultcode == RESULT_OK)
-//            {
-//
-//                Uri selectedImage = intent.getData();
-//
-//                String[] filePathColumn = {MediaStore.Images.Media.DATA};
-//                Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-//                cursor.moveToFirst();
-//                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-//                String filePath = cursor.getString(columnIndex);
-//                cursor.close();
-//
-//                if(bmp != null && !bmp.isRecycled())
-//                {
-//                    bmp = null;
-//                }
-//
-//                bmp = BitmapFactory.decodeFile(filePath);
-//                imgProfile.setBackgroundResource(0);
-//                imgProfile.setImageBitmap(bmp);
-//            }
-//            else
-//            {
-//                Log.d("Status:", "Photopicker canceled");
-//            }
-//        }
-//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -432,7 +428,6 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         return  true;
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbarmenu, menu);
@@ -468,6 +463,33 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             imgProfile.setImageBitmap(bitmap);
+        }
+    }
+
+    public class AsyncTaskLoad  extends AsyncTask<String, String, String> {
+        private final static String TAG = "AsyncTaskLoadImage";
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            String encodedImage = "";
+            if(mediaPath == null || mediaPath.equals(""))
+            {
+                encodedImage = "";
+            }else{
+                Bitmap bm = BitmapFactory.decodeFile(mediaPath);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                byte[] byteArrayImage = baos.toByteArray();
+                encodedImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
+                encodedImage = encodedImage.replace("\n","");
+            }
+            return encodedImage;
+        }
+        @Override
+        protected void onPostExecute(String base64) {
+            imgBase64 = base64;
+            Log.d("ss","ss");
         }
     }
 }
