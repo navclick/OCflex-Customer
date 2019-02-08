@@ -142,17 +142,19 @@ public class OneFragment extends BaseFragment {
                     }else{
                         hideProgress();
                         List<CustomerServices.Value> list = obj.getValue();
-                        for (CustomerServices.Value customerList: list){
+                        if(list != null){
+                            for (CustomerServices.Value customerList: list){
 
-                            int id = customerList.getId();
-                            String name = customerList.getName();
-                            int rates = customerList.getRates();
-                            String imageUrl = customerList.getImage();
+                                int id = customerList.getId();
+                                String name = customerList.getName();
+                                int rates = customerList.getRates();
+                                String imageUrl = customerList.getImage();
 
-                            CustomerService cust = new CustomerService(id, name, rates, imageUrl);
-                            customerServicesList.add(cust);
+                                CustomerService cust = new CustomerService(id, name, rates, imageUrl);
+                                customerServicesList.add(cust);
+                            }
+                            customerServiceAdapter.notifyDataSetChanged();
                         }
-                        customerServiceAdapter.notifyDataSetChanged();
                     }
                 }
                 @Override

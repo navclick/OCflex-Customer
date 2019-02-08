@@ -147,10 +147,19 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 //                            ImageHelper imgHelper = new ImageHelper();
 //                            Bitmap convertedImg = imgHelper.ConvertToBitmap(image);
 
-                            txtEmail.setText(email);
-                            txtFullName.setText(fullname);
-                            txtAddressOne.setText(addressOne);
-                            txtPhone.setText(phone);
+                            if (fullname.length() != 0 && !fullname.equals("None") && fullname != "None") {
+                                txtEmail.setText(email);
+                            }
+                            if (email.length() != 0 && !email.equals("None") && email != "None") {
+                                txtFullName.setText(fullname);
+                            }
+                            if (addressOne.length() != 0 && !addressOne.equals("None") && addressOne != "None") {
+                                txtAddressOne.setText(addressOne);
+                            }
+                            if (phone.length() != 0 && !phone.equals("None") && phone != "None") {
+                                txtPhone.setText(phone);
+                            }
+
                             if(image != null){
                                 //imgProfile.setImageBitmap(convertedImg);
                                 mMyTask = new AsyncTaskLoadImage().execute(image);
@@ -194,8 +203,6 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
 
 
-            //String imageurl = Base64String();
-
 
             String token = TokenString;
             token = "Bearer " + token;
@@ -209,11 +216,11 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             request.setFullName(fullname);
             request.setAddressOne(address);
             request.setPhoneNumber(phone);
-            request.setImage(imgBase64);
+            request.setImage(imageurl);
 
-            Gson gson = new Gson();
-            String Reslog= gson.toJson(request);
-            Log.d("response", Reslog);
+//            Gson gson = new Gson();
+//            String Reslog= gson.toJson(request);
+//            Log.d("response", Reslog);
 
             Call<GeneralResponse> response = callerResponse.UpdateProfile(request);
 
@@ -222,9 +229,9 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                 public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
                     GeneralResponse objResponse = response.body();
 
-                    Gson gson = new Gson();
-                    String Reslog= gson.toJson(response);
-                    Log.d("response", Reslog);
+//                    Gson gson = new Gson();
+//                    String Reslog= gson.toJson(response);
+//                    Log.d("response", Reslog);
 
                     if(objResponse == null){
                         try {

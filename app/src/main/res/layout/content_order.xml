@@ -225,13 +225,23 @@
                     android:textColor="#758089"
                     android:textSize="14sp" />
 
-                <Spinner
-                    android:id="@+id/spinner5"
-                    android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/txt_ampm"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/time"
-                    android:spinnerMode="dialog" />
+                    android:ems="5"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center"
+                    android:inputType="textPersonName"/>
+
+                <!--<Spinner-->
+                    <!--android:id="@+id/spinner5"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:entries="@array/time"-->
+                    <!--android:spinnerMode="dialog" />-->
 
             </LinearLayout>
 
