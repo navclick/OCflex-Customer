@@ -173,14 +173,29 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
 
     private void UpdateProfile(){
 
+        showProgress();
+        if(mediaPath != null){
+            updateTask = new AsyncTaskLoad().execute(mediaPath);
+        }
+        else {
+
+            setProfileOnServer();
+
+        }
+
+    }
+
+
+    private void setProfileOnServer(){
+
+
+
         try {
 
-            showProgress();
+
 
             //String imageurl = Base64String();
-            if(mediaPath != null){
-                updateTask = new AsyncTaskLoad().execute(mediaPath);
-            }
+
 
             String token = TokenString;
             token = "Bearer " + token;
@@ -232,7 +247,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
                             // TODO: Open main screen if token is set successfully
                             Toast.makeText(EditProfileActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         }else{
-                            hideProgress();
+                            setProfileOnDevice();
                             Toast.makeText(EditProfileActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
                             //OpenActivity(LoginActivity.class);
                         }
@@ -252,7 +267,65 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             hideProgress();
             Toast.makeText(EditProfileActivity.this, "Email or password is not correct", Toast.LENGTH_SHORT).show();
         }
+
+
+
     }
+
+
+
+
+    private void setProfileOnDevice(){
+        try {
+            String token = tokenHelper.GetToken();
+            token = "Bearer " + token;
+            IApiCaller apiCaller = ApiClient.createService(IApiCaller.class, token);
+            Call<UserResponse> response = apiCaller.GetUser();
+
+            response.enqueue(new Callback<UserResponse>() {
+                @Override
+                public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                    UserResponse objResponse = response.body();
+                    if(objResponse == null){
+                        try {
+                            // Toast.makeText(EditProfileActivity.this, "Server error", Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                            Log.d("Exception", e.getMessage());
+                            // Toast.makeText(EditProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            hideProgress();
+                        }
+                    }else{
+                        if(objResponse.getIserror()){
+                            OpenActivity(LoginActivity.class);
+                        }else{
+                            hideProgress();
+                            tokenHelper.SetUserName(objResponse.getValue().getFullName());
+                            tokenHelper.SetUserEmail(objResponse.getValue().getEmail());
+                            tokenHelper.SetUserPhoto(objResponse.getValue().getImage());
+                           // OpenActivity(ServicesListActivity.class);
+                            hideProgress();
+                            OpenActivity(ServiceListTabMainActivity.class);
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<UserResponse> call, Throwable t) {
+                    // Toast.makeText(EditProfileActivity.this, "Invalid request", Toast.LENGTH_SHORT).show();
+//                Log.d("ApiError",t.getMessage());
+                    hideProgress();
+
+                }
+            });
+
+        }catch (Exception e){
+            Log.d("error",e.getMessage());
+            hideProgress();
+            //Toast.makeText(EditProfileActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
 
     private String Base64String(){
 
@@ -499,6 +572,8 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
         @Override
         protected void onPostExecute(String base64) {
             imgBase64 = base64;
+
+            setProfileOnServer();
             Log.d("ss","ss");
         }
     }
