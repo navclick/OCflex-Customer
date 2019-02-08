@@ -54,6 +54,14 @@ public class Cart {
 
     }
 
+    public static void deleteFromCart(Context context,int ServiceID){
+        DatabaseHandler databaseHelper = DatabaseHandler.getInstance(context);
+        databaseHelper.deleteFromCart(ServiceID);
+
+
+
+    }
+
 
     public static int getCartItemsCount(Context context){
         DatabaseHandler databaseHelper = DatabaseHandler.getInstance(context);

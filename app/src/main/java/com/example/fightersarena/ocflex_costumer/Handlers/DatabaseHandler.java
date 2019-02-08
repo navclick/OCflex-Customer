@@ -135,6 +135,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void deleteFromCart(int ServiceID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, SERVICE_ID + " = ?",
+                new String[]{String.valueOf(ServiceID)});
+        db.close();
+    }
+
+
+
+
     public Cursor GetCustomerService(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+TABLE_NAME ,null);

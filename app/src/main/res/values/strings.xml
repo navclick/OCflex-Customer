@@ -20,6 +20,8 @@
 
     </string>
 
+    <string name="button_undo">undo</string>
+
     <string-array name="country_array">
         <item>Saudi Arabia</item>
         <item>Pakistan</item>
