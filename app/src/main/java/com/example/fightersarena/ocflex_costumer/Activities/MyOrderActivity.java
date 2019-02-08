@@ -219,10 +219,10 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
                     if(obj == null){
                         try {
                             hideProgress();
-                            JSONObject jObjError = new JSONObject(response.errorBody().string());
-                            String err = jObjError.getString("error_description").toString();
-                            Log.d("Error", err);
-                            Toast.makeText(MyOrderActivity.this, err, Toast.LENGTH_SHORT).show();
+                            //JSONObject jObjError = new JSONObject(response.errorBody().string());
+                            //String err = jObjError.getString("error_description").toString();
+                            //Log.d("Error", err);
+                            Toast.makeText(MyOrderActivity.this, "No order found", Toast.LENGTH_SHORT).show();
 
                         } catch (Exception e) {
                             Log.d("Exception", e.getMessage());
@@ -231,17 +231,19 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
                         }
                     }else{
                         List<MyOrders.Value> list = obj.getValue();
-                        for (MyOrders.Value customerList: list){
-                            hideProgress();
-                            int id = customerList.getId();
-                            String servicename = customerList.getServiceName();
-                            int total = customerList.getRates() * customerList.getHours();
-                            String date = customerList.getStartDate();
+                        if(list != null){
+                            for (MyOrders.Value customerList: list){
+                                hideProgress();
+                                int id = customerList.getId();
+                                String servicename = customerList.getServiceName();
+                                int total = customerList.getRates() * customerList.getHours();
+                                String date = customerList.getStartDate();
 
-                            MyOrder ord = new MyOrder(id, servicename, total, date);
-                            myOrderHistoryList.add(ord);
+                                MyOrder ord = new MyOrder(id, servicename, total, date);
+                                myOrderHistoryList.add(ord);
+                            }
+                            myOrderHistoryAdapter.notifyDataSetChanged();
                         }
-                        myOrderHistoryAdapter.notifyDataSetChanged();
                     }
                 }
                 @Override
