@@ -216,7 +216,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             request.setFullName(fullname);
             request.setAddressOne(address);
             request.setPhoneNumber(phone);
-            request.setImage(imageurl);
+            request.setImage(imgBase64);
 
 //            Gson gson = new Gson();
 //            String Reslog= gson.toJson(request);
