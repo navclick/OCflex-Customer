@@ -21,7 +21,7 @@
         android:fitsSystemWindows="true"
         android:visibility="visible"
         app:headerLayout="@layout/nav_header"
-        app:itemIconTint="@color/black"
+        app:itemIconTint="@color/midGrey"
         app:itemTextAppearance="@style/NavDrawerTextStyle"
         app:menu="@menu/activity_main_drawer" />
 
