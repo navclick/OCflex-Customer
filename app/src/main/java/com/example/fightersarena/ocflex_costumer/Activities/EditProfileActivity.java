@@ -39,6 +39,7 @@ import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
 import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
 import com.example.fightersarena.ocflex_costumer.R;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -105,6 +106,23 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             toggle.syncState();
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_editprofile);
             navigationView.setNavigationItemSelectedListener(this);
+
+
+
+            //Show pic and name on drawer menu
+
+            View header = navigationView.getHeaderView(0);
+            TextView t = (TextView) header.findViewById(R.id.txt_main_name);
+            TextView tEmail = (TextView) header.findViewById(R.id.txt_email);
+            ImageView profile_img= (ImageView) header.findViewById(R.id.img_nav_profile);
+            tEmail.setText(tokenHelper.GetUserEmail());
+
+            t.setText(tokenHelper.GetUserName());
+
+            //profile_img.setBackground(getResources().getDrawable(R.drawable.profile_image_border));
+            Picasso.with(this).load(tokenHelper.GetUserPhoto()).resize(110, 110).centerCrop().into(profile_img);
+
+
 
             // Listeners
             txtviewUploadPhoto.setOnClickListener(this);
