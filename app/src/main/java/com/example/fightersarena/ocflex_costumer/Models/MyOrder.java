@@ -9,11 +9,13 @@ public class MyOrder {
 
     }
 
-    public MyOrder(int id, String servicename, int total, String date){
+    public MyOrder(int id, String servicename, int total, String date,int StatusID, Object AssignedTo){
         this.id = id;
         this.serviceName = servicename;
         this.rates = total;
         this.startDate = date;
+        this.statusId=StatusID;
+        this.assignedTo=AssignedTo;
     }
 
     @SerializedName("id")

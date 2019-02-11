@@ -34,6 +34,7 @@ import com.example.fightersarena.ocflex_costumer.Models.MyOrders;
 import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
 import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
 import com.example.fightersarena.ocflex_costumer.R;
+import com.google.gson.Gson;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -133,12 +134,26 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
             @Override
             public void onClick(View view, int position) {
                 MyOrder order = myOrderList.get(position);
+                Gson gson = new Gson();
+                String Reslog= gson.toJson(order);
+                Log.d(Constants.TAG, Reslog);
 
-                Log.d("cust",String.valueOf(order.getId()));
 
-                Intent intent = new Intent(MyOrderActivity.this, TrackingActivity.class);
+                Log.d(Constants.TAG,String.valueOf(myOrderList.get(position).getCustomer()));
 
-                startActivity(intent);
+                Log.d(Constants.TAG,String.valueOf(myOrderList.size()));
+                Log.d(Constants.TAG,String.valueOf(order.getCustomer()));
+                Log.d(Constants.TAG,String.valueOf(tokenHelper.GetToken()));
+
+
+                if(order.getStatusId()== Constants.ORDER_ACTIVE) {
+
+                        TrackingActivity.AssociateID= order.getAssignedTo().toString();
+                    Intent intent = new Intent(MyOrderActivity.this, TrackingActivity.class);
+                    startActivity(intent);
+                }
+                Log.d(Constants.TAG,"NotAssigned");
+
             }
 
             @Override
@@ -163,6 +178,10 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
                 @Override
                 public void onResponse(Call<MyOrders> call, Response<MyOrders> response) {
                     MyOrders obj = response.body();
+
+                    Gson gson = new Gson();
+                    String Reslog= gson.toJson(response);
+                    Log.d(Constants.TAG, Reslog);
                     if(obj == null){
                         try {
                             JSONObject jObjError = new JSONObject(response.errorBody().string());
@@ -184,8 +203,12 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
                             int total = customerList.getRates() * customerList.getHours();
                             String date = customerList.getStartDate();
 
-                            MyOrder ord = new MyOrder(id, servicename, total, date);
-                            myOrderList.add(ord);
+                            if(customerList.getStatusId() ==Constants.ORDER_ACTIVE  ) {
+                                MyOrder ord = new MyOrder(id, servicename, total, date, customerList.getStatusId(), customerList.getAssignedTo());
+
+
+                                myOrderList.add(ord);
+                            }
                         }
                         myOrderAdapter.notifyDataSetChanged();
                         hideProgress();
@@ -239,7 +262,7 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
                                 int total = customerList.getRates() * customerList.getHours();
                                 String date = customerList.getStartDate();
 
-                                MyOrder ord = new MyOrder(id, servicename, total, date);
+                                MyOrder ord = new MyOrder(id, servicename, total, date,customerList.getStatusId(),customerList.getAssignedTo());
                                 myOrderHistoryList.add(ord);
                             }
                             myOrderHistoryAdapter.notifyDataSetChanged();

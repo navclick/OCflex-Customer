@@ -1,6 +1,11 @@
 package com.example.fightersarena.ocflex_costumer.Activities;
 
+import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,20 +15,44 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fightersarena.ocflex_costumer.Base.BaseActivity;
+import com.example.fightersarena.ocflex_costumer.Helpers.Constants;
 import com.example.fightersarena.ocflex_costumer.Models.Cart;
+import com.example.fightersarena.ocflex_costumer.Models.MyOrder;
+import com.example.fightersarena.ocflex_costumer.Models.MyOrders;
+import com.example.fightersarena.ocflex_costumer.Models.TrackingResponse;
+import com.example.fightersarena.ocflex_costumer.Models.UserResponse;
+import com.example.fightersarena.ocflex_costumer.Network.ApiClient;
+import com.example.fightersarena.ocflex_costumer.Network.IApiCaller;
 import com.example.fightersarena.ocflex_costumer.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TrackingActivity extends BaseActivity implements OnMapReadyCallback,NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     public TextView tv;
@@ -31,10 +60,20 @@ public class TrackingActivity extends BaseActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     static final LatLng HAMBURG = new LatLng(53.558, 9.927);
     static final LatLng KIEL = new LatLng(53.551, 9.993);
+    public int index =-1;
+    public List<TrackingResponse.TrackValue> TrackList;
+    final int MARKER_UPDATE_INTERVAL = 10000; /* milliseconds */
+    Handler handler = new Handler();
+    public Marker AssociateMarker = null;
+    float zoomLevel = (float) 15.0;
+    public String TokenString;
+    public  static String AssociateName,AssociateID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracking);
+        TrackList = new ArrayList<>();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_tracking);
         toolbar.setTitle("");
@@ -94,7 +133,7 @@ public class TrackingActivity extends BaseActivity implements OnMapReadyCallback
         LatLng custLocation= HAMBURG;
         //Log.d(Constants.TAG,"cusLoc"+ String.valueOf(custLocation.latitude));
         //  mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
-        float zoomLevel = (float) 15.0;
+
 
         MarkerOptions markerOptions = new MarkerOptions();
 
@@ -219,6 +258,237 @@ public class TrackingActivity extends BaseActivity implements OnMapReadyCallback
 
         }
     }
+
+
+    Runnable setupTracking = new Runnable() {
+        @Override
+        public void run() {
+
+            Log.d("Service Running","Service Running");
+
+            long timeMillis = System.currentTimeMillis();
+            long timeSeconds = TimeUnit.MILLISECONDS.toSeconds(timeMillis);
+            if(index < 0){
+                GetTrackFromServer();
+
+            }
+            else{
+
+                UpdateTrack();
+
+            }
+
+
+            handler.postDelayed(this, MARKER_UPDATE_INTERVAL);
+        }
+    };
+
+
+
+
+    private void GetTrackFromServer(){
+
+        try {
+            TokenString=tokenHelper.GetToken();
+            String token = "Bearer " + TokenString;
+            IApiCaller callerResponse = ApiClient.createService(IApiCaller.class, token);
+            Call<TrackingResponse> response = callerResponse.GetTrack(AssociateID);
+            TrackList.clear();
+            response.enqueue(new Callback<TrackingResponse>() {
+
+
+                @Override
+                public void onResponse(Call<TrackingResponse> call, Response<TrackingResponse> response) {
+                    Gson gson = new Gson();
+                    String Reslog= gson.toJson(response);
+                    Log.d(Constants.TAG, Reslog);
+
+                    TrackingResponse obj = response.body();
+
+                    if(!obj.getIserror()){
+
+
+
+                        TrackList = obj.getValue();
+                        index=(TrackList.size()-1);
+
+                        UpdateTrack();
+                    }
+
+                }
+                @Override
+                public void onFailure(Call<TrackingResponse> call, Throwable t) {
+
+
+                }
+            });
+
+        }catch (Exception e){
+            Log.d("error",e.getMessage());
+
+        }
+    }
+
+
+
+
+
+public void UpdateTrack(){
+
+        if(index == -1){
+
+          //  GetTrackFromServer();
+            return;
+
+        }
+
+    TrackingResponse.TrackValue  TrackObj= TrackList.get(index);
+    index--;
+
+    Double Lat = Double.parseDouble(TrackObj.getLatitude());
+    Double Long = Double.parseDouble(TrackObj.getLongitude());
+
+    LatLng AssociateLocation = new LatLng(Lat,Long );
+
+    Toast toast = Toast.makeText(getApplicationContext(),
+            "Latitude:" + AssociateLocation.latitude + ", Longitude:" + AssociateLocation.longitude,
+            Toast.LENGTH_SHORT);
+
+    toast.show();
+
+
+    if (this.AssociateMarker == null) {
+
+
+
+
+        this.AssociateMarker = mMap.addMarker(new MarkerOptions()
+                .position(AssociateLocation)
+
+                .title(AssociateName)
+                .icon(BitmapDescriptorFactory.fromBitmap(
+                        BitmapFactory.decodeResource(getResources(),
+                                R.drawable.pin_rickshaw)))
+                .snippet(AssociateName)
+
+        );
+        this.AssociateMarker.showInfoWindow();
+        // mMap.addMarker(MeMarker).showInfoWindow();
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(AssociateLocation));
+
+
+    } else {
+        // Log.i("APITEST:", "set" + String.valueOf(rickshawLocation.latitude) + " " + String.valueOf(rickshawLocation.longitude));
+        this.AssociateMarker.setTitle(AssociateName);
+        this.AssociateMarker.setPosition(AssociateLocation);
+
+        this.AssociateMarker.setSnippet(AssociateName);
+        this.AssociateMarker.showInfoWindow();
+        this.animateMarker(this.AssociateMarker, AssociateLocation, false);
+
+    }
+
+
+
+
+
+   // mMap.moveCamera(CameraUpdateFactory.newLatLng(Associate));
+
+
+}
+
+    public void animateMarker(final Marker marker, final LatLng toPosition,
+                              final boolean hideMarker) {
+        final Handler handler = new Handler();
+        final long start = SystemClock.uptimeMillis();
+        Projection proj = mMap.getProjection();
+        Point startPoint = proj.toScreenLocation(marker.getPosition());
+        final LatLng startLatLng = proj.fromScreenLocation(startPoint);
+        final long duration = 500;
+
+        final Interpolator interpolator = new LinearInterpolator();
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                long elapsed = SystemClock.uptimeMillis() - start;
+                float t = interpolator.getInterpolation((float) elapsed
+                        / duration);
+                double lng = t * toPosition.longitude + (1 - t)
+                        * startLatLng.longitude;
+                double lat = t * toPosition.latitude + (1 - t)
+                        * startLatLng.latitude;
+                marker.setPosition(new LatLng(lat, lng));
+
+                if (t < 1.0) {
+                    // Post again 16ms later.
+                    handler.postDelayed(this, 16);
+                } else {
+                    if (hideMarker) {
+                        marker.setVisible(false);
+                    } else {
+                        marker.setVisible(true);
+                    }
+                }
+            }
+        });
+    }
+
+
+    @Override
+    protected void onDestroy() {
+
+        Log.e("APITEST", "Tracking Distory");
+        index= -1;
+
+        handler.removeCallbacks(setupTracking);
+
+        super.onDestroy();
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        OpenActivity(MyOrderActivity.class);
+        finish();
+    }
+
+    @Override
+    protected void onPause() {
+
+        Log.e("APITEST", "Tracking Distory");
+        index= -1;
+
+        //handler.removeCallbacks(setupTracking);
+
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStart() {
+
+        // after the first time, tracking would run every 30 secs.
+
+        handler.postDelayed(setupTracking, MARKER_UPDATE_INTERVAL);
+        Log.e("APITEST", "Tracking Start");
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+
+        super.onStop();
+        Log.e("APITEST", "Tracking Distory");
+        index = -1;
+
+        handler.removeCallbacks(setupTracking);
+
+
+
+    }
+
 
 
 }

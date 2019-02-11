@@ -9,6 +9,7 @@ import com.example.fightersarena.ocflex_costumer.Models.OrderResponse;
 import com.example.fightersarena.ocflex_costumer.Models.Register;
 import com.example.fightersarena.ocflex_costumer.Models.RegisterRequest;
 import com.example.fightersarena.ocflex_costumer.Models.Token;
+import com.example.fightersarena.ocflex_costumer.Models.TrackingResponse;
 import com.example.fightersarena.ocflex_costumer.Models.UpdateProfile;
 import com.example.fightersarena.ocflex_costumer.Models.UserResponse;
 
@@ -23,6 +24,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 
 public interface IApiCaller{
     // Login starts
@@ -55,6 +57,9 @@ public interface IApiCaller{
 
     @GET(EndPoints.GETORDERHISTORY)
     Call<MyOrders> GetOrderHistory();
+
+    @GET(EndPoints.GET_TRACKING)
+    Call<TrackingResponse> GetTrack(@Query("associateid") String associateid);
 
     @Multipart
     @POST(EndPoints.GETBASE64)
