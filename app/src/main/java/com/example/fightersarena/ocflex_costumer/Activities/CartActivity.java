@@ -113,7 +113,7 @@ public class CartActivity extends BaseActivity implements View.OnClickListener, 
 public void updateCartCound(){
 
     tv.setText(String.valueOf(Cart.getCartItemsCount(this)));
-
+    setEmptyCartScreen(Integer.valueOf(Cart.getCartItemsCount(this)));
 
 }
 
@@ -290,12 +290,11 @@ public void updateCartCound(){
     private void GetCartItem(){
         clearRecyclerView();
         List<OrderItemRequestVM> cartItems = Cart.getCartItems(this);
+        setEmptyCartScreen(cartItems.size());
+
         if(cartItems.size() > 0){
 
-            btnCheckOut.setVisibility(View.VISIBLE);
-            text_add.setVisibility(View.VISIBLE);
-            txt_msg.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.VISIBLE);
+
             for (OrderItemRequestVM cartListItem: cartItems){
                 int id = cartListItem.getServiceId();
                 String servicename = cartListItem.getServiceName();
@@ -309,17 +308,38 @@ public void updateCartCound(){
 
         }else{
 
-            btnCheckOut.setVisibility(View.GONE);
 
-            text_add.setVisibility(View.GONE);
-            txt_msg.setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.GONE);
             Log.d("data","empty");
         }
     }
 
 
-    
+    private void setEmptyCartScreen(int cartCount){
+
+        if(cartCount > 0){
+            recyclerView.setVisibility(View.VISIBLE);
+            btnCheckOut.setVisibility(View.VISIBLE);
+            text_add.setVisibility(View.VISIBLE);
+            btnAddMoreCart.setText("ADD MORE");
+            txt_msg.setVisibility(View.GONE);
+
+
+        }else{
+
+            btnCheckOut.setVisibility(View.GONE);
+
+            //text_add.setVisibility(View.GONE);
+
+            btnAddMoreCart.setText("BOOK NOW");
+            text_add.setVisibility(View.GONE);
+            txt_msg.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+            Log.d("data","empty");
+        }
+
+
+    }
+
     private void clearRecyclerView() {
         cartList.clear();
         cartAdapter.notifyDataSetChanged();
