@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Customized Errands"
-            android:textColor="@color/midGrey"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="21/04/2017"
-            android:textColor="@color/lightGrey"
+            android:textColor="@color/midGrey"
             android:textSize="12sp" />
 
     </LinearLayout>
