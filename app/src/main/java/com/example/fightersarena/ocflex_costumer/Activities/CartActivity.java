@@ -318,6 +318,8 @@ public void updateCartCound(){
         }
     }
 
+
+    
     private void clearRecyclerView() {
         cartList.clear();
         cartAdapter.notifyDataSetChanged();
