@@ -191,12 +191,10 @@
                     android:id="@+id/txt_hourspicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:background="@null"
-                    android:ems="5"
                     android:focusableInTouchMode="false"
                     android:gravity="center"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:text="10"
                     android:textColor="#758089"
                     android:textSize="14sp" />
@@ -215,12 +213,10 @@
                     android:id="@+id/txt_secondspicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:background="@null"
-                    android:ems="5"
                     android:focusableInTouchMode="false"
                     android:gravity="center"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:text="00"
                     android:textColor="#758089"
                     android:textSize="14sp" />
@@ -229,19 +225,21 @@
                     android:id="@+id/txt_ampm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="5"
+                    android:background="@null"
+                    android:ems="2"
                     android:focusableInTouchMode="false"
                     android:gravity="center"
-                    android:inputType="textPersonName"/>
+                    android:inputType="text"
+                    android:textColor="#758089"
+                    android:textSize="14sp" />
 
                 <!--<Spinner-->
-                    <!--android:id="@+id/spinner5"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:entries="@array/time"-->
-                    <!--android:spinnerMode="dialog" />-->
+                <!--android:id="@+id/spinner5"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:entries="@array/time"-->
+                <!--android:spinnerMode="dialog" />-->
 
             </LinearLayout>
 
