@@ -125,5 +125,34 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
+    public void showMessageDailogNextScreen(String title, String message, final Class activityI) {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this, R.style.MyDialogTheme);
+        builder1.setMessage(message);
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        OpenActivity(activityI);
+                    }
+                });
+
+       /* builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });*/
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+
+
+
+    }
+
+
 
 }

@@ -57,6 +57,7 @@ public class Constants {
 
     public static final String MSG_SERVICE_STATUS_UPDATED= "Service status updated.";
     public static final String MSG_ORDER_ACTIVED= "Service Activate successfully.";
+    public static final String MSG_VERRIFY_EMAIL= "Your account has been made.Please check your Email to verify your account.";
 
     public static final String MSG_SERVICE_STATUS_UPDATE_FAILED= "Failed to update service status. Please try again.";
     public static final String MESSAGE_REQUESTED_PERMISSION_DENIED = "Requested permissions are required to continue app use.";

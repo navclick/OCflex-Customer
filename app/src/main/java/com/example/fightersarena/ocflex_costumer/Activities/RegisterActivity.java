@@ -129,7 +129,10 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                             Toast.makeText(RegisterActivity.this, objResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         }else{
                             hideProgress();
-                            OpenActivity(LoginActivity.class);
+                            //OpenActivity(LoginActivity.class);
+                            showMessageDailogNextScreen(getString(R.string.app_name), Constants.MSG_VERRIFY_EMAIL,LoginActivity.class);
+
+
                         }
                     }
                 }

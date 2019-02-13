@@ -19,8 +19,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="30dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
                 android:orientation="vertical">
 
                 <View
@@ -28,11 +28,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
                     android:layout_alignWithParentIfMissing="false"
-                    android:layout_centerHorizontal="false"
                     android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="false"
                     android:layout_centerVertical="false"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
                     android:background="@color/lightGrey" />
 
                 <TextView
@@ -40,8 +40,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="false"
-                    android:layout_centerHorizontal="false"
                     android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="false"
                     android:layout_centerVertical="false"
                     android:background="#fff"
                     android:paddingLeft="15dp"
@@ -56,8 +56,8 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:text="PROFILE DETAILS"
                 android:textColor="#7300AB"
                 android:textSize="12sp"
@@ -66,17 +66,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView80"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Full Name"
                     android:textSize="16sp" />
 
@@ -84,8 +84,8 @@
                     android:id="@+id/txt_register_fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
                     android:ems="10"
                     android:hint="Enter Name"
                     android:inputType="text"
@@ -105,9 +105,9 @@
                     android:id="@+id/textView81"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Email"
                     android:textSize="16sp" />
 
@@ -115,8 +115,8 @@
                     android:id="@+id/txt_register_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
                     android:ems="10"
                     android:enabled="false"
                     android:hint="Enter Email"
@@ -136,9 +136,9 @@
                     android:id="@+id/textView808"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Phone Number"
                     android:textSize="16sp" />
 
@@ -146,8 +146,8 @@
                     android:id="@+id/txt_register_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
                     android:ems="10"
                     android:hint="Enter Phone Number"
                     android:inputType="number"
@@ -166,9 +166,9 @@
                     android:id="@+id/textView87"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Address"
                     android:textSize="16sp" />
 
@@ -176,8 +176,8 @@
                     android:id="@+id/txt_register_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
                     android:ems="10"
                     android:hint="Enter Address"
                     android:inputType="text"
@@ -189,9 +189,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -227,9 +227,9 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/round_corner"
                 android:text="Save"
                 android:textAllCaps="false"
