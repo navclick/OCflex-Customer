@@ -4,8 +4,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.fightersarena.ocflex_costumer.Helpers.Constants;
 import com.example.fightersarena.ocflex_costumer.Models.MyOrder;
 import com.example.fightersarena.ocflex_costumer.R;
 
@@ -17,11 +19,14 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ListVi
 
     public class ListViewHolder extends RecyclerView.ViewHolder{
         public TextView txtName, txtDate;
+        public Button btn_track;
 
         public ListViewHolder(View view) {
             super(view);
             txtName = (TextView) view.findViewById(R.id.txt_name);
             txtDate = (TextView) view.findViewById(R.id.txt_date);
+            btn_track = (Button) view.findViewById(R.id.btn_track);
+
         }
     }
 
@@ -42,6 +47,12 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ListVi
         MyOrder myOrders = myOrdersList.get(position);
         holder.txtName.setText(myOrders.getServiceName());
         holder.txtDate.setText(myOrders.getStartDate());
+
+        if(myOrders.getStatusId() != Constants.ORDER_ACTIVE){
+
+            holder.btn_track.setVisibility(View.INVISIBLE);
+
+        }
     }
 
     @Override

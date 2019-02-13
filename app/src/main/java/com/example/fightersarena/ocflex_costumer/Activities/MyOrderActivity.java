@@ -2,7 +2,12 @@ package com.example.fightersarena.ocflex_costumer.Activities;
 
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -59,6 +64,9 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
     public String TokenString;
     public TextView tv;
     public ImageView i;
+
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,180 +118,52 @@ public class MyOrderActivity extends BaseActivity  implements View.OnClickListen
         ///--------
 
 
+        viewPager = (ViewPager) findViewById(R.id.viewpagermyorders);
+        setupViewPager(viewPager);
 
-
-
-
-
-        recyclerViewActiveOrders = (RecyclerView) findViewById(R.id.recyclerActiveOrders);
-        recyclerViewOrderHistory = (RecyclerView) findViewById(R.id.recyclerCompletedOrders);
-
-        myOrderAdapter = new MyOrdersAdapter(myOrderList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerViewActiveOrders.setLayoutManager(mLayoutManager);
-        recyclerViewActiveOrders.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewActiveOrders.setAdapter(myOrderAdapter);
-
-        myOrderHistoryAdapter = new MyOrderHistoryAdapter(myOrderHistoryList);
-        RecyclerView.LayoutManager mLayoutManagerOrderHistory = new LinearLayoutManager(getApplicationContext());
-        recyclerViewOrderHistory.setLayoutManager(mLayoutManagerOrderHistory);
-        recyclerViewOrderHistory.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewOrderHistory.setAdapter(myOrderHistoryAdapter);
-
-       recyclerViewActiveOrders.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerViewActiveOrders, new RecyclerTouchListener.ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                MyOrder order = myOrderList.get(position);
-                Gson gson = new Gson();
-                String Reslog= gson.toJson(order);
-                Log.d(Constants.TAG, Reslog);
-
-
-                Log.d(Constants.TAG,String.valueOf(myOrderList.get(position).getCustomer()));
-
-                Log.d(Constants.TAG,String.valueOf(myOrderList.size()));
-                Log.d(Constants.TAG,String.valueOf(order.getCustomer()));
-                Log.d(Constants.TAG,String.valueOf(tokenHelper.GetToken()));
-
-
-                if(order.getStatusId()== Constants.ORDER_ACTIVE) {
-
-                        TrackingActivity.AssociateID= order.getAssignedTo().toString();
-                    Intent intent = new Intent(MyOrderActivity.this, TrackingActivity.class);
-                    startActivity(intent);
-                }
-                Log.d(Constants.TAG,"NotAssigned");
-
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
-      }));
-
-        GetActiveOrders();
-        GetOrderHistory();
+        tabLayout = (TabLayout) findViewById(R.id.tabsmyorders);
+        tabLayout.setupWithViewPager(viewPager);
 
     }
 
-    private void GetActiveOrders(){
-        showProgress();
-        try {
-            String token = "Bearer " + TokenString;
-            IApiCaller callerResponse = ApiClient.createService(IApiCaller.class, token);
-            Call<MyOrders> response = callerResponse.GetActiveOrders();
 
-            response.enqueue(new Callback<MyOrders>() {
-                @Override
-                public void onResponse(Call<MyOrders> call, Response<MyOrders> response) {
-                    MyOrders obj = response.body();
+    private void setupViewPager(ViewPager viewPager) {
+        MyOrderActivity.ViewPagerAdapterMYorders adapter = new MyOrderActivity.ViewPagerAdapterMYorders(getSupportFragmentManager());
+        adapter.addFragment(new MyOrderScheduleFragment(), "Schedule");
+        adapter.addFragment(new MyOrdersCurrentFragment(), "Current");
 
-                    Gson gson = new Gson();
-                    String Reslog= gson.toJson(response);
-                    Log.d(Constants.TAG, Reslog);
-                    if(obj == null){
-                        try {
-                            JSONObject jObjError = new JSONObject(response.errorBody().string());
-                            String err = jObjError.getString("error_description").toString();
-                            Log.d("Error", err);
-                            Toast.makeText(MyOrderActivity.this, err, Toast.LENGTH_SHORT).show();
-                            hideProgress();
-                        } catch (Exception e) {
-                            Log.d("Exception", e.getMessage());
-                            Toast.makeText(MyOrderActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                        hideProgress();
-                        }
-                    }else{
-                        List<MyOrders.Value> list = obj.getValue();
-                        for (MyOrders.Value customerList: list){
-
-                            int id = customerList.getId();
-                            String servicename = customerList.getServiceName();
-                            int total = customerList.getRates() * customerList.getHours();
-                            String date = customerList.getStartDate();
-
-                            if(customerList.getStatusId() ==Constants.ORDER_ACTIVE  ) {
-                                MyOrder ord = new MyOrder(id, servicename, total, date, customerList.getStatusId(), customerList.getAssignedTo());
+        viewPager.setAdapter(adapter);
+    }
 
 
-                                myOrderList.add(ord);
-                            }
-                        }
-                        myOrderAdapter.notifyDataSetChanged();
-                        hideProgress();
-                    }
-                }
-                @Override
-                public void onFailure(Call<MyOrders> call, Throwable t) {
-                    Toast.makeText(MyOrderActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-//                Log.d("ApiError",t.getMessage());
-               hideProgress();
-                }
-            });
+    class ViewPagerAdapterMYorders extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        }catch (Exception e){
-            Log.d("error",e.getMessage());
-            Toast.makeText(MyOrderActivity.this, "Email or password is not correct", Toast.LENGTH_SHORT).show();
-            hideProgress();
+        public ViewPagerAdapterMYorders(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
         }
     }
-
-    private void GetOrderHistory(){
-        try {
-            String token = "Bearer " + TokenString;
-            IApiCaller callerResponse = ApiClient.createService(IApiCaller.class, token);
-            Call<MyOrders> response = callerResponse.GetOrderHistory();
-
-            response.enqueue(new Callback<MyOrders>() {
-                @Override
-                public void onResponse(Call<MyOrders> call, Response<MyOrders> response) {
-                    MyOrders obj = response.body();
-                    if(obj == null){
-                        try {
-                            hideProgress();
-                            //JSONObject jObjError = new JSONObject(response.errorBody().string());
-                            //String err = jObjError.getString("error_description").toString();
-                            //Log.d("Error", err);
-                            Toast.makeText(MyOrderActivity.this, "No order found", Toast.LENGTH_SHORT).show();
-
-                        } catch (Exception e) {
-                            Log.d("Exception", e.getMessage());
-                            Toast.makeText(MyOrderActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                       hideProgress();
-                        }
-                    }else{
-                        List<MyOrders.Value> list = obj.getValue();
-                        if(list != null){
-                            for (MyOrders.Value customerList: list){
-                                hideProgress();
-                                int id = customerList.getId();
-                                String servicename = customerList.getServiceName();
-                                int total = customerList.getRates() * customerList.getHours();
-                                String date = customerList.getStartDate();
-
-                                MyOrder ord = new MyOrder(id, servicename, total, date,customerList.getStatusId(),customerList.getAssignedTo());
-                                myOrderHistoryList.add(ord);
-                            }
-                            myOrderHistoryAdapter.notifyDataSetChanged();
-                        }
-                    }
-                }
-                @Override
-                public void onFailure(Call<MyOrders> call, Throwable t) {
-                    Toast.makeText(MyOrderActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-//                Log.d("ApiError",t.getMessage());
-                    hideProgress();
-                }
-            });
-
-        }catch (Exception e){
-            Log.d("error",e.getMessage());
-            Toast.makeText(MyOrderActivity.this, "Email or password is not correct", Toast.LENGTH_SHORT).show();
-      hideProgress();
-        }
-    }
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
