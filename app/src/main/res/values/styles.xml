@@ -42,8 +42,6 @@
     </style>
 
     <style name="style_Spinner">
-        <item name="android:dropDownSelector">@android:color/transparent</item>
-        <item name="android:popupBackground">#a6417e</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">#758089</item>
         <item name="android:spinnerMode">dropdown</item>
