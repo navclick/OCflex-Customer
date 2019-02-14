@@ -105,7 +105,7 @@
                 android:padding="10dp"
                 android:textColor="#758089"
                 android:textColorHint="#758089"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView21"
@@ -192,12 +192,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
+                    android:ems="2"
                     android:focusableInTouchMode="false"
                     android:gravity="center"
                     android:inputType="number"
                     android:text="10"
                     android:textColor="#758089"
-                    android:textSize="14sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textView27"
@@ -205,21 +206,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="2dp"
                     android:layout_marginStart="2dp"
+                    android:gravity="center"
                     android:text=":"
                     android:textColor="#758089"
-                    android:textSize="14sp" />
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/txt_secondspicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
+                    android:ems="2"
                     android:focusableInTouchMode="false"
                     android:gravity="center"
                     android:inputType="number"
                     android:text="00"
                     android:textColor="#758089"
-                    android:textSize="14sp" />
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/txt_ampm"
@@ -229,9 +232,10 @@
                     android:ems="2"
                     android:focusableInTouchMode="false"
                     android:gravity="center"
+                    android:hint="AM"
                     android:inputType="text"
                     android:textColor="#758089"
-                    android:textSize="14sp" />
+                    android:textSize="18sp" />
 
                 <!--<Spinner-->
                 <!--android:id="@+id/spinner5"-->
