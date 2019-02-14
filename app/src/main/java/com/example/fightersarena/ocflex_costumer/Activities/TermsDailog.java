@@ -19,7 +19,7 @@ public class TermsDailog extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.dailog_terms_condictions);
         btn_tc_back=(Button) findViewById(R.id.btn_tc_back);
         btn_tc_back.setOnClickListener(this);
-
+//        getSupportActionBar().hide();
     }
 
     @Override

@@ -23,6 +23,8 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+
+
     <style name="MyCheckBox" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">#B5BABC</item>
         <item name="colorControlActivated">#9ACE3B</item>
@@ -30,8 +32,8 @@
 
 
     <style name="NoTitleDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
     </style>
 
     <style name="style_Spinner1">
@@ -58,6 +60,7 @@
 
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:textColor">@color/colordailog</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 

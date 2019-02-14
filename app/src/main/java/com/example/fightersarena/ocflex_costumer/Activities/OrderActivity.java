@@ -211,7 +211,7 @@ CheckBox checkone,checktwo,checkthree;
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         });
-
+        setCheckboxes();
     }
 
     @Override
@@ -235,7 +235,8 @@ CheckBox checkone,checktwo,checkthree;
                 break;
 
             case R.id.btn_addmoreservice:
-                OpenActivity(ServicesListActivity.class);
+                //OpenActivity(ServicesListActivity.class);
+                AddMoreService();
                 break;
 
             case R.id.actionbar_notifcation_img:
@@ -267,18 +268,27 @@ CheckBox checkone,checktwo,checkthree;
 
             btnNext.setBackground(ContextCompat.getDrawable(this, R.drawable.round_corner));
             btnNext.setTextColor( getResources().getColor(R.color.colorPrimary));
+            btnAddMoreService.setBackground(ContextCompat.getDrawable(this, R.drawable.round_corner));
+            btnAddMoreService.setTextColor( getResources().getColor(R.color.colorPrimary));
+
+
             ProcessOder=true;
         }
         else{
 
             btnNext.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_disable));
             btnNext.setTextColor( getResources().getColor(R.color.colordisbale));
+
+            btnAddMoreService.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_disable));
+            btnAddMoreService.setTextColor( getResources().getColor(R.color.colordisbale));
             ProcessOder=false;
 
         }
 
 
     }
+
+
 
     private void NextService(){
 //        Log.d("id",String.valueOf(id));
@@ -316,6 +326,46 @@ CheckBox checkone,checktwo,checkthree;
                 Intent intent = new Intent(OrderActivity.this, BillingActivity.class);
                 intent.putExtra("token", token);
                 startActivity(intent);
+            }
+//            Log.d("Success","items successfully added to cart");
+        }
+    }
+
+
+    private void AddMoreService(){
+//        Log.d("id",String.valueOf(id));
+//        String date = txtDatePicker.getText().toString();
+//        String time = hours + ":" + seconds;
+
+        if(!ProcessOder){
+
+            return ;
+
+        }
+        String serviceName = txtServiceName.getText().toString();
+        int total = Integer.valueOf(txtTotal.getText().toString());
+        int hours = Integer.valueOf(txtHoursPicker.getText().toString());
+        int seconds = Integer.valueOf(txtSecondsPicker.getText().toString());
+        int orderhours = Integer.parseInt(spinnerHours.getSelectedItem().toString().replace("Hours","").trim());
+
+        Cart cart = new Cart();
+        cart.ServiceId = id;
+        cart.ServiceName = serviceName;
+        cart.Rates = serviceRates;
+        cart.OrderDate = txtDatePicker.getText().toString();
+        cart.OrderHours = orderhours;
+        cart.OrderTime = hours + ":" + seconds;
+        boolean response = Cart.addToCart(cart,this);
+        if(response == false){
+            Toast.makeText(OrderActivity.this, "Items already added to add to cart", Toast.LENGTH_SHORT).show();
+            return;
+        }else{
+            String token = tokenHelper.GetToken();
+            if(token == null){
+                IS_BILLING = true;
+                OpenActivity(LoginActivity.class);
+            }else{
+                OpenActivity(ServicesListActivity.class);
             }
 //            Log.d("Success","items successfully added to cart");
         }

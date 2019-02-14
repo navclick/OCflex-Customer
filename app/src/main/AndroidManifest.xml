@@ -118,6 +118,7 @@
 
         <activity android:name=".Activities.TermsDailog"
             android:screenOrientation="portrait"
+            android:configChanges="orientation"
             android:theme="@style/NoTitleDialog"></activity>
 
 

@@ -168,19 +168,22 @@ public class MyOrderScheduleFragment extends BaseFragment {
                         }
                     }else{
                         List<MyOrders.Value> list = obj.getValue();
-                        for (MyOrders.Value customerList: list){
+
+                        if(list.size()>0){
+                        for (MyOrders.Value customerList: list) {
 
                             int id = customerList.getId();
                             String servicename = customerList.getServiceName();
                             int total = customerList.getRates() * customerList.getHours();
                             String date = customerList.getStartDate();
 
-                            if(customerList.getStatusId() ==Constants.ORDER_ACTIVE  ) {
+                            if (customerList.getStatusId() == Constants.ORDER_ACTIVE) {
                                 MyOrder ord = new MyOrder(id, servicename, total, date, customerList.getStatusId(), customerList.getAssignedTo());
 
 
                                 myOrderList.add(ord);
                             }
+                        }
                         }
                         myOrderAdapter.notifyDataSetChanged();
                         hideProgress();
