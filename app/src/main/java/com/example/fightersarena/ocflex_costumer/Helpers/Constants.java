@@ -6,8 +6,8 @@ import java.util.Map;
 public class Constants {
 
     // Network
- public static String BASE_URL = "http://192.168.100.2:82/";
-   // public static String BASE_URL = "http://ocflexapi.insidedemo.com/";
+ //public static String BASE_URL = "http://192.168.100.2:82/";
+    public static String BASE_URL = "http://ocflexapi.insidedemo.com/";
     public final static  long CONNECTION_TIMEOUT = 25;
     public final static int DATA_SUCCESS = 1;
     public final static int DATA_ERROR = 0;

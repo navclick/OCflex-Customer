@@ -138,7 +138,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 }
                 @Override
                 public void onFailure(Call<Register> call, Throwable t) {
-                    Toast.makeText(RegisterActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Failed to register", Toast.LENGTH_SHORT).show();
 //                Log.d("ApiError",t.getMessage());
 
                     hideProgress();
